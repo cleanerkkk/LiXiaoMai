@@ -14,7 +14,7 @@ public class Order {
 
     private Timestamp startTime;
     private double total;
-    private int state;
+    private int status;
     private String sName;
     private List<Integer> discountNum;
     private List<Integer> discountId;
