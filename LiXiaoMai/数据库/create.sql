@@ -68,3 +68,153 @@ CREATE TABLE IF NOT EXISTS `CART`(
     `GOODSNUM` VARCHAR(100),
     `TOTAL` DECIMAL(2)
     )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*
+ Navicat MySQL Data Transfer
+
+ Source Server         : local
+ Source Server Type    : MySQL
+ Source Server Version : 80300
+ Source Host           : localhost:3306
+ Source Schema         : software
+
+ Target Server Type    : MySQL
+ Target Server Version : 80300
+ File Encoding         : 65001
+
+ Date: 17/07/2024 21:24:32
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for wallet
+-- ----------------------------
+DROP TABLE IF EXISTS `wallet`;
+CREATE TABLE `wallet`  (
+                           `id` int NOT NULL,
+                           `password` varchar(6) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,
+                           `balance` decimal(10, 0) NULL DEFAULT NULL,
+                           `did` varchar(100) CHARACTER SET gbk COLLATE gbk_chinese_ci NULL DEFAULT NULL,
+                           `discountNum` varchar(100) CHARACTER SET gbk COLLATE gbk_chinese_ci NULL DEFAULT NULL,
+                           PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = gbk COLLATE = gbk_chinese_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of wallet
+-- ----------------------------
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+/*
+ Navicat MySQL Data Transfer
+
+ Source Server         : local
+ Source Server Type    : MySQL
+ Source Server Version : 80300
+ Source Host           : localhost:3306
+ Source Schema         : software
+
+ Target Server Type    : MySQL
+ Target Server Version : 80300
+ File Encoding         : 65001
+
+ Date: 17/07/2024 21:23:36
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for admin
+-- ----------------------------
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin`  (
+                          `id` int NOT NULL,
+                          `password` varchar(20) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,
+                          `uname` varchar(20) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,
+                          PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = gbk COLLATE = gbk_chinese_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of admin
+-- ----------------------------
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+/*
+ Navicat MySQL Data Transfer
+
+ Source Server         : local
+ Source Server Type    : MySQL
+ Source Server Version : 80300
+ Source Host           : localhost:3306
+ Source Schema         : software
+
+ Target Server Type    : MySQL
+ Target Server Version : 80300
+ File Encoding         : 65001
+
+ Date: 17/07/2024 21:24:17
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for business
+-- ----------------------------
+DROP TABLE IF EXISTS `business`;
+CREATE TABLE `business`  (
+                             `id` int NOT NULL,
+                             `password` varchar(20) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,
+                             `shopname` varchar(20) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,
+                             `uname` varchar(16) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,
+                             `address` varchar(32) CHARACTER SET gbk COLLATE gbk_chinese_ci NULL DEFAULT NULL,
+                             `telephone` varchar(11) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,
+                             `idCard` varchar(18) CHARACTER SET gbk COLLATE gbk_chinese_ci NULL DEFAULT NULL,
+                             PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = gbk COLLATE = gbk_chinese_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of business
+-- ----------------------------
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+/*
+ Navicat MySQL Data Transfer
+
+ Source Server         : local
+ Source Server Type    : MySQL
+ Source Server Version : 80300
+ Source Host           : localhost:3306
+ Source Schema         : software
+
+ Target Server Type    : MySQL
+ Target Server Version : 80300
+ File Encoding         : 65001
+
+ Date: 17/07/2024 21:24:25
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for coupon
+-- ----------------------------
+DROP TABLE IF EXISTS `coupon`;
+CREATE TABLE `coupon`  (
+                           `id` int NOT NULL,
+                           `limit` int NULL DEFAULT NULL,
+                           `discount` decimal(10, 2) NULL DEFAULT NULL,
+                           PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = gbk COLLATE = gbk_chinese_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of coupon
+-- ----------------------------
+
+SET FOREIGN_KEY_CHECKS = 1;
