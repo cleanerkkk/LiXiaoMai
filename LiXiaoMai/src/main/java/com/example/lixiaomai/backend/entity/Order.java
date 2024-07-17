@@ -5,18 +5,18 @@ import java.util.Date;
 import java.util.List;
 
 public class Order {
-    int id;
-    int cId;
-    int sId;
-    List<Integer> gId;
-    List<Integer> goodsNum;
-    Timestamp endTime;
+    private int id;
+    private int cId;
+    private int sId;
+    private List<Integer> gId;
+    private List<Integer> goodsNum;
+    private Timestamp endTime;
 
-    Timestamp startTime;
-    double total;
-    int state;
-    String sName;
-    List<Integer> discountNum;
-    List<Integer> discountId;
-    String cName;
+    private Timestamp startTime;
+    private double total;
+    private int state;
+    private String sName;
+    private List<Integer> discountNum;
+    private List<Integer> discountId;
+    private String cName;
 }

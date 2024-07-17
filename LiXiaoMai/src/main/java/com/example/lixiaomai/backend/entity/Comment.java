@@ -3,16 +3,16 @@ package main.java.com.example.lixiaomai.backend.entity;
 import java.sql.Timestamp;
 
 public class Comment {
-    int id;
-    int startId;
-    int endId;
-    String content;
-    Timestamp time;
+    private int id;
+    private int startId;
+    private int endId;
+    private String content;
+    private  Timestamp time;
 
-    String startName;
-    String endName;
-    int likes;
-    int dislikes;
-    int coId;
-    int status;
+    private String startName;
+    private  String endName;
+    private int likes;
+    private int dislikes;
+    private int coId;
+    private int status;
 }
