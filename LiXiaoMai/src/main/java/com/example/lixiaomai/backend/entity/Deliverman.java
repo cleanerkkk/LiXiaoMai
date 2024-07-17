@@ -1,4 +1,4 @@
-package main.java.com.example.lixiaomai.backend.entity;
+package com.example.lixiaomai.backend.entity;
 
 public class Deliverman {
     private int id;

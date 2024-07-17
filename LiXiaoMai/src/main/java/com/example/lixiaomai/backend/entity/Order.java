@@ -1,4 +1,4 @@
-package main.java.com.example.lixiaomai.backend.entity;
+package com.example.lixiaomai.backend.entity;
 
 import java.sql.Timestamp;
 import java.util.Date;
