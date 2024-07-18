@@ -1,7 +1,7 @@
 package com.example.lixiaomai.backend.dao;
 
 import com.example.lixiaomai.backend.entity.Product;
-import com.example.lixiaomai.backend.tools.DatabaseUtils;
+import com.example.lixiaomai.backend.tools.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
