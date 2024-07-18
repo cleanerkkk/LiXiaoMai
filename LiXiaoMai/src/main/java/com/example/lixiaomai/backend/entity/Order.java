@@ -10,6 +10,7 @@ public class Order {
     private int id;
     private int cId;
     private int sId;
+    private int deliverId;
     private List<Integer> gId;
     private List<Integer> goodsNum;
     private Timestamp endTime;

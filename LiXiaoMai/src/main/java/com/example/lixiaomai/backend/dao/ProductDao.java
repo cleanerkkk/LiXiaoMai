@@ -22,6 +22,18 @@ public class ProductDao {
         }
     }
 
+    public boolean updateProduct(Product product) {
+        try {
+            String sql = "UPDATE PRODUCT SET NAME = ?, PRICE = ?, STOCK = ?, TYPE = ?, DESCRIPTION = ?, SID = ? WHERE ID = ?";
+            Connection conn = DatabaseUtils.getConnection();
+            return runner.update(conn,
+                    sql,
+                    product.getName(), product.getPrice(), product.getStock(), product.getType(), product.getDescription(), product.getSId(), product.getId()) > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public boolean addProduct(Product product) {
 
         try {
