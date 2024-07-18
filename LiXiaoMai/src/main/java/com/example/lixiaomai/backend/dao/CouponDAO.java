@@ -59,7 +59,7 @@ public class CouponDAO {
         }
         return isUpdated;
     }
-    public boolean updateDiscountById(int id, int newLimit, double newDiscount) {
+    public boolean updateDiscountById(int id,double newDiscount) {
         Connection conn = null;
         boolean isUpdated = false;
         try {
