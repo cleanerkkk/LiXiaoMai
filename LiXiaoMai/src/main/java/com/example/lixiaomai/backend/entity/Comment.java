@@ -1,7 +1,10 @@
 package com.example.lixiaomai.backend.entity;
 
+import lombok.Data;
+
 import java.sql.Timestamp;
 
+@Data
 public class Comment {
     private int id;
     private int startId;

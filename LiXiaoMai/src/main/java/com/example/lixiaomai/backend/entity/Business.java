@@ -1,5 +1,8 @@
 package com.example.lixiaomai.backend.entity;
 
+import lombok.Data;
+
+@Data
 public class Business {
     private  int id;
     private String password;
