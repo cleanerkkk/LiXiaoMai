@@ -1,7 +1,5 @@
 package com.example.lixiaomai.backend.dao;
-import com.example.lixiaomai.backend.entity.Comment;
 import com.example.lixiaomai.backend.entity.Coupon;
-import com.example.lixiaomai.backend.entity.Wallet;
 import com.example.lixiaomai.backend.tools.DatabaseUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
