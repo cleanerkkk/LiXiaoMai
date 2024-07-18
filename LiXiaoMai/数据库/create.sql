@@ -93,7 +93,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `wallet`;
 CREATE TABLE `wallet`  (
-                           `id` int NOT NULL,
+                           `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
                            `password` varchar(6) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,
                            `balance` decimal(10, 0) NULL DEFAULT NULL,
                            `did` varchar(100) CHARACTER SET gbk COLLATE gbk_chinese_ci NULL DEFAULT NULL,
@@ -131,7 +131,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin`  (
-                          `id` int NOT NULL,
+                          `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
                           `password` varchar(20) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,
                           `uname` varchar(20) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,
                           PRIMARY KEY (`id`) USING BTREE
@@ -167,7 +167,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `business`;
 CREATE TABLE `business`  (
-                             `id` int NOT NULL,
+                             `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
                              `password` varchar(20) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,
                              `shopname` varchar(20) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,
                              `uname` varchar(16) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL,
@@ -207,7 +207,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `coupon`;
 CREATE TABLE `coupon`  (
-                           `id` int NOT NULL,
+                           `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
                            `limit` int NULL DEFAULT NULL,
                            `discount` decimal(10, 2) NULL DEFAULT NULL,
                            PRIMARY KEY (`id`) USING BTREE
