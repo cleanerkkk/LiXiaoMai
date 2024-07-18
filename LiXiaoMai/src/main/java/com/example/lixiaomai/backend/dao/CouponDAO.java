@@ -43,5 +43,38 @@ public class CouponDAO {
             throw  new RuntimeException(e);
         }
     }
+    public boolean updateLimitById(int id, int newLimit) {
+        Connection conn = null;
+        boolean isUpdated = false;
+        try {
+            conn = DatabaseUtils.getConnection();
+            QueryRunner runner = DatabaseUtils.getRunner();
+            String updateQuery = "UPDATE Coupon SET limit = ? WHERE id = ?";
+            int rowsAffected = runner.update(conn, updateQuery, newLimit, id);
+            isUpdated = rowsAffected > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DatabaseUtils.close(conn);
+        }
+        return isUpdated;
+    }
+    public boolean updateDiscountById(int id, int newLimit, double newDiscount) {
+        Connection conn = null;
+        boolean isUpdated = false;
+        try {
+            conn = DatabaseUtils.getConnection();
+            QueryRunner runner = DatabaseUtils.getRunner();
+            String updateQuery = "UPDATE Coupon SET  discount = ? WHERE id = ?";
+            int rowsAffected = runner.update(conn, updateQuery, newDiscount, id);
+            isUpdated = rowsAffected > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DatabaseUtils.close(conn);
+        }
+        return isUpdated;
+    }
+
 
 }
