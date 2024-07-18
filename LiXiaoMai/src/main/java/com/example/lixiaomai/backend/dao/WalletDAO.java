@@ -44,4 +44,16 @@ public class WalletDAO {
         }
     }
 
+    public boolean delWallet(int id){
+        String sql="DELETE FROM WALLET WHERE id=?";
+        Wallet wallet=getAllInfoOfWallet(id);
+        try {
+            Connection conn = DatabaseUtils.getConnection();
+            return runner.update(conn,
+                    sql,
+                    wallet.getId(),wallet.getPassword(),wallet.getBalance(),wallet.getDId(),wallet.getDiscountNum()) > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
