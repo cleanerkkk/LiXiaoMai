@@ -47,16 +47,12 @@ public class DelivermanDao {
         }
     }
 
-    public String findUName(String name, String password){
+    public Deliverman findUName(String name, String password){
         try{
             Connection conn = DatabaseUtils.getConnection();
             String sql = "SELECT * FROM DELIVERMAN WHERE NAME = ? AND PASSWORD = ?";
             Deliverman deliverman = runner.query(conn, sql, new BeanHandler<>(Deliverman.class), name, password);
-            if(deliverman.equals(null)){
-                return "输入信息错误，请重试。";
-            }else{
-                return runner.query(conn, sql, new BeanHandler<>(Customer.class), name, password).getUName();
-            }
+            return deliverman;
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
