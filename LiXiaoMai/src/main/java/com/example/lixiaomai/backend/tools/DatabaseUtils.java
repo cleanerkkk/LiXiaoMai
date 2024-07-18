@@ -5,13 +5,18 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import lombok.Getter;
 import org.apache.commons.dbutils.DbUtils;
+import org.apache.commons.dbutils.QueryRunner;
 
 public class DatabaseUtils {
     private static final String URL = "jdbc:mysql://localhost:3306/takeout";
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "LiXiaoMai";
+
+    @Getter
+    private static final QueryRunner runner = new QueryRunner();
 
     public static void close(Connection conn) {
         DbUtils.closeQuietly(conn);

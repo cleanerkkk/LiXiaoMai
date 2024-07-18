@@ -2,36 +2,39 @@ package com.example.lixiaomai.backend.dao;
 
 import com.example.lixiaomai.backend.entity.Product;
 import com.example.lixiaomai.backend.tools.DatabaseUtils;
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
 public class ProductDao {
-    public boolean addProduct(Product product) {
-        String sql = "INSERT INTO PRODUCT (NAME, PRICE, STOCK, TYPE, DESCRIPTION, SID) VALUES (?,?,?,?,?,?)";
-        try (Connection conn = DatabaseUtils.getConnection();
-             PreparedStatement pre = conn.prepareStatement(sql)) {
-            pre.setString(1, );
-            pre.setDouble(2, price);
-            pre.setInt(3, stock);
-            pre.setString(4, type);
-            pre.setString(5, description);
-            pre.setInt(6, sid);
-            return pre.executeUpdate() > 0;
+    private final QueryRunner runner = DatabaseUtils.getRunner();
+
+    public List<Product> getAllProductBySid(int sId) {
+        try {
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "SELECT * FROM Product WHERE sId = ?";
+            return runner.query(conn, sql, new BeanListHandler<>(Product.class), sId);
         } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
+            throw new RuntimeException(e);
         }
     }
 
-    public boolean delProduct(int id){
-
+    public boolean addProduct(Product product) {
+        String sql = "INSERT INTO PRODUCT (NAME, PRICE, STOCK, TYPE, DESCRIPTION, SID) VALUES (?,?,?,?,?,?)";
+        try {
+            Connection conn = DatabaseUtils.getConnection();
+            return runner.update(conn,
+                    sql,
+                    product.getName(), product.getPrice(), product.getStock(), product.getType(), product.getDescription(), product.getSId()) > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public boolean updateProduct(Product product, int id){
 
-    }
 
 
 }
