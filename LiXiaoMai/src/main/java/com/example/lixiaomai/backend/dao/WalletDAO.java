@@ -21,7 +21,7 @@ public class WalletDAO {
     public  Wallet getAllInfoOfWallet(int id) {
         try {
             Connection conn = DatabaseUtils.getConnection();
-            String sql = "SELECT * FROM Wallet WHERE id = ?";
+            String sql = "SELECT * FROM WALLET WHERE id = ?";
             return runner.query(conn, sql, new BeanListHandler<>(Wallet.class), id).get(0);
         } catch (SQLException e) {
             throw new RuntimeException(e);
