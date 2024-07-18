@@ -1,19 +1,11 @@
 package com.example.lixiaomai.backend.dao;
-import com.example.lixiaomai.backend.entity.Coupon;
 import com.example.lixiaomai.backend.entity.Wallet;
 import com.example.lixiaomai.backend.tools.*;
-import lombok.Data;
-import lombok.Getter;
 import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
-
 
 public class WalletDAO {
     private final QueryRunner runner = DatabaseUtils.getRunner();
@@ -21,7 +13,7 @@ public class WalletDAO {
     public  Wallet getAllInfoOfWallet(int id) {
         try {
             Connection conn = DatabaseUtils.getConnection();
-            String sql = "SELECT * FROM Wallet WHERE id = ?";
+            String sql = "SELECT * FROM WALLET WHERE id = ?";
             return runner.query(conn, sql, new BeanListHandler<>(Wallet.class), id).get(0);
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -44,4 +36,16 @@ public class WalletDAO {
         }
     }
 
+    public boolean delWallet(int id){
+        String sql="DELETE FROM WALLET WHERE id=?";
+        Wallet wallet=getAllInfoOfWallet(id);
+        try {
+            Connection conn = DatabaseUtils.getConnection();
+            return runner.update(conn,
+                    sql,
+                    wallet.getId(),wallet.getPassword(),wallet.getBalance(),wallet.getDId(),wallet.getDiscountNum()) > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
