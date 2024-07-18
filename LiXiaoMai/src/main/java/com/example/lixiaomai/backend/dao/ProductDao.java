@@ -15,8 +15,20 @@ public class ProductDao {
     public List<Product> getAllProductBySid(int sId) {
         try {
             Connection conn = DatabaseUtils.getConnection();
-            String sql = "SELECT * FROM Product WHERE sId = ?";
+            String sql = "SELECT * FROM PRODUCT WHERE sId = ?";
             return runner.query(conn, sql, new BeanListHandler<>(Product.class), sId);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean updateProduct(Product product) {
+        try {
+            String sql = "UPDATE PRODUCT SET NAME = ?, PRICE = ?, STOCK = ?, TYPE = ?, DESCRIPTION = ?, SID = ? WHERE ID = ?";
+            Connection conn = DatabaseUtils.getConnection();
+            return runner.update(conn,
+                    sql,
+                    product.getName(), product.getPrice(), product.getStock(), product.getType(), product.getDescription(), product.getSId(), product.getId()) > 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
