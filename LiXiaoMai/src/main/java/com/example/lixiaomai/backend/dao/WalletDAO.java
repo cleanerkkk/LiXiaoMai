@@ -2,6 +2,7 @@ package com.example.lixiaomai.backend.dao;
 import com.example.lixiaomai.backend.entity.Wallet;
 import com.example.lixiaomai.backend.tools.*;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.Connection;
@@ -10,41 +11,36 @@ import java.sql.SQLException;
 public class WalletDAO {
     private final QueryRunner runner = DatabaseUtils.getRunner();
 
-    public  Wallet getAllInfoOfWallet(int id) {
+    public  Wallet getAllInfoOfWalletById(int id) {
         try {
             Connection conn = DatabaseUtils.getConnection();
             String sql = "SELECT * FROM WALLET WHERE id = ?";
-            return runner.query(conn, sql, new BeanListHandler<>(Wallet.class), id).get(0);
+            return runner.query(conn, sql, new BeanHandler<>(Wallet.class), id);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public double getBalanceWithId(int id){
-        Wallet wallet = getAllInfoOfWallet(id);
-        return wallet != null ? wallet.getBalance() : 0;
-    }
     public boolean addWallet(Wallet wallet){
         String sql="INSERT INTO WALLET (id, password, balance, did, discountNum) VALUES (?, ?, ?, ?, ?)";
         try {
             Connection conn = DatabaseUtils.getConnection();
+            String did = Tool.ListToString(wallet.getDId());
+            String discountNum = Tool.ListToString(wallet.getDiscountNum());
             return runner.update(conn,
                     sql,
-                    wallet.getId(),wallet.getPassword(),wallet.getBalance(),wallet.getDId(),wallet.getDiscountNum()) > 0;
+                    wallet.getId(),wallet.getPassword(),wallet.getBalance(),did,discountNum) > 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public boolean delWallet(int id){
-        String sql="DELETE FROM WALLET WHERE id=?";
-        Wallet wallet=getAllInfoOfWallet(id);
-        try {
+    public boolean delWalletById(int id){
+        try{
+            String sql="DELETE FROM WALLET WHERE id = ?";
             Connection conn = DatabaseUtils.getConnection();
-            return runner.update(conn,
-                    sql,
-                    wallet.getId(),wallet.getPassword(),wallet.getBalance(),wallet.getDId(),wallet.getDiscountNum()) > 0;
-        } catch (SQLException e) {
+            return runner.update(conn,sql,id) > 0;
+        } catch (SQLException e){
             throw new RuntimeException(e);
         }
     }
