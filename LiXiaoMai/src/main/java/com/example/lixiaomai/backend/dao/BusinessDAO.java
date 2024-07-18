@@ -50,5 +50,34 @@ public class BusinessDAO {
             throw new RuntimeException(e);
         }
     }
-
+    public boolean updatePasswordById(int id, String newPassword) {
+        Connection conn = null;
+        boolean isUpdated = false;
+        try {
+            conn = DatabaseUtils.getConnection();
+            String updateQuery = "UPDATE Business SET password = ? WHERE id = ?";
+            int rowsAffected = runner.update(conn, updateQuery, newPassword, id);
+            isUpdated = rowsAffected > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DatabaseUtils.close(conn);
+        }
+        return isUpdated;
+    }
+    public boolean updateShopNameById(int id, String newshopName) {
+        Connection conn = null;
+        boolean isUpdated = false;
+        try {
+            conn = DatabaseUtils.getConnection();
+            String updateQuery = "UPDATE Business SET shopName = ? WHERE id = ?";
+            int rowsAffected = runner.update(conn, updateQuery, newshopName, id);
+            isUpdated = rowsAffected > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DatabaseUtils.close(conn);
+        }
+        return isUpdated;
+    }
 }
