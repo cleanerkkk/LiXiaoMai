@@ -47,16 +47,12 @@ public class CustomerDao {
         }
     }
 
-    public String findUName(String name, String password){
+    public Customer findUName(String name, String password){
         try{
             Connection conn = DatabaseUtils.getConnection();
             String sql = "SELECT * FROM CUSTOMER WHERE NAME = ? AND PASSWORD = ?";
             Customer customer = runner.query(conn, sql, new BeanHandler<>(Customer.class), name, password);
-            if(customer.equals(null)){
-                return "输入信息错误，请重试。";
-            }else{
-                return runner.query(conn, sql, new BeanHandler<>(Customer.class), name, password).getUName();
-            }
+            return customer;
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
