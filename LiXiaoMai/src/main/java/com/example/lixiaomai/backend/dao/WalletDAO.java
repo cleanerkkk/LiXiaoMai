@@ -44,4 +44,36 @@ public class WalletDAO {
             throw new RuntimeException(e);
         }
     }
+    public boolean updatePasswordById(int id,String newPassword){
+        boolean isUpdated = false;
+        Connection conn=null;
+        try {
+            conn = DatabaseUtils.getConnection();
+            QueryRunner runner = DatabaseUtils.getRunner();
+            String updateQuery = "UPDATE WALLET SET password = ? WHERE id = ?";
+            int rowsAffected = runner.update(conn, updateQuery, newPassword, id);
+            isUpdated = rowsAffected > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DatabaseUtils.close(conn);
+        }
+        return isUpdated;
+    }
+    public boolean updateBalanceById(int id, double newBalance) {
+        Connection conn = null;
+        boolean isUpdated = false;
+        try {
+            conn = DatabaseUtils.getConnection();
+            QueryRunner runner = DatabaseUtils.getRunner();
+            String updateQuery = "UPDATE WALLET SET balance = ? WHERE id = ?";
+            int rowsAffected = runner.update(conn, updateQuery, newBalance, id);
+            isUpdated = rowsAffected > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DatabaseUtils.close(conn);
+        }
+        return isUpdated;
+    }
 }
