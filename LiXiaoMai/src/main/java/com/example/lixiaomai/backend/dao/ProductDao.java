@@ -15,7 +15,7 @@ public class ProductDao {
     public List<Product> getAllProductBySid(int sId) {
         try {
             Connection conn = DatabaseUtils.getConnection();
-            String sql = "SELECT * FROM Product WHERE sId = ?";
+            String sql = "SELECT * FROM PRODUCT WHERE sId = ?";
             return runner.query(conn, sql, new BeanListHandler<>(Product.class), sId);
         } catch (SQLException e) {
             throw new RuntimeException(e);
