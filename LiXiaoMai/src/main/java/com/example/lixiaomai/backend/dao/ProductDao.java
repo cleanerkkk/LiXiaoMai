@@ -23,8 +23,9 @@ public class ProductDao {
     }
 
     public boolean addProduct(Product product) {
-        String sql = "INSERT INTO PRODUCT (NAME, PRICE, STOCK, TYPE, DESCRIPTION, SID) VALUES (?,?,?,?,?,?)";
+
         try {
+            String sql = "INSERT INTO PRODUCT (NAME, PRICE, STOCK, TYPE, DESCRIPTION, SID) VALUES (?,?,?,?,?,?)";
             Connection conn = DatabaseUtils.getConnection();
             return runner.update(conn,
                     sql,
