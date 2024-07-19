@@ -54,7 +54,7 @@ public class LoginServlet {
         if (loginResult){
             request.getSession().setAttribute("name", username);
             request.getSession().setAttribute("user", user);
-            response.sendRedirect("userinfo.jsp");
+            response.sendRedirect("index.jsp");
         }
         else{
             errorMessage = "用户名或密码错误";
