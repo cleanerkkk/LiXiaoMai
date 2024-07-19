@@ -95,7 +95,7 @@
 <body>
 <nav>
   <ul>
-    <li><h3>"理小卖"外卖综合管理平台</h3></li>
+    <li><h1>"理小卖"外卖综合管理平台</h1></li>
     <li data-tab="main">主页</li>
     <li data-tab="nearby">附近商家一览</li>
     <li data-tab="coupon">优惠券促销活动</li>
