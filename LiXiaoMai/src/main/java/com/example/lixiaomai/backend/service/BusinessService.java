@@ -7,7 +7,7 @@ public class BusinessService {
     static BusinessDao businessDao = new BusinessDao();
 
     public boolean login(String username, String password) {
-        Business business = businessDao.getUserByUsername(username);
+        Business business = businessDao.getBusinessByUsername(username);
         return business != null && business.getPassword().equals(password);
     }
 }
