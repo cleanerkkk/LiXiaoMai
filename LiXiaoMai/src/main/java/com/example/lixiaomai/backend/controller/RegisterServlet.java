@@ -9,6 +9,7 @@ import java.io.IOException;
 public class RegisterServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
         String registerType = request.getParameter("registerUser");
         String registerUserName = request.getParameter("registerUserName");
