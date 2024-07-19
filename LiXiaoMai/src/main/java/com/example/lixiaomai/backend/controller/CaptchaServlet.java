@@ -18,7 +18,7 @@ public class CaptchaServlet extends HttpServlet {
         String timestamp = request.getParameter("t");
         HttpSession session = request.getSession();
         session.setAttribute("captchaValue", captchaText);
-        BufferedImage captchaImage = generateCaptchaImage(captchaText, 70, 20);
+        BufferedImage captchaImage = generateCaptchaImage(captchaText, 70*2, 20*2);
         response.setContentType("image/png");
         javax.imageio.ImageIO.write(captchaImage, "png", response.getOutputStream());
     }
