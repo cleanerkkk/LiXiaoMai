@@ -26,8 +26,8 @@ public class LoginServlet {
         String generCaptcha = (String) request.getSession().getAttribute("captchaValue");
 
         if (!captcha.equalsIgnoreCase(generCaptcha)){
-             errorMessage = "验证码错误";
-            // 登录失败
+            errorMessage = "验证码错误";
+            response.sendRedirect("loginFailure.jsp?error=" + errorMessage);
         }
         boolean loginResult;
         switch (user) {
@@ -58,6 +58,7 @@ public class LoginServlet {
         }
         else{
             errorMessage = "用户名或密码错误";
+            response.sendRedirect("loginFailure.jsp?error=" + errorMessage);
         }
 
 
