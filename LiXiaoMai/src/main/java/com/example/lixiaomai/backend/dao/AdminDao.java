@@ -4,18 +4,27 @@ import com.example.lixiaomai.backend.entity.Admin;
 import com.example.lixiaomai.backend.tools.DatabaseUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
-import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class AdminDAO {
+public class AdminDao {
     private final QueryRunner runner = DatabaseUtils.getRunner();
     public Admin getAllInfoOfAdmin(int id){
         try{
             Connection conn=DatabaseUtils.getConnection();
             String sql="SELECT * FROM ADMIN WHERE id=?";
             return runner.query(conn, sql, new BeanHandler<>(Admin.class), id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Admin getAdminByUserName(String uname){
+        try{
+            Connection conn=DatabaseUtils.getConnection();
+            String sql="SELECT * FROM ADMIN WHERE uname=?";
+            return runner.query(conn, sql, new BeanHandler<>(Admin.class), uname);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

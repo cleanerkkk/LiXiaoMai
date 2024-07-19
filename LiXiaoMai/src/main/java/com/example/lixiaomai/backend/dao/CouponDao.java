@@ -7,7 +7,7 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class CouponDAO {
+public class CouponDao {
     private final QueryRunner runner = DatabaseUtils.getRunner();
 
     public Coupon getAllInfoOfCoupon(int id) {
