@@ -80,4 +80,79 @@ public class BusinessDAO {
         }
         return isUpdated;
     }
+    public boolean updateIdCardById(int id,String newIdCard){
+        Connection conn = null;
+        boolean isUpdated = false;
+        try {
+            conn = DatabaseUtils.getConnection();
+            String updateQuery = "UPDATE Business SET idCard = ? WHERE id = ?";
+            int rowsAffected = runner.update(conn, updateQuery,newIdCard, id);
+            isUpdated = rowsAffected > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DatabaseUtils.close(conn);
+        }
+        return isUpdated;
+    }
+    public boolean updateTelephoneById(int id,String Telephone){
+        Connection conn = null;
+        boolean isUpdated = false;
+        try {
+            conn = DatabaseUtils.getConnection();
+            String updateQuery = "UPDATE Business SET telephone = ? WHERE id = ?";
+            int rowsAffected = runner.update(conn, updateQuery,Telephone, id);
+            isUpdated = rowsAffected > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DatabaseUtils.close(conn);
+        }
+        return isUpdated;
+    }
+    public boolean updateAddressById(int id,String newAddress){
+        Connection conn = null;
+        boolean isUpdated = false;
+        try {
+            conn = DatabaseUtils.getConnection();
+            String updateQuery = "UPDATE Business SET address = ? WHERE id = ?";
+            int rowsAffected = runner.update(conn, updateQuery,newAddress, id);
+            isUpdated = rowsAffected > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DatabaseUtils.close(conn);
+        }
+        return isUpdated;
+    }
+    public boolean updateUnameById(int id,String newUName){
+        Connection conn = null;
+        boolean isUpdated = false;
+        try {
+            conn = DatabaseUtils.getConnection();
+            String updateQuery = "UPDATE Business SET uname = ? WHERE id = ?";
+            int rowsAffected = runner.update(conn, updateQuery,newUName, id);
+            isUpdated = rowsAffected > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DatabaseUtils.close(conn);
+        }
+        return isUpdated;
+    }
+    public boolean updateNameById(int id,String newName){
+        Connection conn = null;
+        boolean isUpdated = false;
+        try {
+            conn = DatabaseUtils.getConnection();
+            String updateQuery = "UPDATE Business SET name = ? WHERE id = ?";
+            int rowsAffected = runner.update(conn, updateQuery,newName, id);
+            isUpdated = rowsAffected > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DatabaseUtils.close(conn);
+        }
+        return isUpdated;
+    }
 }
