@@ -2,7 +2,6 @@ package com.example.lixiaomai.backend.service;
 
 import com.example.lixiaomai.backend.dao.CustomerDao;
 import com.example.lixiaomai.backend.entity.Customer;
-import sun.security.krb5.internal.ccache.CCacheInputStream;
 
 public class CustomerService {
     static CustomerDao customerDao = new CustomerDao();
