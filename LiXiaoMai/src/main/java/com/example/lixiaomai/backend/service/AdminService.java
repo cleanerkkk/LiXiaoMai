@@ -13,7 +13,11 @@ public class AdminService {
     public boolean delAdmin(int id){
         return adminDao.delAdmin(id);
     }
-    123
+
+    public boolean login(String username, String password){
+        Admin admin = adminDao.getAdminByUserName(username);
+        return admin != null && admin.getPassword().equals(password);
+    }
 
 
 }
