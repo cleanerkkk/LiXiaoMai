@@ -12,26 +12,32 @@
         }
         nav {
             background-color:white;
-            color: black;;
+            color: black;
             padding: 10px;
             background-size: 100% 100%;
             background-position: center;
             background-repeat: no-repeat;
             font-weight: bold;
+            text-align: right;
         }
-        h3{
+        h1{
             text-align: center;
             text-decoration: black;
             color:orange;
         }
-        nav ul {
+        h2{
             text-align: center;
+            font-weight: bold;
+            text-decoration: black;
+        }
+        nav ul {
             list-style-type: none;
             padding: 0;
             overflow: hidden;
         }
 
         nav ul li {
+            text-align: right;
             display: inline;
             margin-right: 20px;
         }
@@ -52,9 +58,6 @@
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
         }
         input[type="text"],
         input[type="password"],
@@ -154,6 +157,7 @@
 </script>
 <nav>
     <ul>
+        <li><h1>“理小卖”外卖综合管理平台</h1></li>
         <li data-tab="loginRelated">登录</li>
         <li data-tab="register">注册</li>
     </ul>
@@ -161,7 +165,7 @@
 <div class="container">
 
     <article id="loginRelated" >
-    <h1>“理小卖”外卖综合管理平台登录</h1>
+    <h2>“理小卖”外卖综合管理平台登录</h2>
     <form action = "LoginServlet" method = "post">
     <div>
         <label for="user">用户类型:</label>
