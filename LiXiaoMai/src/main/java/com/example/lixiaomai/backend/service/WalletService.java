@@ -1,10 +1,10 @@
 package com.example.lixiaomai.backend.service;
 
-import com.example.lixiaomai.backend.dao.WalletDAO;
+import com.example.lixiaomai.backend.dao.WalletDao;
 import com.example.lixiaomai.backend.entity.Wallet;
 
 public class WalletService {
-    static WalletDAO walletDAO = new WalletDAO();
+    static WalletDao walletDAO = new WalletDao();
 
     public Wallet getAllInfoOfWalletById(int id){
         return walletDAO.getAllInfoOfWalletById(id);

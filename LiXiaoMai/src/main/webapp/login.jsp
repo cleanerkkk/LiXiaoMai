@@ -99,19 +99,6 @@
         captchaImg.src = "CaptchaServlet?t=" + timestamp;
     }
 </script>
-<nav>
-    <ul>
-        <li><h3>"理小卖"外卖综合管理平台</h3></li>
-        <li data-tab="index">主页</li>
-        <li data-tab="nearby">附近商家一览</li>
-        <li data-tab="coupon">优惠券促销活动</li>
-        <li><a href="loginRelated">用户登录</a></li>
-        <li data-tab="personal">个人中心</li>
-    </ul>
-</nav>
-<p></p>
-<p></p>
-<p></p>
 <div class="container">
     <article id="loginRelated">
     <h1>“理小卖”外卖综合管理平台登录</h1>
@@ -143,18 +130,7 @@
     </div>
 
     </form>
-    </article>
-    <article id="index">
-
-    </article>
-    <article id="nearby">
-
-    </article>
-    <article id="coupon">
-
-    </article>
-    <article id="personal">
-
+        <a href="index.jsp">跳转到index.jsp</a>
     </article>
 </div>
 </body>

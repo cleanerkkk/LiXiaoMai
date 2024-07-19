@@ -1,10 +1,10 @@
 package com.example.lixiaomai.backend.service;
 
-import com.example.lixiaomai.backend.dao.CouponDAO;
+import com.example.lixiaomai.backend.dao.CouponDao;
 import com.example.lixiaomai.backend.entity.Coupon;
 
 public class CouponService {
-    static CouponDAO couponDAO = new CouponDAO();
+    static CouponDao couponDAO = new CouponDao();
 
     public Coupon getAllInfoOfCoupon(int id){
         return couponDAO.getAllInfoOfCoupon(id);
