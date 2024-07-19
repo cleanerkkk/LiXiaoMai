@@ -13,6 +13,7 @@ public class AdminService {
     public boolean delAdmin(int id){
         return adminDao.delAdmin(id);
     }
+    123
 
 
 }
