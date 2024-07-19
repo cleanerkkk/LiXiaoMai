@@ -2,7 +2,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>粒小麦外卖平台</title>
+    <title>理小卖外卖平台</title>
+    <meta charset="GBK">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        nav {
+            background-color:white;
+            color: black;;
+            padding: 10px;
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-weight: bold;
+        }
+        h3{
+            text-align: center;
+            text-decoration: black;
+            color:orange;
+        }
+        nav ul {
+            text-align: center;
+            list-style-type: none;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: black;
+            text-decoration:solid;
+        }
+
+        nav ul li:active {
+            transition: background-color 0.2s;/*点击时产生一个动态效果*/
+            background-color: #ccc;
+        }
+        .container {
+            width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: darkgreen;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: green;
+        }
+    </style>
 </head>
 <body>
 <script>
@@ -12,7 +88,21 @@
         captchaImg.src = "CaptchaServlet?t=" + timestamp;
     }
 </script>
-
+<nav>
+    <ul>
+        <li><h3>"理小卖"外卖综合管理平台</h3></li>
+        <li data-tab="index">主页</li>
+        <li data-tab="nearby">附近商家一览</li>
+        <li data-tab="coupon">优惠券促销活动</li>
+        <li data-tab="personal">个人中心</li>
+        <li><a href="#">了解更多</a></li>
+    </ul>
+</nav>
+<p></p>
+<p></p>
+<p></p>
+<div class="container">
+    <h1>“理小卖”外卖综合管理平台登录</h1>
 <form action = "LoginServlet" method = "post">
     <div>
         <label for="user">用户类型:</label>
@@ -41,6 +131,6 @@
     </div>
 
 </form>
-
+</div>
 </body>
 </html>
