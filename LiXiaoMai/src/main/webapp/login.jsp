@@ -78,6 +78,17 @@
         button:hover {
             background-color: green;
         }
+        article {
+            font-family: "century gothic",sans-serif;
+            font-family: '仿宋',sans-serif;
+            font-size: 20px;
+            line-height: 1.6;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(255,255,255,0.1);
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -94,16 +105,17 @@
         <li data-tab="index">主页</li>
         <li data-tab="nearby">附近商家一览</li>
         <li data-tab="coupon">优惠券促销活动</li>
+        <li><a href="loginRelated">用户登录</a></li>
         <li data-tab="personal">个人中心</li>
-        <li><a href="#">了解更多</a></li>
     </ul>
 </nav>
 <p></p>
 <p></p>
 <p></p>
 <div class="container">
+    <article id="loginRelated">
     <h1>“理小卖”外卖综合管理平台登录</h1>
-<form action = "LoginServlet" method = "post">
+    <form action = "LoginServlet" method = "post">
     <div>
         <label for="user">用户类型:</label>
         <select name="user" id="user">
@@ -130,7 +142,20 @@
         <button id = "button" type = "submit">登录</button>
     </div>
 
-</form>
+    </form>
+    </article>
+    <article id="index">
+
+    </article>
+    <article id="nearby">
+
+    </article>
+    <article id="coupon">
+
+    </article>
+    <article id="personal">
+
+    </article>
 </div>
 </body>
 </html>
