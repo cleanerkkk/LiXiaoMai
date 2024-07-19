@@ -151,6 +151,29 @@
             tab.addEventListener("click", handleTabClick);
         });
     });
+    function showInput() {
+        var selectElement = document.getElementById("registerUser");
+        var selectedValue = selectElement.value;
+
+        // 隐藏所有的input
+        document.getElementById("input1").style.display = 'none';
+        document.getElementById("input2").style.display = 'none';
+        document.getElementById("input3").style.display = 'none';
+        document.getElementById("input4").style.display = 'none';
+        document.getElementById("input5").style.display = 'none';
+
+        // 根据选择的值显示相应的input
+        if (selectedValue === "business") {
+            document.getElementById("input1").style.display = 'block';
+            document.getElementById("input2").style.display = 'block';
+            document.getElementById("input3").style.display = 'block';
+        } else if (selectedValue === "deliverman") {
+            document.getElementById("input1").style.display = 'block';
+            document.getElementById("input4").style.display = 'block';
+            document.getElementById("input5").style.display = 'block';
+
+        }
+    }
 </script>
 <nav>
     <ul>
@@ -169,7 +192,7 @@
             <option value="customer">我是用户</option>
             <option value="business">我是商家</option>
             <option value="admin">我是管理员</option>
-            <option value="diliverman">我是骑手</option>
+            <option value="deliverman">我是骑手</option>
         </select>
     </div>
     <div>
@@ -193,7 +216,64 @@
         <a href="index.jsp">跳转到index.jsp</a>
     </article>
     <article id="register" style="display: none;">
+        <form action = "" method = "post">
+            <div>
+                <label for="registerUser">用户类型:</label>
+                <select name="registerUser" id="registerUser" onchange="showInput()">
+                    <option value="customer">用户</option>
+                    <option value="business">商家</option>
+                    <option value="deliverman">骑手</option>
+                </select>
+            </div>
 
+            <div>
+                <label for = "registerUsername">用户名:</label>
+                <input type = "text" id = "registerUsername" name = "registerUsername">
+            </div>
+            <div>
+                <label for = "firstPassword">密码:</label>
+                <input type = "text" id = "firstPassword" name = "firstPassword">
+            </div>
+            <div>
+                <label for = "secondPassword">确认密码:</label>
+                <input type = "text" id = "secondPassword" name = "secondPassword">
+            </div>
+            <div>
+                <label for = "trueName">姓名:</label>
+                <input type = "text" id = "trueName" name="trueName">
+            </div>
+            <div>
+                <label for = "gender">性别:</label>
+                <input type = "text" id = "gender" name = "gender">
+            </div>
+            <div>
+                <label for = "telephone">手机号:</label>
+                <input type = "text" id = "telephone" name = "telephone">
+            </div>
+            <div id = "input1" style="display:none;">
+                <label for = "idCard">身份证号:</label>
+                <input type = "text" id = "idCard" name = "idCard">
+            </div>
+            <div id = "input2" style="display:none;">
+                <label for = "storeName">店铺名:</label>
+                <input type = "text" id = "storeName" name = "storeName">
+            </div>
+            <div id = "input3" style="display:none;">
+                <label for = "address">商家地址:</label>
+                <input type = "text" id = "address" name = "address">
+            </div>
+            <div id = "input4" style="display:none;">
+                <label for = "vType">车辆类型:</label>
+                <input type = "text" id = "vType" name = "vType">
+            </div>
+            <div id = "input5" style="display:none;">
+                <label for = "vBrand">车辆品牌:</label>
+                <input type = "text" id = "vBrand" name = "vBrand">
+            </div>
+            <div>
+                <button id = "butt" type = "submit">注册</button>
+            </div>
+        </form>
     </article>
 </div>
 </body>
