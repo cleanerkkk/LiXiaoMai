@@ -111,13 +111,16 @@
     function errorOperate(){
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
-        var college = document.getElementById("college").value;
-        var department = document.getElementById("department").value;
         var captcha1 = document.getElementById("captcha").value;
 
         // 确保四项信息均已填写
-        if (!username || !password || !college || !department||!captcha) {
-            alert("请你把所有四项表格填满");
+        if (!username || !password ||!captcha1) {
+            alert("请你把所有三项表格填满");
+            return false;
+        }
+        var errormessage=session.getAttribute("error");
+        if(errormessage!=NULL){
+            alert("用户密码错误！请重新填写！");
             return false;
         }
     }
