@@ -47,6 +47,17 @@ public class DelivermanDao {
         }
     }
 
+    public Deliverman findUserByUsername(String username){
+        try{
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "SELECT * FROM DELIVERMAN WHERE UNAME = ?";
+            Deliverman deliverman = runner.query(conn, sql, new BeanHandler<>(Deliverman.class), username);
+            return deliverman;
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     public Deliverman findUName(String name, String password){
         try{
             Connection conn = DatabaseUtils.getConnection();

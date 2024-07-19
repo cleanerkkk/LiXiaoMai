@@ -1,6 +1,8 @@
 package com.example.lixiaomai.backend.controller;
 
+import com.example.lixiaomai.backend.service.AdminService;
 import com.example.lixiaomai.backend.service.CustomerService;
+import com.example.lixiaomai.backend.service.DelivermanService;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,9 +32,12 @@ public class LoginServlet {
             boolean loginResult = customerService.login(username, password);
 
         } else if (user.equals("admin")){
+            AdminService adminService = new AdminService();
+            boolean loginResult = adminService.login(username, password);
 
         } else if (user.equals("deliverman")) {
-
+            DelivermanService delivermanService = new DelivermanService();
+            boolean loginResult = delivermanService.login(username, password);
         } else {
 
         }

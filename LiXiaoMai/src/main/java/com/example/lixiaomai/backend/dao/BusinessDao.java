@@ -155,4 +155,14 @@ public class BusinessDao {
         }
         return isUpdated;
     }
+
+    public Business getBusinessByUsername(String uname) {
+        try {
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "SELECT * FROM Business WHERE uname = ?";
+            return runner.query(conn, sql, new BeanHandler<>(Business.class), uname);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

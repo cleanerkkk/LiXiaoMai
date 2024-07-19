@@ -18,6 +18,10 @@ public class DelivermanService {
         return delivermanDao.updateDelivermanInfo(id, deliverman);
     }
 
+    public boolean login(String username, String password) {
+        Deliverman deliverman = delivermanDao.findUserByUsername(username);
+        return deliverman != null && deliverman.getPassword().equals(password);
+    }
     public Deliverman findUName(String name, String password){
         return delivermanDao.findUName(name, password);
     }
