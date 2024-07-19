@@ -3,12 +3,11 @@ import com.example.lixiaomai.backend.entity.Wallet;
 import com.example.lixiaomai.backend.tools.*;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
-import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class WalletDAO {
+public class WalletDao {
     private final QueryRunner runner = DatabaseUtils.getRunner();
 
     public  Wallet getAllInfoOfWalletById(int id) {

@@ -57,4 +57,14 @@ public class CustomerDao {
             throw new RuntimeException(e);
         }
     }
+
+    public Customer findUserByUsername(String username) {
+        try {
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "SELECT * FROM CUSTOMER WHERE UNAME = ?";
+            return runner.query(conn, sql, new BeanHandler<>(Customer.class), username);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

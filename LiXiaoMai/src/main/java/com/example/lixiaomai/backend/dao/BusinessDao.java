@@ -8,7 +8,7 @@ import org.apache.commons.dbutils.handlers.BeanHandler;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class BusinessDAO {
+public class BusinessDao {
     private final QueryRunner runner = DatabaseUtils.getRunner();
 
     public Business getAllInfoOfBusiness(int id) {
