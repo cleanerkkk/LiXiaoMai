@@ -12,26 +12,32 @@
         }
         nav {
             background-color:white;
-            color: black;;
+            color: black;
             padding: 10px;
             background-size: 100% 100%;
             background-position: center;
             background-repeat: no-repeat;
             font-weight: bold;
+            text-align: right;
         }
-        h3{
+        h1{
             text-align: center;
             text-decoration: black;
             color:orange;
         }
-        nav ul {
+        h2{
             text-align: center;
+            font-weight: bold;
+            text-decoration: black;
+        }
+        nav ul {
             list-style-type: none;
             padding: 0;
             overflow: hidden;
         }
 
         nav ul li {
+            text-align: right;
             display: inline;
             margin-right: 20px;
         }
@@ -52,9 +58,6 @@
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
         }
         input[type="text"],
         input[type="password"],
@@ -99,6 +102,13 @@
             cursor: pointer; /* 鼠标悬停时显示指针图标 */
             margin-left: 50px; /* 图片与输入框之间的间距 */
         }
+        register {
+            width: 1175px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -108,26 +118,54 @@
         var timestamp = new Date().getTime();
         captchaImg.src = "CaptchaServlet?t=" + timestamp;
     }
-    function errorOperate(){
+    function infoVerify(){
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
         var captcha1 = document.getElementById("captcha").value;
 
-        // 确保四项信息均已填写
+        // 确保三项信息均已填写
         if (!username || !password ||!captcha1) {
             alert("请你把所有三项表格填满");
             return false;
         }
+    }
+    function errorUpdate(){
         var errormessage=session.getAttribute("error");
         if(errormessage!=NULL){
-            alert("用户密码错误！请重新填写！");
+            alert(errormessage);
             return false;
         }
     }
+    document.addEventListener("DOMContentLoaded", function() {
+        var tabs = document.querySelectorAll("nav ul li");
+        var articles = document.querySelectorAll(".container article");
+        function handleTabClick(event) {
+            tabs.forEach(function(tab) {
+                tab.classList.remove("active");
+            });
+            articles.forEach(function(article) {
+                article.style.display = "none";
+            });
+            event.target.classList.add("active");
+            var selectedTab = event.target.dataset.tab;
+            document.querySelector("#" + selectedTab).style.display = "block";
+        }
+        tabs.forEach(function(tab) {
+            tab.addEventListener("click", handleTabClick);
+        });
+    });
 </script>
+<nav>
+    <ul>
+        <li><h1>“理小卖”外卖综合管理平台</h1></li>
+        <li data-tab="loginRelated">登录</li>
+        <li data-tab="register">注册</li>
+    </ul>
+</nav>
 <div class="container">
-    <article id="loginRelated">
-    <h1>“理小卖”外卖综合管理平台登录</h1>
+
+    <article id="loginRelated" >
+    <h2>“理小卖”外卖综合管理平台登录</h2>
     <form action = "LoginServlet" method = "post">
     <div>
         <label for="user">用户类型:</label>
@@ -157,6 +195,9 @@
 
     </form>
         <a href="index.jsp">跳转到index.jsp</a>
+    </article>
+    <article id="register" style="display: none;">
+
     </article>
 </div>
 </body>

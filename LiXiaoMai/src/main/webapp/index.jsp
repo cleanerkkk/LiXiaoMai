@@ -46,7 +46,7 @@
       background-color: #ccc;
     }
     .container {
-      width: 600px;
+      width: 1500px;
       margin: 0 auto;
       padding: 20px;
       background-color: #fff;
@@ -93,9 +93,29 @@
   </style>
 </head>
 <body>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var tabs = document.querySelectorAll("nav ul li");
+    var articles = document.querySelectorAll(".container article");
+    function handleTabClick(event) {
+      tabs.forEach(function(tab) {
+        tab.classList.remove("active");
+      });
+      articles.forEach(function(article) {
+        article.style.display = "none";
+      });
+      event.target.classList.add("active");
+      var selectedTab = event.target.dataset.tab;
+      document.querySelector("#" + selectedTab).style.display = "block";
+    }
+    tabs.forEach(function(tab) {
+      tab.addEventListener("click", handleTabClick);
+    });
+  });
+</script>
 <nav>
   <ul>
-    <li><h3>"理小卖"外卖综合管理平台</h3></li>
+    <li><h1>"理小卖"外卖综合管理平台</h1></li>
     <li data-tab="main">主页</li>
     <li data-tab="nearby">附近商家一览</li>
     <li data-tab="coupon">优惠券促销活动</li>
@@ -109,13 +129,13 @@
   <article id="main">
 
   </article>
-  <article id="nearby">
+  <article id="nearby"  style="display: none;">
 
   </article>
-  <article id="coupon">
+  <article id="coupon" style="display: none;">
 
   </article>
-  <article id="personal">
+  <article id="personal" style="display: none;">
 
   </article>
 </div>
