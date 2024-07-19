@@ -108,6 +108,19 @@
         var timestamp = new Date().getTime();
         captchaImg.src = "CaptchaServlet?t=" + timestamp;
     }
+    function errorOperate(){
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var college = document.getElementById("college").value;
+        var department = document.getElementById("department").value;
+        var captcha1 = document.getElementById("captcha").value;
+
+        // 确保四项信息均已填写
+        if (!username || !password || !college || !department||!captcha) {
+            alert("请你把所有四项表格填满");
+            return false;
+        }
+    }
 </script>
 <div class="container">
     <article id="loginRelated">
