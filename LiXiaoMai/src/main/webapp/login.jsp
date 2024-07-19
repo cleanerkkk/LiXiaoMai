@@ -89,6 +89,16 @@
             background-color: rgba(255,255,255,0.1);
             margin-bottom: 20px;
         }
+        #captchaContainer {
+            display: flex; /* 使用 Flexbox 布局 */
+            align-items: center; /* 垂直居中对齐 */
+            margin-bottom: 10px; /* 底部间距 */
+        }
+
+        #captchaContainer img {
+            cursor: pointer; /* 鼠标悬停时显示指针图标 */
+            margin-left: 50px; /* 图片与输入框之间的间距 */
+        }
     </style>
 </head>
 <body>
@@ -120,8 +130,8 @@
         <label for="password">密码:</label>
         <input type="password" id="password" name="password">
     </div>
-    <div id = captchaContainer>
         <label for="captcha">验证码:</label>
+    <div id = captchaContainer>
         <input type="text" id = "captcha" name="captcha"/>
         <img src = "CaptchaServlet" alt="Captcha" id = "captchaImg" onclick="refreshCaptcha()">
     </div>
