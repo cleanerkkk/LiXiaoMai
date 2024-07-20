@@ -238,14 +238,59 @@
     Map<Integer, List<Product>> productMap = (Map<Integer, List<Product>>) request.getAttribute("ProductMap");
     Integer currentPage =(Integer) request.getAttribute("currentPage");
     Integer totalPage = (Integer) request.getAttribute("totalPages");
-    if (list != null && !list.isEmpty()){
-        for (Business business : list){
+    if ((list != null && !list.isEmpty())||true){
+        //for (Business business : list){
   %>
       <div class = "business-info">
-  //做出你想要的排版，ok？
+          <div class="merchant">
+              <div class="merchant-info">
+                  <p></p>
+                  <img src="./imgsrc/SHDX.png" alt="Merchant Image" class="merchant-image">
+                  <h4>芝根芝底披萨·意面</h4>
+                  <p>评分: 4.8分</p>
+                  <p>月售: 3000+</p>
+                  <p>起送: ￥20</p>
+                  <p>配送费: 约￥0.1</p>
+                  <p>配送时间: 35分钟</p>
+                  <p>距离: 3.0km</p>
+              </div>
+              <div class="merchant-info">
+                  <img src="path_to_image2.jpg" alt="Merchant Image" class="merchant-image">
+                  <h4>翻滚吧炒饭·炒面</h4>
+                  <p>评分: 4.8分</p>
+                  <p>月售: 4000+</p>
+                  <p>起送: ￥0</p>
+                  <p>配送费: 约￥1.6</p>
+                  <p>配送时间: 26分钟</p>
+                  <p>距离: 531m</p>
+              </div>
+          </div>
+          <div class="merchant">
+              <div class="merchant-info">
+                  <img src="path_to_image3.jpg" alt="Merchant Image" class="merchant-image">
+                  <h4>AndOne韩式炸鸡</h4>
+                  <p>评分: 4.9分</p>
+                  <p>月售: 5000+</p>
+                  <p>人均: ￥16</p>
+                  <p>起送: ￥0</p>
+                  <p>配送费: 免配送费</p>
+                  <p>配送时间: 26分钟</p>
+                  <p>距离: 520m</p>
+              </div>
+              <div class="merchant-info">
+                  <img src="path_to_image4.jpg" alt="Merchant Image" class="merchant-image">
+                  <h4>汉堡王（南京钟鼎名悦）</h4>
+                  <p>评分: 4.5分</p>
+                  <p>月售: 2000+</p>
+                  <p>起送: ￥20</p>
+                  <p>配送费: 约￥0.5</p>
+                  <p>配送时间: 31分钟</p>
+                  <p>距离: 2.2km</p>
+              </div>
+          </div>
       </div>
     <%
-            }
+            //}
     }
         else{
           %>
@@ -284,10 +329,6 @@ for (int i = 1; i <= totalPage; i++){
       <%
         }
       %>
-
-
-
-
     </div>
   </article>
 
