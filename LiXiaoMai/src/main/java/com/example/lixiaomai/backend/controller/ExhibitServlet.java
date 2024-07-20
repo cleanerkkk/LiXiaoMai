@@ -18,7 +18,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServlet;
 
 @WebServlet("/exhibit")
-public class ExhibitServlet extends HttpServlet{
+public class exhibitServlet extends HttpServlet{
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int page = 1;
         int recordsPerPage = 4;
