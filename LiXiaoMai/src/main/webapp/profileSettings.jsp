@@ -41,21 +41,6 @@
 <body>
 <h2>课程管理</h2>
 
-<div class="account">
-    <p>学号：${stuinfo} 姓名：${stuname}</p>
-</div>
-<table>
-    <thead>
-    <tr>
-        <th>课程序号</th>
-        <th>课程名称</th>
-        <th>选课人数</th>
-        <th>课程性质</th>
-    </tr>
-    </thead>
-
-</table>
-<button id="withdrawButton"><a href="delCourse.jsp">退选课程</a></button>
-<button id="courseManagementButton"><a href="addCourse.jsp">新增课程</a></button>
+<button id="back"><a href="index.jsp">返回主页</a></button>
 </body>
 </html>
