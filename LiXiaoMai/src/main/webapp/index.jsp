@@ -309,17 +309,17 @@ for (int i = 1; i <= totalPage; i++){
       <div>
         <img src="./imgsrc/settings.png" alt="收藏">
         <p></p>
-        <a href="profile_settings.jsp">账户设置</a>
+        <a href="profileSettings.jsp">账户设置</a>
       </div>
       <div>
         <img src="./imgsrc/order.PNG" alt="浏览记录">
         <p></p>
-        <a href="profile_order.jsp">全部订单</a>
+        <a href="profileOrder.jsp">全部订单</a>
       </div>
       <div>
         <img src="./imgsrc/coupon.PNG" alt="红包卡券">
         <p></p>
-        <a href="profile_coupon.jsp">红包卡券</a>
+        <a href="profileCoupon.jsp">红包卡券</a>
       </div>
       <div>
         <img src="./imgsrc/exit.png" alt="美团币">
