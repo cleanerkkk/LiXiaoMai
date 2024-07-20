@@ -26,24 +26,24 @@
       text-decoration: none;
       color: orange;
     }
-    nav ul {
+    .links nav ul {
       text-align: center;
       list-style-type: none;
       padding: 0;
       overflow: hidden;
     }
 
-    nav ul li {
+    .links nav ul li {
       display: inline;
       margin-right: 20px;
     }
 
-    nav ul li a {
+    .links nav ul li a {
       color: black;
       text-decoration: none;
     }
 
-    nav ul li:active {
+    .links nav ul li:active {
       transition: background-color 0.2s;
       background-color: #ccc;
     }
@@ -154,13 +154,13 @@
       color: #666;
     }
 
-    .profile nav {
+    .nav {
       display: flex;
       justify-content: space-around;
       margin-bottom: 30px;
     }
 
-    .profile nav a {
+    .nav a {
       text-decoration: none;
       color: #007bff;
       font-size: 1.1em;
@@ -169,12 +169,38 @@
       transition: background 0.3s;
     }
 
-    .profile nav a:hover {
+    .nav a:hover {
       background: #007bff;
       color: #fff;
     }
 
-    .profile section {
+    .icon-bar {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 20px;
+      background: #e9ecef;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .icon-bar div {
+      text-align: center;
+    }
+
+    .icon-bar img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+    .sections {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .section {
       padding: 20px;
       background: #f9f9f9;
       border-radius: 10px;
@@ -182,7 +208,7 @@
       margin-bottom: 20px;
     }
 
-    .profile section h3 {
+    .section h3 {
       margin-top: 0;
       color: #333;
     }
@@ -209,6 +235,7 @@
     });
   });
 </script>
+<div class="links">
 <nav>
   <ul>
     <li><h1>"理小卖"外卖综合管理平台</h1></li>
@@ -217,6 +244,7 @@
     <li data-tab="profile">个人中心</li>
   </ul>
 </nav>
+</div>
 <p></p>
 <p></p>
 <p></p>
@@ -283,8 +311,9 @@ for (int i = 1; i <= totalPage; i++){
   <article id="coupon" style="display: none;">
     <!-- 优惠券促销活动内容 -->
   </article>
-  <div class="containerNew">
+
   <article id="profile" style="display: none;">
+    <div class="containerNew">
     <div class="profile-card">
       <img src="profile.jpg" alt="用户头像">
       <div class="profile-info">
@@ -292,22 +321,43 @@ for (int i = 1; i <= totalPage; i++){
         <p>user@example.com</p>
       </div>
     </div>
+
     <div class="nav">
       <a href="#">订单历史</a>
       <a href="#">地址管理</a>
       <a href="#">账户设置</a>
       <a href="#">退出登录</a>
     </div>
-    <div class="section">
-      <h3>最近订单</h3>
-      <p>这里显示最近的订单信息...</p>
+    <div class="icon-bar">
+        <div>
+          <img src="favorite.png" alt="收藏">
+          <p>收藏</p>
+        </div>
+        <div>
+          <img src="history.png" alt="浏览记录">
+          <p>浏览记录</p>
+        </div>
+        <div>
+          <img src="coupon.png" alt="红包卡券">
+          <p>红包卡券</p>
+        </div>
+        <div>
+          <img src="coins.png" alt="美团币">
+          <p>美团币</p>
+        </div>
     </div>
-    <div class="section">
-      <h3>收藏的餐馆</h3>
-      <p>这里显示收藏的餐馆信息...</p>
+    <div class="sections">
+        <div class="section">
+          <h3>最近订单</h3>
+          <p>这里显示最近的订单信息...</p>
+        </div>
+      <div class="section">
+          <h3>收藏的餐馆</h3>
+          <p>这里显示收藏的餐馆信息...</p>
+      </div>
+    </div>
     </div>
   </article>
-  </div>
 </div>
 </body>
 </html>
