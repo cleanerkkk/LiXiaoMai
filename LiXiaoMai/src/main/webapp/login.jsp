@@ -159,11 +159,13 @@
         var selectedValue = selectElement.value;
 
         // 隐藏所有的input
+        document.getElementById("input0").style.display = 'none';
         document.getElementById("input1").style.display = 'none';
         document.getElementById("input2").style.display = 'none';
         document.getElementById("input3").style.display = 'none';
         document.getElementById("input4").style.display = 'none';
         document.getElementById("input5").style.display = 'none';
+        document.getElementById("input6").style.display = 'none';
 
         // 根据选择的值显示相应的input
         if (selectedValue === "business") {
@@ -174,7 +176,10 @@
             document.getElementById("input1").style.display = 'block';
             document.getElementById("input4").style.display = 'block';
             document.getElementById("input5").style.display = 'block';
-
+        } else{
+            document.getElementById("input0").style.display = 'block';
+            document.getElementById("input3").style.display = 'block';
+            document.getElementById("input6").style.display = 'block';
         }
     }
 </script>
@@ -242,7 +247,7 @@
                 <label for = "secondPassword">确认密码:</label>
                 <input type = "text" id = "secondPassword" name = "secondPassword">
             </div>
-            <div>
+            <div id = "input0" style="display: none;">
                 <label for = "trueName">姓名:</label>
                 <input type = "text" id = "trueName" name="trueName">
             </div>
@@ -263,9 +268,10 @@
                 <input type = "text" id = "storeName" name = "storeName">
             </div>
             <div id = "input3" style="display:none;">
-                <label for = "address">商家地址:</label>
+                <label for = "address">地址:</label>
                 <input type = "text" id = "address" name = "address">
             </div>
+
             <div id = "input4" style="display:none;">
                 <label for = "vType">车辆类型:</label>
                 <input type = "text" id = "vType" name = "vType">
@@ -273,6 +279,10 @@
             <div id = "input5" style="display:none;">
                 <label for = "vBrand">车辆品牌:</label>
                 <input type = "text" id = "vBrand" name = "vBrand">
+            </div>
+            <div id = "input6" style="display: none;">
+                <label for="date">日期:</label>
+                <input type="date" id="date" name="date" value="1999-09-01">
             </div>
             <div>
                 <button id = "butt" type = "submit">注册</button>
