@@ -158,7 +158,7 @@
   <article id="main">
     <div class="merchant">
       <div class="merchant-info">
-        <img src="path_to_image1.jpg" alt="Merchant Image" class="merchant-image">
+        <img src="./imgsrc/SHDX.png" alt="Merchant Image" class="merchant-image">
         <h4>芝根芝底披萨·意面</h4>
         <p>评分: 4.8分</p>
         <p>月售: 3000+</p>
