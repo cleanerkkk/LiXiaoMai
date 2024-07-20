@@ -4,9 +4,11 @@ import com.example.lixiaomai.backend.entity.Business;
 import com.example.lixiaomai.backend.tools.DatabaseUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 public class BusinessDao {
     private final QueryRunner runner = DatabaseUtils.getRunner();
@@ -161,6 +163,16 @@ public class BusinessDao {
             Connection conn = DatabaseUtils.getConnection();
             String sql = "SELECT * FROM Business WHERE uname = ?";
             return runner.query(conn, sql, new BeanHandler<>(Business.class), uname);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public List<Business> getAllBusiness(){
+        try {
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "SELECT * FROM Business";
+            return runner.query(conn, sql, new BeanListHandler<>(Business.class));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

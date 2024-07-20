@@ -1,5 +1,7 @@
 <%@ page import="com.example.lixiaomai.backend.entity.Product" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.example.lixiaomai.backend.entity.Business" %>
+<%@ page import="java.util.Map" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -252,11 +254,12 @@
   <article id="main">
     <div class="business">
   <%
-    List<Product> list = (List<Product>) request.getAttribute("productList");
+    List<Business> list = (List<Business>) request.getAttribute("BusinessList");
+    Map<Integer, List<Product>> productMap = (Map<Integer, List<Product>>) request.getAttribute("ProductMap");
     Integer currentPage =(Integer) request.getAttribute("currentPage");
-    Integer totalPage = (Integer) request.getAttribute("totalPage");
+    Integer totalPage = (Integer) request.getAttribute("totalPages");
     if (list != null && !list.isEmpty()){
-        for (Product product : list){
+        for (Business business : list){
   %>
       <div class = "business-info">
   //做出你想要的排版，ok？
@@ -284,7 +287,7 @@ for (int i = 1; i <= totalPage; i++){
       }
       else{
 %>
-  <li><a herf = ""></a></li>
+  <li><a href="exhibit?page=<%=i%>"><%=i%></a></li>
   <%
       }
       if (i < totalPage){

@@ -3,6 +3,8 @@ package com.example.lixiaomai.backend.service;
 import com.example.lixiaomai.backend.dao.BusinessDao;
 import com.example.lixiaomai.backend.entity.Business;
 
+import java.util.List;
+
 public class BusinessService {
     static BusinessDao businessDao = new BusinessDao();
 
@@ -17,6 +19,10 @@ public class BusinessService {
 
     public boolean addBusiness(Business business){
         return businessDao.addBusiness(business);
+    }
+
+    public List<Business> getAllBusiness(){
+        return businessDao.getAllBusiness();
     }
 
     public boolean delBusiness(int id){
