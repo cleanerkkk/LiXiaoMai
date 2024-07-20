@@ -304,20 +304,24 @@ for (int i = 1; i <= totalPage; i++){
 
     <div class="nav">
       <div>
-        <img src="favorite.png" alt="收藏">
-        <a href="#">账户设置</a>
+        <img src="./imgsrc/settings.png" alt="收藏">
+        <p></p>
+        <a href="profile_settings.jsp">账户设置</a>
       </div>
       <div>
-        <img src="history.png" alt="浏览记录">
-        <a href="#">全部订单</a>
+        <img src="./imgsrc/order.PNG" alt="浏览记录">
+        <p></p>
+        <a href="profile_order.jsp">全部订单</a>
       </div>
       <div>
-        <img src="coupon.png" alt="红包卡券">
-        <a href="#">红包卡券</a>
+        <img src="./imgsrc/coupon.PNG" alt="红包卡券">
+        <p></p>
+        <a href="profile_coupon.jsp">红包卡券</a>
       </div>
       <div>
-        <img src="coins.png" alt="美团币">
-        <a href="#">退出登录</a>
+        <img src="./imgsrc/exit.png" alt="美团币">
+        <p></p>
+        <a href="login.jsp">退出登录</a>
       </div>
     </div>
     <div class="sections">
