@@ -59,7 +59,7 @@ public class LoginServlet {
         }
         else{
             errorMessage = "用户名或密码错误";
-            response.sendRedirect("loginFailure.jsp?error=" + errorMessage);
+            response.sendRedirect("login.jsp?error=" + errorMessage);
         }
 
 
