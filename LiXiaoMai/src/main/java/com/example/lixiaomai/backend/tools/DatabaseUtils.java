@@ -5,9 +5,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import lombok.Data;
 import lombok.Getter;
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
+
 
 public class DatabaseUtils {
     private static final String URL = "jdbc:mysql://localhost:3306/LXM";

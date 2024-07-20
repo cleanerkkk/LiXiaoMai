@@ -19,9 +19,11 @@ public class LoginServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
+        request.getSession().invalidate();
+
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String user = request.getParameter("user");
+        String userType = request.getParameter("user");
         String captcha = request.getParameter("captcha");
         String errorMessage;
 
@@ -32,7 +34,7 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("loginFailure.jsp?error=" + errorMessage);
         }
         boolean loginResult;
-        switch (user) {
+        switch (userType) {
             case "customer":
                 CustomerService customerService = new CustomerService();
                 loginResult = customerService.login(username, password);
@@ -55,7 +57,8 @@ public class LoginServlet extends HttpServlet {
 
         if (loginResult){
             request.getSession().setAttribute("name", username);
-            request.getSession().setAttribute("user", user);
+            request.getSession().setAttribute("userType", userType);
+            
             response.sendRedirect("index.jsp");
         }
         else{

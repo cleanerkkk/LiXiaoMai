@@ -19,6 +19,10 @@ public class CustomerService {
         return customerDao.updateCustomerInfo(id, customer);
     }
 
+    public boolean existCustomer(String username){
+        return customerDao.findUserByUsername(username) != null;
+    }
+
     public Customer findUName(String name, String password){
         return customerDao.findUName(name, password);
     }
