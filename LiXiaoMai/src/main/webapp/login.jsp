@@ -225,6 +225,7 @@
         <a href="index.jsp">跳转到index.jsp</a>
     </article>
     <article id="register" style="display: none;">
+        <h2>“理小卖”外卖综合管理平台账号注册</h2>
         <form action = "" method = "post">
             <div>
                 <label for="registerUser">用户类型:</label>

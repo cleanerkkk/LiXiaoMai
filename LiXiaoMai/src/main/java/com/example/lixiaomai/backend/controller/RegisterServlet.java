@@ -32,10 +32,17 @@ public class RegisterServlet extends HttpServlet {
 
         boolean flag = false;
 
-
         if (registerType.equals("customer")) {
 
+
+
             CustomerService customerService = new CustomerService();
+
+            if (customerService.existCustomer(registerUserName)){
+                response.sendRedirect("login.jsp?error=" + "用户名已存在");
+                return;
+            }
+
             Customer customer = new Customer();
             customer.setUName(registerUserName);
             customer.setPassword(firstPassword);
@@ -49,6 +56,12 @@ public class RegisterServlet extends HttpServlet {
         }
         else if (registerType.equals("business")) {
             BusinessService businessService = new BusinessService();
+
+            if (businessService.existBusiness(registerUserName)){
+                response.sendRedirect("login.jsp?error=" + "用户名已存在");
+                return;
+            }
+
             Business business = new Business();
             business.setUName(registerUserName);
             business.setPassword(firstPassword);
@@ -66,6 +79,12 @@ public class RegisterServlet extends HttpServlet {
             String vBrand = request.getParameter("vBrand");
 
             DelivermanService delivermanService = new DelivermanService();
+
+            if (delivermanService.existDeliverman(registerUserName)){
+                response.sendRedirect("login.jsp?error=" + "用户名已存在");
+                return;
+            }
+
             Deliverman deliverman = new Deliverman();
 
             deliverman.setUName(registerUserName);
@@ -75,7 +94,9 @@ public class RegisterServlet extends HttpServlet {
             deliverman.setTelephone(telephone);
             deliverman.setVBrand(vBrand);
             deliverman.setVType(vType);
-            //to do
+            deliverman.setVId(0);
+
+            flag = delivermanService.addDeliverman(deliverman);
 
         }
 

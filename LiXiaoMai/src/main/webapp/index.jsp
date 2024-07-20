@@ -93,31 +93,28 @@
       background-color: rgba(255, 255, 255, 0.1);
       margin-bottom: 20px;
     }
-    .merchant {
+    .business {
       display: flex;
       justify-content: space-between;
       margin-bottom: 10px;
       align-items: center;
     }
-    .merchant-info {
+    .business-info {
       flex: 1;
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
       background-color: #fff;
     }
-    .merchant-info h4 {
+    .business-info h4 {
       margin: 0;
       color: #333;
     }
-    .merchant-info p {
+    .business-info p {
       margin: 5px 0;
       color: #666;
     }
-    .merchant-rating {
-      color: #f60;
-    }
-    .merchant-image {
+    .business-info image {
       width: 100px;
       height: 100px;
       object-fit: cover;
@@ -360,11 +357,15 @@
     Map<Integer, List<Product>> productMap = (Map<Integer, List<Product>>) request.getAttribute("ProductMap");
     Integer currentPage =(Integer) request.getAttribute("currentPage");
     Integer totalPage = (Integer) request.getAttribute("totalPages");
-    if (list != null && !list.isEmpty()){
+    if ((list != null && !list.isEmpty())){
         for (Business business : list){
+        List<Product> product = productMap.get(business.getId());
+        //去图片库获取信息URL
+        //String urlImg="img+i";
+
   %>
       <div class = "business-info">
-  //做出你想要的排版，ok？
+          <img src=" "alt=""id="">
       </div>
     <%
             }
@@ -406,10 +407,6 @@ for (int i = 1; i <= totalPage; i++){
       <%
         }
       %>
-
-
-
-
     </div>
   </article>
 
