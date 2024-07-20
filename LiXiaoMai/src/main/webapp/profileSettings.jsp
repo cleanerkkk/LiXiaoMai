@@ -11,6 +11,9 @@
     <title>Title</title>
 </head>
 <body>
+    <%
+        String userType = (String) request.getAttribute("userType");
+    %>
 
 </body>
 </html>

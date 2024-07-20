@@ -1,5 +1,6 @@
 package com.example.lixiaomai.backend.tools;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Tool {
@@ -12,5 +13,25 @@ public class Tool {
             }
         }
         return sb.toString();
+    }
+
+    public static  List<Object> StringToList(String str){
+        String[] strings = str.split(",");
+        List<Object> list = new ArrayList<>();
+        for (String string : strings) {
+            try{
+                list.add(Integer.parseInt(string));
+            }
+            catch (NumberFormatException e){
+                try{
+                    list.add(Double.parseDouble(string));
+                }
+                catch (NumberFormatException e1){
+                    list.add(string);
+                }
+            }
+        }
+        return list;
+
     }
 }
