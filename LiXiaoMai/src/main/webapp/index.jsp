@@ -172,26 +172,6 @@
       color: #fff;
     }
 
-    .icon-bar {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 20px;
-      background: #e9ecef;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .icon-bar div {
-      text-align: center;
-    }
-
-    .icon-bar img {
-      width: 50px;
-      height: 50px;
-      margin-bottom: 10px;
-    }
     .sections {
       display: flex;
       flex-direction: column;
@@ -311,28 +291,22 @@
     </div>
 
     <div class="nav">
-      <a href="#">订单历史</a>
-      <a href="#">地址管理</a>
-      <a href="#">账户设置</a>
-      <a href="#">退出登录</a>
-    </div>
-    <div class="icon-bar">
-        <div>
-          <img src="favorite.png" alt="收藏">
-          <p>收藏</p>
-        </div>
-        <div>
-          <img src="history.png" alt="浏览记录">
-          <p>浏览记录</p>
-        </div>
-        <div>
-          <img src="coupon.png" alt="红包卡券">
-          <p>红包卡券</p>
-        </div>
-        <div>
-          <img src="coins.png" alt="美团币">
-          <p>美团币</p>
-        </div>
+      <div>
+        <img src="favorite.png" alt="收藏">
+        <a href="#">账户设置</a>
+      </div>
+      <div>
+        <img src="history.png" alt="浏览记录">
+        <a href="#">全部订单</a>
+      </div>
+      <div>
+        <img src="coupon.png" alt="红包卡券">
+        <a href="#">红包卡券</a>
+      </div>
+      <div>
+        <img src="coins.png" alt="美团币">
+        <a href="#">退出登录</a>
+      </div>
     </div>
     <div class="sections">
         <div class="section">
