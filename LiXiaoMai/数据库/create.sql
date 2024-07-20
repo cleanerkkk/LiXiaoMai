@@ -1,3 +1,5 @@
+
+
 use lxm;
 
 CREATE TABLE IF NOT EXISTS `PRODUCT`(
