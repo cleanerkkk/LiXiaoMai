@@ -120,6 +120,70 @@
       border-radius: 50%;
       margin-right: 10px;
     }
+    .profile-card {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      background: #e9ecef;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-card img {
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      margin-right: 20px;
+    }
+
+    .profile-info {
+      flex: 1;
+    }
+
+    .profile-info h2 {
+      margin: 0;
+      font-size: 1.5em;
+      color: #333;
+    }
+
+    .profile-info p {
+      margin: 5px 0 0;
+      color: #666;
+    }
+
+    .profile nav {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 30px;
+    }
+
+    .profile nav a {
+      text-decoration: none;
+      color: #007bff;
+      font-size: 1.1em;
+      padding: 10px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .profile nav a:hover {
+      background: #007bff;
+      color: #fff;
+    }
+
+    .profile section {
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .profile section h3 {
+      margin-top: 0;
+      color: #333;
+    }
   </style>
 </head>
 <body>
@@ -148,7 +212,7 @@
     <li><h1>"理小卖"外卖综合管理平台</h1></li>
     <li data-tab="main">主页</li>
     <li data-tab="coupon">优惠券促销活动</li>
-    <li data-tab="personal">个人中心</li>
+    <li data-tab="profile">个人中心</li>
   </ul>
 </nav>
 <p></p>
@@ -158,6 +222,7 @@
   <article id="main">
     <div class="merchant">
       <div class="merchant-info">
+        <p></p>
         <img src="./imgsrc/SHDX.png" alt="Merchant Image" class="merchant-image">
         <h4>芝根芝底披萨·意面</h4>
         <p>评分: 4.8分</p>
@@ -206,9 +271,31 @@
   <article id="coupon" style="display: none;">
     <!-- 优惠券促销活动内容 -->
   </article>
-  <article id="personal" style="display: none;">
-    <!-- 个人中心内容 -->
+  <div class="containerNew">
+  <article id="profile" style="display: none;">
+    <div class="profile-card">
+      <img src="profile.jpg" alt="用户头像">
+      <div class="profile-info">
+        <h2>用户名</h2>
+        <p>user@example.com</p>
+      </div>
+    </div>
+    <div class="nav">
+      <a href="#">订单历史</a>
+      <a href="#">地址管理</a>
+      <a href="#">账户设置</a>
+      <a href="#">退出登录</a>
+    </div>
+    <div class="section">
+      <h3>最近订单</h3>
+      <p>这里显示最近的订单信息...</p>
+    </div>
+    <div class="section">
+      <h3>收藏的餐馆</h3>
+      <p>这里显示收藏的餐馆信息...</p>
+    </div>
   </article>
+  </div>
 </div>
 </body>
 </html>
