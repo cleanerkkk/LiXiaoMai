@@ -1,4 +1,4 @@
-use lxm;
+
 INSERT INTO PRODUCT (ID, NAME, PRICE, STOCK, TYPE, DESCRIPTION, SID)
 VALUES (1, '麦辣鸡腿堡', 22, 101, '主食', '金黄脆辣的外皮，鲜嫩幼滑的鸡腿肉', 1);
 

@@ -1,4 +1,4 @@
-use lxm;
+
 INSERT INTO `business` (`id`, `password`, `shopname`, `uname`, `address`, `telephone`, `idCard`, `name`)VALUES(1, '123', '麦当劳', 'M', '南理工', '17822299999', '998998999988883333', '张三');
 INSERT INTO `business` (`id`, `password`, `shopname`, `uname`, `address`, `telephone`, `idCard`, `name`)VALUES (2, '234', '肯德基', 'K', '南理工', '17833388888', '787255244412632555', '李四');
 INSERT INTO `business` (`id`, `password`, `shopname`, `uname`, `address`, `telephone`, `idCard`, `name`)VALUES (3, '345', '罗森', 'L', '南理工', '17844477777', '151648956115164685', '王五');
