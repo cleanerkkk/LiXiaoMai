@@ -173,7 +173,7 @@ for (int i = 1; i <= totalPage; i++){
             <div>
                 <img src="./imgsrc/coupon.PNG">
                 <p></p>
-                <a href="profileCoupon.jsp">红包卡券</a>
+                <a href="ProfileCoupon">红包卡券</a>
             </div>
             <div>
                 <img src="./imgsrc/exit.png" >
