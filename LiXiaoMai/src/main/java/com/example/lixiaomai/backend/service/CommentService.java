@@ -35,4 +35,8 @@ public class CommentService {
     public boolean dislikeCommentById(int id){
         return commentDao.dislikeCommentById(id);
     }
+
+    public List<Comment> getCommentByOId(int oId){
+        return commentDao.getAllcommentByOid(oId);
+    }
 }

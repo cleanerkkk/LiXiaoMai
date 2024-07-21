@@ -25,18 +25,12 @@
 </div>
 <div class="order-details">
     <%
-        // 获取订单ID参数
-        String orderId = request.getParameter("id");
-
-        // 根据订单ID查询订单详细信息
-        OrderService orderService = new OrderService();
-        Order order = orderService.getOrderById(Integer.parseInt(orderId));
+        Order order = (Order) request.getAttribute("order");
+        List<String> productName = (List<String>) request.getAttribute("productNameList");
 
         if (order != null) {
             int id = order.getId();
-            int sId = order.getSId();
             String sName = order.getSName();
-            List<Integer> gId = order.getGId();
             List<Integer> goodSum = order.getGoodsNum();
             Timestamp startTime = order.getStartTime();
             double total = order.getTotal();
@@ -47,15 +41,11 @@
             <td><%= id %></td>
         </tr>
         <tr>
-            <th>商家ID</th>
-            <td><%= sId %></td>
-        </tr>
-        <tr>
             <th>店铺名称</th>
             <td><%= sName %></td>
         </tr>
         <tr>
-            <th>下订单时间</th>
+            <th>订单时间</th>
             <td><%= startTime %></td>
         </tr>
         <tr>
@@ -76,10 +66,10 @@
             <th>数量</th>
         </tr>
         <%
-            for (int i = 0; i < gId.size(); i++) {
+            for (int i = 0; i < productName.size(); i++) {
         %>
         <tr>
-            <td><%= gId.get(i) %></td>
+            <td><%= productName.get(i) %></td>
             <td><%= goodSum.get(i) %></td>
         </tr>
         <%
@@ -95,35 +85,7 @@
     %>
 </div>
 <div class="comments">
-    <%
-        // 获取该订单的所有评论
-        CommentService commentService = new CommentService();
-        List<Comment> comments = commentService.getCommentById(Integer.parseInt(orderId));
 
-        if (comments != null && !comments.isEmpty()) {
-            for (Comment comment : comments) {
-                int commentId = comment.getId();
-                String commentText = comment.getText();
-                Timestamp commentTime = comment.getTime();
-                String commentUser = comment.getUser();
-    %>
-    <div class="comment">
-        <p><strong><%= commentUser %></strong> (<%= commentTime %>):</p>
-        <p><%= commentText %></p>
-        <form action="DeleteComment" method="post" style="display:inline;">
-            <input type="hidden" name="commentId" value="<%= commentId %>">
-            <input type="hidden" name="orderId" value="<%= orderId %>">
-            <button type="submit">删除评论</button>
-        </form>
-    </div>
-    <%
-        }
-    } else {
-    %>
-    <p>还没有评论。</p>
-    <%
-        }
-    %>
 </div>
 <button id="backToOrders"><a href="ProfileOrder">返回订单列表</a></button>
 </body>
