@@ -14,7 +14,7 @@ public class WalletDao {
         try {
             Connection conn = DatabaseUtils.getConnection();
             String sql = "SELECT * FROM WALLET WHERE id = ?";
-            return runner.query(conn, sql, new BeanHandler<>(Wallet.class), id);
+            return runner.query(conn, sql, new WalletResultSetHandler(), id).get(0);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

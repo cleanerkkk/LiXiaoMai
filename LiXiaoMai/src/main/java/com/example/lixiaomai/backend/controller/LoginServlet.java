@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
 
         String generCaptcha = (String) request.getSession().getAttribute("captchaValue");
         request.getSession().invalidate();
-        if (!captcha.equalsIgnoreCase(generCaptcha) || true){
+        if (!captcha.equalsIgnoreCase(generCaptcha) && false){
             errorMessage = "验证码错误";
             request.setAttribute("error", errorMessage);
             request.getRequestDispatcher("login.jsp?error=" + errorMessage).forward(request, response);
