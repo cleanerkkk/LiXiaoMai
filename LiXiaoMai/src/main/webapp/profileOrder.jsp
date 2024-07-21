@@ -54,7 +54,17 @@
         <th>商品数量</th>
         <th>下订单时间</th>
     </tr>
-
+    <c:forEach var="order" items="${orderList}">
+        <tr>
+            <td>${order.id}</td>
+            <td>${order.sellerId}</td>
+            <td>${order.shopName}</td>
+            <td>${order.productName}</td>
+            <td>${order.quantity}</td>
+            <td>${order.orderTime}</td>
+        </tr>
+    </c:forEach>
+    </tbody>
     </thead>
     <p>查询相关</p>
 </table>
