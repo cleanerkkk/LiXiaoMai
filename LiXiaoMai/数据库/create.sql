@@ -79,6 +79,7 @@ CREATE TABLE IF NOT EXISTS `CART`(
     `TOTAL` DECIMAL(10,2)
     )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
 drop table wallet;
 CREATE TABLE IF NOT EXISTS `WALLET`(
                                        `ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
