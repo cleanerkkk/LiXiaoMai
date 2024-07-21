@@ -11,4 +11,4 @@ INSERT INTO DELIVERMAN (ID, NAME, UNAME, PASSWORD, TELEPHONE, GENDER, VTYPE, VID
 VALUES (4, '王芳', 'wangfang', 'jjkkkk', '32145678901', '女', '摩托车', '4', '宝马', '0');
 
 INSERT INTO DELIVERMAN (ID, NAME, UNAME, PASSWORD, TELEPHONE, GENDER, VTYPE, VID, VBRAND, STATUS)
-VALUES (1, '小红', 'redsun', 'redsun', '12365478901', '女', '电瓶车', '5', '雅迪', '0');
+VALUES (5, '小红', 'redsun', 'redsun', '12365478901', '女', '电瓶车', '5', '雅迪', '0');

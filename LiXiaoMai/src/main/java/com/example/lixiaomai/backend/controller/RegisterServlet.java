@@ -98,7 +98,6 @@ public class RegisterServlet extends HttpServlet {
             deliverman.setTelephone(telephone);
             deliverman.setVBrand(vBrand);
             deliverman.setVType(vType);
-            deliverman.setVId(0);
 
             flag = delivermanService.addDeliverman(deliverman);
 

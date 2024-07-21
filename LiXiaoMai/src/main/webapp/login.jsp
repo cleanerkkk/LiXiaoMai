@@ -156,7 +156,6 @@
         var selectedValue = selectElement.value;
 
         // 隐藏所有的input
-        document.getElementById("input0").style.display = 'none';
         document.getElementById("input1").style.display = 'none';
         document.getElementById("input2").style.display = 'none';
         document.getElementById("input3").style.display = 'none';
@@ -174,7 +173,6 @@
             document.getElementById("input4").style.display = 'block';
             document.getElementById("input5").style.display = 'block';
         } else{
-            document.getElementById("input0").style.display = 'block';
             document.getElementById("input3").style.display = 'block';
             document.getElementById("input6").style.display = 'block';
         }
@@ -253,7 +251,7 @@
                 <label for = "secondPassword">确认密码:</label>
                 <input type = "text" id = "secondPassword" name = "secondPassword">
             </div>
-            <div id = "input0" style="display: none;">
+            <div>
                 <label for = "trueName">姓名:</label>
                 <input type = "text" id = "trueName" name="trueName">
             </div>
