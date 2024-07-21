@@ -192,7 +192,36 @@
       color: #333;
     }
 
+    .none {
+        margin: 0;padding: 0;list-style: none;text-decoration: none;font-size: 17px;
+        display: none
+    }
+
+    .result {
+        padding: 0;list-style: none;text-decoration: none;
+        text-align: center;
+        margin-top: 1%;
+        background: #24c7b8;
+        color: #fff;
+        font-size: 26px
+    }
+
+    .wrap {
+        padding: 0;list-style: none;text-decoration: none;font-size: 17px;
+        width: 700px;
+        height: 700px;
+        position: absolute;
+        left: 50%;
+        margin-left: -350px;
+        top: 50%;
+        margin-top: -350px;
+        background: #24c7b8;
+        border-radius: 50%;
+        top: 45%
+    }
+
     .wrap ul {
+        padding: 0;list-style: none;text-decoration: none;font-size: 17px;
         width: 90%;
         height: 90%;
         position: absolute;
@@ -203,116 +232,290 @@
         border-radius: 50%;
         overflow: hidden;
         background: #166dab;
-        box-shadow: 0px 0px 12px 2px #152c3c;
+        box-shadow: 0px 0px 12px 2px #152c3c
     }
 
     .wrap ul li:nth-child(1) {
+        padding: 0;list-style: none;text-decoration: none;font-size: 17px;
         position: absolute;
         left: 50%;
         margin-left: -90px;
+        -webkit-transform: rotate(30deg);
+        -moz-transform: rotate(30deg);
+        -ms-transform: rotate(30deg);
+        -o-transform: rotate(30deg);
         transform: rotate(30deg);
-        transform-origin: center 315px 10px;
+        -webkit-transform-origin: center 315px 10px;
+        -moz-transform-origin: center 315px 10px;
+        -ms-transform-origin: center 315px 10px;
+        -o-transform-origin: center 315px 10px;
+        transform-origin: center 315px 10px
     }
 
     .wrap ul li:nth-child(2) {
+        padding: 0;list-style: none;text-decoration: none;font-size: 17px;
         position: absolute;
         left: 50%;
         margin-left: -90px;
+        -webkit-transform: rotate(60deg);
+        -moz-transform: rotate(60deg);
+        -ms-transform: rotate(60deg);
+        -o-transform: rotate(60deg);
         transform: rotate(60deg);
-        transform-origin: center 315px 10px;
+        -webkit-transform-origin: center 315px 10px;
+        -moz-transform-origin: center 315px 10px;
+        -ms-transform-origin: center 315px 10px;
+        -o-transform-origin: center 315px 10px;
+        transform-origin: center 315px 10px
     }
 
     .wrap ul li:nth-child(3) {
+        padding: 0;list-style: none;text-decoration: none;font-size: 17px;
         position: absolute;
         left: 50%;
         margin-left: -90px;
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
         transform: rotate(90deg);
-        transform-origin: center 315px 10px;
+        -webkit-transform-origin: center 315px 10px;
+        -moz-transform-origin: center 315px 10px;
+        -ms-transform-origin: center 315px 10px;
+        -o-transform-origin: center 315px 10px;
+        transform-origin: center 315px 10px
     }
 
     .wrap ul li:nth-child(4) {
+        padding: 0;list-style: none;text-decoration: none;font-size: 17px;
         position: absolute;
         left: 50%;
         margin-left: -90px;
+        -webkit-transform: rotate(120deg);
+        -moz-transform: rotate(120deg);
+        -ms-transform: rotate(120deg);
+        -o-transform: rotate(120deg);
         transform: rotate(120deg);
-        transform-origin: center 315px 10px;
+        -webkit-transform-origin: center 315px 10px;
+        -moz-transform-origin: center 315px 10px;
+        -ms-transform-origin: center 315px 10px;
+        -o-transform-origin: center 315px 10px;
+        transform-origin: center 315px 10px
     }
 
     .wrap ul li:nth-child(5) {
+        padding: 0;list-style: none;text-decoration: none;font-size: 17px;
         position: absolute;
         left: 50%;
         margin-left: -90px;
+        -webkit-transform: rotate(150deg);
+        -moz-transform: rotate(150deg);
+        -ms-transform: rotate(150deg);
+        -o-transform: rotate(150deg);
         transform: rotate(150deg);
-        transform-origin: center 315px 10px;
+        -webkit-transform-origin: center 315px 10px;
+        -moz-transform-origin: center 315px 10px;
+        -ms-transform-origin: center 315px 10px;
+        -o-transform-origin: center 315px 10px;
+        transform-origin: center 315px 10px
     }
 
     .wrap ul li:nth-child(6) {
+        padding: 0;list-style: none;text-decoration: none;font-size: 17px;
         position: absolute;
         left: 50%;
         margin-left: -90px;
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
         transform: rotate(180deg);
-        transform-origin: center 315px 10px;
+        -webkit-transform-origin: center 315px 10px;
+        -moz-transform-origin: center 315px 10px;
+        -ms-transform-origin: center 315px 10px;
+        -o-transform-origin: center 315px 10px;
+        transform-origin: center 315px 10px
     }
 
     .wrap ul li:nth-child(7) {
+        padding: 0;list-style: none;text-decoration: none;font-size: 17px;
         position: absolute;
         left: 50%;
         margin-left: -90px;
+        -webkit-transform: rotate(210deg);
+        -moz-transform: rotate(210deg);
+        -ms-transform: rotate(210deg);
+        -o-transform: rotate(210deg);
         transform: rotate(210deg);
-        transform-origin: center 315px 10px;
+        -webkit-transform-origin: center 315px 10px;
+        -moz-transform-origin: center 315px 10px;
+        -ms-transform-origin: center 315px 10px;
+        -o-transform-origin: center 315px 10px;
+        transform-origin: center 315px 10px
     }
 
     .wrap ul li:nth-child(8) {
+        padding: 0;list-style: none;text-decoration: none;font-size: 17px;
         position: absolute;
         left: 50%;
         margin-left: -90px;
+        -webkit-transform: rotate(240deg);
+        -moz-transform: rotate(240deg);
+        -ms-transform: rotate(240deg);
+        -o-transform: rotate(240deg);
         transform: rotate(240deg);
-        transform-origin: center 315px 10px;
+        -webkit-transform-origin: center 315px 10px;
+        -moz-transform-origin: center 315px 10px;
+        -ms-transform-origin: center 315px 10px;
+        -o-transform-origin: center 315px 10px;
+        transform-origin: center 315px 10px
     }
 
     .wrap ul li:nth-child(9) {
+        padding: 0;list-style: none;text-decoration: none;font-size: 17px;
         position: absolute;
         left: 50%;
         margin-left: -90px;
+        -webkit-transform: rotate(270deg);
+        -moz-transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+        -o-transform: rotate(270deg);
         transform: rotate(270deg);
-        transform-origin: center 315px 10px;
+        -webkit-transform-origin: center 315px 10px;
+        -moz-transform-origin: center 315px 10px;
+        -ms-transform-origin: center 315px 10px;
+        -o-transform-origin: center 315px 10px;
+        transform-origin: center 315px 10px
     }
 
     .wrap ul li:nth-child(10) {
+        padding: 0;list-style: none;text-decoration: none;font-size: 17px;
         position: absolute;
         left: 50%;
         margin-left: -90px;
+        -webkit-transform: rotate(300deg);
+        -moz-transform: rotate(300deg);
+        -ms-transform: rotate(300deg);
+        -o-transform: rotate(300deg);
         transform: rotate(300deg);
-        transform-origin: center 315px 10px;
+        -webkit-transform-origin: center 315px 10px;
+        -moz-transform-origin: center 315px 10px;
+        -ms-transform-origin: center 315px 10px;
+        -o-transform-origin: center 315px 10px;
+        transform-origin: center 315px 10px
     }
 
     .wrap ul li:nth-child(11) {
+        padding: 0;list-style: none;text-decoration: none;font-size: 17px;
         position: absolute;
         left: 50%;
         margin-left: -90px;
+        -webkit-transform: rotate(330deg);
+        -moz-transform: rotate(330deg);
+        -ms-transform: rotate(330deg);
+        -o-transform: rotate(330deg);
         transform: rotate(330deg);
-        transform-origin: center 315px 10px;
+        -webkit-transform-origin: center 315px 10px;
+        -moz-transform-origin: center 315px 10px;
+        -ms-transform-origin: center 315px 10px;
+        -o-transform-origin: center 315px 10px;
+        transform-origin: center 315px 10px
     }
 
     .wrap ul li:nth-child(12) {
+        padding: 0;list-style: none;text-decoration: none;font-size: 17px;
         position: absolute;
         left: 50%;
         margin-left: -90px;
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
         transform: rotate(360deg);
-        transform-origin: center 315px 10px;
+        -webkit-transform-origin: center 315px 10px;
+        -moz-transform-origin: center 315px 10px;
+        -ms-transform-origin: center 315px 10px;
+        -o-transform-origin: center 315px 10px;
+        transform-origin: center 315px 10px
     }
-    /*  依次类推到第12个... */
 
     .wrap ul li:nth-child(odd):after {
+        padding: 0;list-style: none;text-decoration: none;font-size: 17px;
         content: '';
         display: block;
         width: 0;
         height: 0;
         border-left: 89px solid transparent;
         border-right: 89px solid transparent;
-        border-top: 308px solid #1b7b54;
+        border-top: 308px solid #1b7b54
     }
 
+    .wrap ul li:nth-child(even):after {
+        padding: 0;list-style: none;text-decoration: none;font-size: 17px;
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-left: 89px solid transparent;
+        border-right: 89px solid transparent;
+        border-top: 308px solid #18b373
+    }
+
+    .wrap .title {
+        padding: 0;list-style: none;text-decoration: none;
+        width: 10%;
+        color: #fff;
+        font-size: 26px;
+        font-weight: 600;
+        position: absolute;
+        left: 50%;
+        margin-left: -5%;
+        top: 50%;
+        margin-top: -65%
+    }
+
+    .wrap .pointerDisk {
+        padding: 0;list-style: none;text-decoration: none;font-size: 17px;
+        width: 20%;
+        height: 20%;
+        position: absolute;
+        left: 50%;
+        margin-left: -10%;
+        top: 50%;
+        margin-top: -10%;
+        background: #d0f1dd;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 7rem;
+        color: #fff
+    }
+
+    .wrap .pointerDisk .internal {
+        padding: 0;list-style: none;text-decoration: none;font-size: 17px;
+        width: 80%;
+        height: 80%;
+        position: absolute;
+        left: 50%;
+        margin-left: -40%;
+        top: 50%;
+        margin-top: -40%;
+        border-radius: 50%;
+        background: #1cca69;
+        box-shadow: 0px 0px 8px -1px #2a924f;
+        cursor: pointer
+    }
+
+    .wrap .pointerDisk .triangleUp {
+        padding: 0;list-style: none;text-decoration: none;font-size: 17px;
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 50px solid #d0f1dd;
+        position: absolute;
+        top: -45px;
+        left: 39%
+    }
   </style>
 </head>
 <body>
@@ -411,7 +614,12 @@ for (int i = 1; i <= totalPage; i++){
   </article>
 
   <article id="coupon" style="display: none;">
-
+      <p class="result none" ></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
       <div class="wrap">
           <ul class="turntable">
               <li id="num2"> <div class="title">2</div> </li>
@@ -432,147 +640,7 @@ for (int i = 1; i <= totalPage; i++){
               <p class="internal">开始抽奖</p>
           </div>
       </div>
-      <script>
-          window.onload = function(){
-
-
-              function getClassName(tagName, classname) {
-                  if (document.getElementsByClassName) {
-                      return document.getElementsByClassName(classname);
-                  } else {
-                      var results = [];
-                      var elems = document.getElementsByTagName('*');
-                      for (var i = 0; i < elems.length; i++) {
-                          if (elems[i].className.indexOf(classname) != -1) {
-                              results[results.length] = elems[i];
-                          }
-                      }
-                      return results;
-                  }
-              }
-
-              var turntable = getClassName('ul','turntable')[0];
-              var result = getClassName('p','result')[0];
-
-              function CreateParameter (turntableDom,resultDom){
-                  //参数
-                  this.turntable = turntableDom;//转盘dom
-                  this.result = resultDom;//结果dom
-                  this.flag = true;//开关设置
-                  this.times = 20;//执行时间
-                  this.turns = Math.ceil(Math.random()*3+1);//旋转圈数
-                  this.speed = Math.floor(Math.random()*5)+3;//速度
-                  this.turnNum = 12;//格子总数
-                  this.deg = 360/this.turnNum;//转盘所对应的度数
-                  this.initital = 0;//转盘旋转角度
-                  this.turnBuffer = this.deg/2-5;//每个格子对应的度数缓冲区
-                  this.num = Math.ceil(Math.random() * this.turnNum)-1;//随机抽取的位置
-                  this.MathNum = 14;//重新编排编号数字与转盘对应，14是因为i=1时已经减去了一个
-                  this.arr =  this.NewArr(this.MathNum,this.deg,this.turnBuffer);//转盘角度参数
-                  this.initialDegMini = this.turns*360+this.arr[this.num][2];//初始最小值度数
-                  this.initialDegMax = this.turns*360+this.arr[this.num][1];//初始最大值度数
-                  this.MathAngle = Math.ceil(Math.random()*(this.initialDegMax-this.initialDegMini) )+this.initialDegMini;//转盘停止的角度
-                  this.text ='结果为：'+ this.arr[this.num][0];
-
-                  console.log(this.arr[this.num])
-                  console.log(this.speed)
-              }
-
-              CreateParameter.prototype.NewArr = function (MathNum,deg,turnBuffer){
-                  //计算转盘的各个角度参数
-                  var arr = [];
-                  for(let i = 1;i<=this.turnNum;i++){
-                      let num = MathNum-i;//做倒叙,跳过1
-                      if(i==1){num = i}
-                      let turnDeg = deg*i-deg;
-                      arr.push([num,turnDeg+turnBuffer,turnDeg-turnBuffer]) ;
-                  }
-                  return arr;
-              }
-
-              CreateParameter.prototype.OperatingDom = function(dom){
-                  //dom节点操作
-                  if(dom == 'rotate'){
-                      this.turntable.style.transform ="rotate("+this.initital+"deg)";
-                  }
-
-                  if(dom == 'innerHTML'){
-                      this.result.innerHTML = this.text;
-                  }
-
-              }
-
-              CreateParameter.prototype.judgment = function(){
-                  //判断
-                  if(this.initital >= this.initialDegMini-420){
-
-                      if(this.speed>0.9){
-                          this.speed = this.speed-0.05;
-                      }
-
-                  }
-
-                  if(this.initital >= this.MathAngle ){
-                      this.OperatingDom('innerHTML')
-                      this.reset();
-                  }else{
-                      //setTimeout内部指针会混乱所以需要外部定义
-                      var _this = this;
-                      setTimeout(function(){
-                          _this.star()
-                      },this.times)
-                  }
-              }
-
-              CreateParameter.prototype.reset = function (){
-                  //重置
-                  this.initital = this.MathAngle-(parseInt(this.MathAngle/360)*360);
-                  this.OperatingDom('rotate')
-                  this.num =  Math.ceil(Math.random()*12)-1;
-                  this.turns = Math.ceil(Math.random()*5+1);
-                  this.speed = Math.floor(Math.random()*3)+3;
-                  this.initialDegMini = this.turns*360+this.arr[this.num][2];
-                  this.initialDegMax = this.turns*360+this.arr[this.num][1];
-                  this.MathAngle = Math.ceil(Math.random()*(this.initialDegMax-this.initialDegMini) )+this.initialDegMini;
-                  this.flag = true;
-                  this.text ='结果为：'+ this.arr[this.num][0];
-
-              }
-
-              CreateParameter.prototype.star = function(){
-                  this.OperatingDom('rotate');//让转盘旋转
-                  this.initital+=this.speed;//增加角度
-                  this.judgment();//运行判断
-              }
-
-              var ProxySingleParameter = (function(){
-
-                  var  instance =  new CreateParameter(turntable,result);//存储参数
-                  var flag = instance.flag;//开关判断是否正在运行中
-
-                  return function (turntable,result){
-                      if(!flag){
-                          instance = new CreateParameter(turntable,result);//更新参数
-                          console.log(instance)
-                      }
-                      return instance;
-                  }
-
-              })()
-              document.onclick = function(e){
-                  var target = e.target || e.srcElement;
-                  if(target.className == 'internal'){
-                      let Parameter = new ProxySingleParameter(turntable,result);
-                      if(Parameter.flag){
-                          Parameter.result.classList.remove('none');
-                          Parameter.star();
-                          Parameter.flag = false;
-                      }else{
-                          console.log(Parameter.arr[Parameter.num]);
-                      }
-                  }
-              }
-          }
+      <script src="js/turntable.js?v=1" defer>
       </script>
   </article>
 
