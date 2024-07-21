@@ -1,6 +1,8 @@
 package com.example.lixiaomai.backend.controller;
 
+import com.example.lixiaomai.backend.entity.Business;
 import com.example.lixiaomai.backend.entity.Customer;
+import com.example.lixiaomai.backend.service.BusinessService;
 import com.example.lixiaomai.backend.service.CustomerService;
 import com.mysql.cj.Session;
 import com.sun.net.httpserver.HttpsServer;
@@ -28,6 +30,8 @@ public class ProfileOrderServlet extends HttpServlet {
 
         }
         else if (userType.equals("business")){
+            BusinessService businessService=new BusinessService();
+
 
         }
         else if (userType.equals("deliverman")){
