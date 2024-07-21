@@ -53,15 +53,17 @@
         <th>商品名称</th>
         <th>商品数量</th>
         <th>下订单时间</th>
+        <th>订单总价</th>
     </tr>
     <c:forEach var="order" items="${orderList}">
         <tr>
             <td>${order.id}</td>
-            <td>${order.sellerId}</td>
-            <td>${order.shopName}</td>
-            <td>${order.productName}</td>
-            <td>${order.quantity}</td>
-            <td>${order.orderTime}</td>
+            <td>${order.sId}</td>
+            <td>${order.sName}</td>
+            <td>${order.gId}</td>
+            <td>${order.goodsSum}</td>
+            <td>${order.startTime}</td>
+            <td>${order.total}</td>
         </tr>
     </c:forEach>
     </tbody>
