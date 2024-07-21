@@ -13,7 +13,7 @@ public class OrderService {
         return orderDao.getAllOrderByCid(cId);
     }
 
-    public List<Order> getAllOrderByDeliverId(int dId){
+    public List<Order> getAllOrderByDId(int dId){
         return orderDao.getAllOrderByDeliverId(dId);
     }
 
