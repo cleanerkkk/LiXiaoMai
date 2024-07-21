@@ -128,6 +128,7 @@ for (int i = 1; i <= totalPage; i++){
               <p class="internal">开始抽奖</p>
           </div>
       </div>
+<%--      在js里面 当抽奖结束 调用后端进行添加优惠券--%>
       <script src="js/turntable.js?v=1" defer>
       </script>
   </article>
@@ -157,7 +158,7 @@ for (int i = 1; i <= totalPage; i++){
       <div>
         <img src="./imgsrc/coupon.PNG">
         <p></p>
-        <a href="profileCoupon.jsp" onclick="">红包卡券</a>
+        <a href="profileCoupon.jsp">红包卡券</a>
       </div>
       <div>
         <img src="./imgsrc/exit.png" >
