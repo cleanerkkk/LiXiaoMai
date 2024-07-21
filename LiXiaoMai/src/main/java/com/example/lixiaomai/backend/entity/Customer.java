@@ -2,7 +2,7 @@ package com.example.lixiaomai.backend.entity;
 
 import lombok.Data;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 @Data
 public class Customer {
     private int id;
@@ -11,6 +11,6 @@ public class Customer {
     private String password;
     private String telephone;
     private String gender;
-    private Timestamp birthday;
+    private Date birthday;
     private String address;
 }

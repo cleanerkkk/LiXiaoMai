@@ -42,7 +42,7 @@
 <h2>订单管理</h2>
 
 <div class="account">
-    <p>用户类型：${userType} 用户姓名：${userName}</p>
+    <p>用户类型：${userType} 用户姓名：${name}</p>
 </div>
 <table>
     <thead>

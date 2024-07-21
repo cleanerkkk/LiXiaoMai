@@ -644,8 +644,9 @@ for (int i = 1; i <= totalPage; i++){
     <div class="profile-card">
       <img src="profile.jpg" alt="用户头像">
       <div class="profile-info">
-        <h2>用户名</h2>
-        <p>user@example.com</p>
+        <h2>${name}</h2>
+        <h2>${userType}</h2>
+        <p>${name}@example.com</p>
       </div>
     </div>
 

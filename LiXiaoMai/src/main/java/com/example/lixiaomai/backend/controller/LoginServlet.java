@@ -61,7 +61,7 @@ public class LoginServlet extends HttpServlet {
             request.getSession().setAttribute("name", username);
             request.getSession().setAttribute("userType", userType);
             
-            response.sendRedirect("index.jsp");
+            request.getRequestDispatcher("index.jsp").forward(request,response);
         }
         else{
             errorMessage = "用户名或密码错误";

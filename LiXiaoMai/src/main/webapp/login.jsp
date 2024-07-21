@@ -130,7 +130,7 @@
         }
     }
     function errorUpdate(){
-        var errormessage=session.getAttribute("error");
+        var errormessage=$(error);
         if(errormessage!=NULL){
             alert(errormessage);
             return false;
@@ -226,10 +226,11 @@
     </article>
     <article id="register" style="display: none;">
         <h2>“理小卖”外卖综合管理平台账号注册</h2>
-        <form action = "" method = "post">
+        <form action = "RegisterServlet" method = "post">
             <div>
                 <label for="registerUser">用户类型:</label>
                 <select name="registerUser" id="registerUser" onchange="showInput()">
+                    <option value="choose">请选择用户类型</option>
                     <option value="customer">用户</option>
                     <option value="business">商家</option>
                     <option value="deliverman">骑手</option>

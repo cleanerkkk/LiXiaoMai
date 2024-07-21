@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.function.Consumer;
 
 @WebServlet("/RegisterServlet")
@@ -21,7 +23,7 @@ public class RegisterServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         String registerType = request.getParameter("registerUser");
-        String registerUserName = request.getParameter("registerUserName");
+        String registerUserName = request.getParameter("registerUsername");
         String firstPassword = request.getParameter("firstPassword");
         String trueName = request.getParameter("trueName");
         String gender = request.getParameter("gender");
@@ -29,6 +31,7 @@ public class RegisterServlet extends HttpServlet {
         String idCard = request.getParameter("idCard");
         String storeName = request.getParameter("storeName");
         String address = request.getParameter("address");
+        Date date= Date.valueOf(request.getParameter("date"));
 
         boolean flag = false;
 
@@ -44,12 +47,13 @@ public class RegisterServlet extends HttpServlet {
             }
 
             Customer customer = new Customer();
-            customer.setUName(registerUserName);
-            customer.setPassword(firstPassword);
             customer.setName(trueName);
+            customer.setPassword(firstPassword);
+            customer.setUName(registerUserName);
             customer.setGender(gender);
             customer.setTelephone(telephone);
             customer.setAddress(address);
+            customer.setBirthday(date);
 
             flag = customerService.addCustomer(customer);
 
