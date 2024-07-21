@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: linear-gradient(to left, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    background-image: linear-gradient(to left bottom, #f9f1f5, #ffd1ea, #ffb1e1, #ff8fd8, #ff68d0, #e573e5, #c47ff5, #9e89ff, #2fb1ff, #00d1ff, #00ebff, #00ffef);
+    background-repeat: no-repeat;
 }
 nav {
     background-color: transparent;
@@ -8,7 +9,6 @@ nav {
     padding: 10px;
     background-size: 100% 100%;
     background-position: center;
-    background-repeat: no-repeat;
     font-weight: bold;
     text-align: right;
 }
