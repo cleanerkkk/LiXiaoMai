@@ -214,7 +214,7 @@
         left: 50%;
         margin-left: -350px;
         top: 50%;
-        margin-top: -350px;
+        margin-top: 0px;
         background: #24c7b8;
         border-radius: 50%;
         top: 45%
@@ -614,12 +614,7 @@ for (int i = 1; i <= totalPage; i++){
   </article>
 
   <article id="coupon" style="display: none;">
-      <p class="result none" ></p>
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
+      <div class="result none" ></div>
       <div class="wrap">
           <ul class="turntable">
               <li id="num2"> <div class="title">2</div> </li>
