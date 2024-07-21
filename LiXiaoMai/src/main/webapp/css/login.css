@@ -1,9 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-image: linear-gradient(to left, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
 }
 nav {
-    background-color:white;
+    background-color: transparent;
     color: black;
     padding: 10px;
     background-size: 100% 100%;
@@ -23,6 +23,7 @@ h2{
     text-decoration: black;
 }
 nav ul {
+
     list-style-type: none;
     padding: 0;
     overflow: hidden;
