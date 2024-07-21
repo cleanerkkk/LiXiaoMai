@@ -659,7 +659,7 @@ for (int i = 1; i <= totalPage; i++){
       <div>
         <img src="./imgsrc/order.PNG" alt="浏览记录">
         <p></p>
-        <a href="profileOrder.jsp">全部订单</a>
+        <a href="ProfileOrder">全部订单</a>
       </div>
       <div>
         <img src="./imgsrc/coupon.PNG" alt="红包卡券">
