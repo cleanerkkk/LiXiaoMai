@@ -7,7 +7,8 @@ import com.example.lixiaomai.backend.entity.Wallet;
 import com.example.lixiaomai.backend.service.CouponService;
 import com.example.lixiaomai.backend.service.CustomerService;
 import com.example.lixiaomai.backend.service.WalletService;
-import jdk.internal.net.http.common.Pair;
+import org.apache.commons.lang3.tuple.Pair;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -49,7 +50,7 @@ public class ProfileCouponServlet extends HttpServlet {
                 int wid = wallet.getDId().get(i);
                 Coupon coupon = couponService.getCouponById(wid);
                 int cnt = wallet.getDiscountNum().get(i);
-                list.add(new Pair<>(coupon,cnt));
+                list.add(Pair.of(coupon,cnt));
 
             }
 
