@@ -52,7 +52,7 @@
                 double total = order.getTotal();
         %>
         <tr>
-        <td><%=id%></td>
+            <td><a href="#"><%=id%></a></td>
         <td><%=sId%></td>
         <td><%=sName%></td>
         <td><%=gId%></td>
