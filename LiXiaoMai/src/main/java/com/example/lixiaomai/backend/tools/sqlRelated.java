@@ -14,8 +14,8 @@ public class sqlRelated {
     // 数据库连接参数
 
     public static void main(String[] args) {
-        String folderPath = "C:\\Users\\dell\\Downloads\\takeout\\LiXiaoMai\\LiXiaoMai\\数据库\\数据";
-        executeSQLFile(new File("C:\\Users\\dell\\Downloads\\takeout\\LiXiaoMai\\LiXiaoMai\\数据库\\create.sql"), DatabaseUtils.getConnection());
+        String folderPath = "LiXiaoMai/数据库/数据";
+        executeSQLFile(new File("LiXiaoMai/数据库/create.sql"), DatabaseUtils.getConnection());
         executeAllSQLInFolder(folderPath);
     }
 
