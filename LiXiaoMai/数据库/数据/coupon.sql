@@ -1,3 +1,4 @@
+use lxm;
 INSERT INTO coupon (`id`, `limit`, `discount`) VALUES (1, 20, 3.00);
 INSERT INTO coupon (`id`, `limit`, `discount`) VALUES (2, 30, 5.00);
 INSERT INTO coupon (`id`, `limit`, `discount`) VALUES (3, 25, 4.00);
