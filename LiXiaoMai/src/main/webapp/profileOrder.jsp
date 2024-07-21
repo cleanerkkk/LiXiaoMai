@@ -1,7 +1,9 @@
 <%@ page import="com.example.lixiaomai.backend.entity.Order" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="com.example.lixiaomai.backend.entity.Product" %><%--
+<%@ page import="com.example.lixiaomai.backend.entity.Product" %>
+<%@ page import="java.sql.Time" %>
+<%@ page import="java.sql.Timestamp" %><%--
   Created by IntelliJ IDEA.
   User: Lenovo
   Date: 2024/7/20
@@ -34,23 +36,22 @@
         <th>下订单时间</th>
         <th>订单总价</th>
     </tr>
-    <div class="orders123">
         <%
             List<Order> list = (List<Order>) request.getAttribute("orderList");
-            Map<Integer, List<Order>> productMap = (Map<Integer, List<Order>>) request.getAttribute("ProductMap");
-            Integer currentPage =(Integer) request.getAttribute("currentPage");
             Integer totalPage = (Integer) request.getAttribute("totalPages");
-            if ((list != null && !list.isEmpty())){
-                for (Order order: list){
-                    List<Order> id=productMap.get(order.getId());
-                    List<Order> sId=productMap.get(order.getSId());
-                    List<Order> dId=productMap.get(order.getDeliverId());
-                    List<Order> sName=productMap.get(order.getSName());
-                    List<Order> gId=productMap.get(order.getGId());
-                    List<Order> goodSum=productMap.get(order.getGoodsNum());
-                    List<Order> startTime=productMap.get(order.getStartTime());
-                    List<Order> total=productMap.get(order.getTotal());
+            Integer currentPage = (Integer) request.getAttribute("currentPage");
+
+            if (list != null && list.size() > 0){
+            for (Order order : list){
+                int id = order.getId();
+                int sId = order.getSId();
+                String sName = order.getSName();
+                List<Integer> gId = order.getGId();
+                List<Integer> goodSum = order.getGoodsNum();
+                Timestamp startTime = order.getStartTime();
+                double total = order.getTotal();
         %>
+        <tr>
         <td><%=id%></td>
         <td><%=sId%></td>
         <td><%=sName%></td>
@@ -58,54 +59,51 @@
         <td><%=goodSum%></td>
         <td><%=startTime%></td>
         <td><%=total%></td>
-
+        </tr>
         <div class = "business-info">
             <img src=" "alt=""id="">
         </div>
         <%
-            }
-        }
+            }}
         else{
         %>
+        <p>还没有订单哦</p>
         <%
+
             }
         %>
         <%
-            if (totalPage != null && currentPage != null && totalPage > 1){
+            if (totalPage != null && currentPage != null && totalPage > 1) {
         %>
         <nav>
             <ul>
                 <%
-                    for (int i = 1; i <= totalPage; i++){
-                        if (i == currentPage){
+                    for (int i = 1; i <= totalPage; i++) {
+                        if (i == currentPage) {
                 %>
-                <li><strong><%=i%></strong></li>
+                <li><strong><%= i %></strong></li>
                 <%
-                }
-                else{
+                } else {
                 %>
-                <li><a href="exhibit?page=<%=i%>"><%=i%></a></li>
+                <li><a href="ProfileOrder?page=<%= i %>"><%= i %></a></li>
                 <%
                     }
-                    if (i < totalPage){
-
+                    if (i < totalPage) {
                 %>
-                <li>|</li>
+                <li>&nbsp;|&nbsp;</li>
                 <%
                         }
                     }
                 %>
-
             </ul>
         </nav>
         <%
             }
         %>
-    </div>
-    </tbody>
     </thead>
-    <p>查询相关</p>
+
 </table>
+<p>查询相关</p>
 <button id="backToIndex"><a href="index.jsp">返回主页</a></button>
 </body>
 </html>

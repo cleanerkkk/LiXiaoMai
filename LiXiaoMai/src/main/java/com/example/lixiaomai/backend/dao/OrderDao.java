@@ -37,7 +37,7 @@ public class OrderDao {
         try{
             Connection conn = DatabaseUtils.getConnection();
             String sql = "SELECT * FROM `ORDER` WHERE sid = ?";
-            return runner.query(conn, sql, new BeanListHandler<>(Order.class), sId);
+            return runner.query(conn, sql, new OrderResultSetHandler(), sId);
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
@@ -87,7 +87,7 @@ public class OrderDao {
         try{
             Connection conn = DatabaseUtils.getConnection();
             String sql = "SELECT * FROM `ORDER` WHERE ID = ?";
-            return runner.query(conn, sql, new BeanHandler<>(Order.class), id);
+            return runner.query(conn, sql, new OrderResultSetHandler(), id).get(0);
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
