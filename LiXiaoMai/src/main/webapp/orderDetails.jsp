@@ -1,7 +1,9 @@
 <%@ page import="com.example.lixiaomai.backend.entity.Order" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.sql.Timestamp" %>
-<%@ page import="com.example.lixiaomai.backend.service.OrderService" %><%--
+<%@ page import="com.example.lixiaomai.backend.service.OrderService" %>
+<%@ page import="com.example.lixiaomai.backend.service.CommentService" %>
+<%@ page import="com.example.lixiaomai.backend.entity.Comment" %><%--
   Created by IntelliJ IDEA.
   User: Lenovo
   Date: 2024/7/20
@@ -92,7 +94,37 @@
         }
     %>
 </div>
+<div class="comments">
+    <%
+        // 获取该订单的所有评论
+        CommentService commentService = new CommentService();
+        List<Comment> comments = commentService.getCommentById(Integer.parseInt(orderId));
 
+        if (comments != null && !comments.isEmpty()) {
+            for (Comment comment : comments) {
+                int commentId = comment.getId();
+                String commentText = comment.getText();
+                Timestamp commentTime = comment.getTime();
+                String commentUser = comment.getUser();
+    %>
+    <div class="comment">
+        <p><strong><%= commentUser %></strong> (<%= commentTime %>):</p>
+        <p><%= commentText %></p>
+        <form action="DeleteComment" method="post" style="display:inline;">
+            <input type="hidden" name="commentId" value="<%= commentId %>">
+            <input type="hidden" name="orderId" value="<%= orderId %>">
+            <button type="submit">删除评论</button>
+        </form>
+    </div>
+    <%
+        }
+    } else {
+    %>
+    <p>还没有评论。</p>
+    <%
+        }
+    %>
+</div>
 <button id="backToOrders"><a href="ProfileOrder">返回订单列表</a></button>
 </body>
 </html>
