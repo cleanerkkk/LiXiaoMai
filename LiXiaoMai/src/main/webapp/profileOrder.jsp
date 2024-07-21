@@ -52,7 +52,7 @@
                 double total = order.getTotal();
         %>
         <tr>
-            <td><a href="#"><%=id%></a></td>
+            <td><a href="orderDetails.jsp?id=<%=id%>"><%=id%></a></td>
         <td><%=sId%></td>
         <td><%=sName%></td>
         <td><%=gId%></td>
@@ -87,7 +87,7 @@
         <%
         } else {
         %>
-        <li><a href="ProfileOrder?page=<%= i %>"><%= i %></a></li>
+        <li><a href="ProfileOrder?oId=?<%= i %>"><%= i %></a></li>
         <%
             }
             if (i < totalPage) {
