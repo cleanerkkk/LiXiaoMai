@@ -157,7 +157,7 @@ for (int i = 1; i <= totalPage; i++){
       <div>
         <img src="./imgsrc/coupon.PNG" alt="红包卡券">
         <p></p>
-        <a href="profileCoupon.jsp">红包卡券</a>
+        <a href="profileCoupon.jsp" onclick="">红包卡券</a>
       </div>
       <div>
         <img src="./imgsrc/exit.png" alt="美团币">

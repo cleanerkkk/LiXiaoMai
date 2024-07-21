@@ -15,7 +15,7 @@
     <title>优惠券界面</title>
 </head>
 <body>
-<h2>订单管理</h2>
+<h2>优惠券管理</h2>
 
 <div class="account">
     <p>用户类型：${userType} 用户姓名：${name}</p>
@@ -23,28 +23,20 @@
 <table>
     <thead>
     <tr>
-        <th>订单ID</th>
-        <th>商家ID</th>
-        <th>店铺名称</th>
-        <th>商品名称</th>
-        <th>商品数量</th>
-        <th>下订单时间</th>
-        <th>订单总价</th>
+        <th>优惠券名称</th>
+        <th>优惠券起用金额</th>
+        <th>优惠券优惠金额</th>
     </tr>
-    <c:forEach var="order" items="${orderList}">
+    <c:forEach var="coupon" items="${couponList}">
     <tr>
-        <td>${order.id}</td>
-        <td>${order.sId}</td>
-        <td>${order.sName}</td>
-        <td>${order.gId}</td>
-        <td>${order.goodsSum}</td>
-        <td>${order.startTime}</td>
-        <td>${order.total}</td>
+        <td>天天爆红包</td>
+        <td>${coupon.limit}</td>
+        <td>${coupon.discount}</td>
     </tr>
     </c:forEach>
     </tbody>
     </thead>
-    <p>查询相关</p>
+    <p>红包卡券</p>
 </table>
 <button id="backToIndex"><a href="index.jsp">返回主页</a></button>
 </body>
