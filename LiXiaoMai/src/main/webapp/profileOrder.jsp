@@ -29,36 +29,34 @@
     <thead>
     <tr>
         <th>订单ID</th>
-        <th>商家ID</th>
         <th>店铺名称</th>
         <th>商品名称</th>
         <th>商品数量</th>
-        <th>下订单时间</th>
+        <th>订单时间</th>
         <th>订单总价</th>
     </tr>
         <%
             List<Order> list = (List<Order>) request.getAttribute("orderList");
             Integer totalPage = (Integer) request.getAttribute("totalPages");
             Integer currentPage = (Integer) request.getAttribute("currentPage");
+            Map<Integer,List<String>> productMap = (Map<Integer, List<String>>) request.getAttribute("productMap");
 
             if (list != null && list.size() > 0){
             for (Order order : list){
                 int id = order.getId();
-                int sId = order.getSId();
                 String sName = order.getSName();
-                List<Integer> gId = order.getGId();
                 List<Integer> goodSum = order.getGoodsNum();
+                List<String> productName = productMap.get(id);
                 Timestamp startTime = order.getStartTime();
                 double total = order.getTotal();
         %>
         <tr>
             <td><a href="orderDetails.jsp?id=<%=id%>"><%=id%></a></td>
-        <td><%=sId%></td>
-        <td><%=sName%></td>
-        <td><%=gId%></td>
-        <td><%=goodSum%></td>
-        <td><%=startTime%></td>
-        <td><%=total%></td>
+            <td><%=sName%></td>
+             <td><%=productName%></td>
+              <td><%=goodSum%></td>
+              <td><%=startTime%></td>
+             <td><%=total%></td>
         </tr>
 
         <%
@@ -87,7 +85,7 @@
         <%
         } else {
         %>
-        <li><a href="ProfileOrder?oId=?<%= i %>"><%= i %></a></li>
+        <li><a href="ProfileOrder?page=<%= i %>"><%= i %></a></li>
         <%
             }
             if (i < totalPage) {

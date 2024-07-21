@@ -81,7 +81,6 @@
 <table>
     <thead>
     <tr>
-        <th>优惠券id</th>
         <th>优惠券名称</th>
         <th>优惠券数量</th>
         <th>优惠券起用金额</th>
@@ -91,18 +90,21 @@
         List<Pair<Coupon,Integer>> list = (List<Pair<Coupon,Integer>>) request.getAttribute("couponList");
         Integer totalPage = (Integer) request.getAttribute("totalPages");
         Integer currentPage = (Integer) request.getAttribute("currentPage");
-
         if (list != null && list.size() > 0){
             for (Pair<Coupon,Integer> pci : list){
                 Coupon coupon = pci.getLeft();
                 int num = pci.getRight();
-                int id = coupon.getId();
                 int limit = coupon.getLimit();
                 double discount = coupon.getDiscount();
+                String name;
+                if(limit > 0){
+                    name = "满减红包";
+                }else{
+                    name = "无门槛券";
+                }
     %>
     <tr>
-        <td><%=id%></td>
-        <td>天天爆红包</td>
+        <td><%=name%></td>
         <td><%=num%></td>
         <td><%=limit%></td>
         <td><%=discount%></td>

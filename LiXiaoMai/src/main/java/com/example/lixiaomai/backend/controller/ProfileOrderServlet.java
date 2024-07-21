@@ -1,14 +1,8 @@
 package com.example.lixiaomai.backend.controller;
 
-import com.example.lixiaomai.backend.entity.Customer;
-import com.example.lixiaomai.backend.entity.Deliverman;
 import com.example.lixiaomai.backend.entity.Order;
-import com.example.lixiaomai.backend.service.BusinessService;
-import com.example.lixiaomai.backend.service.CustomerService;
-import com.example.lixiaomai.backend.service.DelivermanService;
-import com.example.lixiaomai.backend.service.OrderService;
-import com.mysql.cj.Session;
-import com.sun.net.httpserver.HttpsServer;
+import com.example.lixiaomai.backend.entity.Product;
+import com.example.lixiaomai.backend.service.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,9 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet("/ProfileOrder")
 public class ProfileOrderServlet extends HttpServlet {
@@ -32,6 +27,8 @@ public class ProfileOrderServlet extends HttpServlet {
         String userType = (String) session.getAttribute("userType");
         String userName = (String) session.getAttribute("name");
         OrderService orderService = new OrderService();
+        ProductService productService = new ProductService();
+
 
         List<Order> list = new ArrayList<>();
 
@@ -49,15 +46,13 @@ public class ProfileOrderServlet extends HttpServlet {
         }
 
 
-        if (userType.equals("customer")){
+        if (userType.equals("customer")) {
             CustomerService customerService = new CustomerService();
             list = orderService.getAllOrderByCid(customerService.getUserByUsername(userName).getId());
-        }
-        else if (userType.equals("business")){
+        } else if (userType.equals("business")) {
             BusinessService businessService = new BusinessService();
             list = orderService.getAllOrderBySid(businessService.getBusinessByUsername(userName).getId());
-        }
-        else if (userType.equals("deliverman")){
+        } else if (userType.equals("deliverman")) {
             DelivermanService delivermanService = new DelivermanService();
             list = orderService.getAllOrderByDId(delivermanService.getDelivermanByUsername(userName).getId());
         }
@@ -67,14 +62,26 @@ public class ProfileOrderServlet extends HttpServlet {
         int start = (page - 1) * recordsPerPage;
         int end = Math.min(start + recordsPerPage, allRecords);
         List<Order> paginatedList = list.subList(start, end);
+        Map<Integer, List<String>> ProductMap = new HashMap<>();
+        for (Order order : paginatedList) {
+            List<Integer> ProductIds = order.getGId();
+            List<String> productNames = new ArrayList<>();
+            for (int pId : ProductIds) {
+                Product product = productService.getProductById(pId);
+                productNames.add(product.getName());
+            }
+            int id = order.getId();
+            ProductMap.put(id, productNames);
+        }
+
         request.setAttribute("orderList", paginatedList);
         request.setAttribute("totalPages", totalPages);
+        request.setAttribute("productMap", ProductMap);
         request.setAttribute("currentPage", page);
 
 
         request.getRequestDispatcher("profileOrder.jsp").forward(request, response);
         //12346
-
 
 
     }

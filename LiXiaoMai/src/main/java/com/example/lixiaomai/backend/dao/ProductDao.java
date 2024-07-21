@@ -47,6 +47,16 @@ public class ProductDao {
         }
     }
 
+    public Product getProductById(int id){
+        try {
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "SELECT * FROM PRODUCT WHERE ID = ?";
+            return runner.query(conn, sql, new BeanListHandler<>(Product.class), id).get(0);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 
 

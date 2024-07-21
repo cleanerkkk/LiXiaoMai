@@ -128,7 +128,6 @@ for (int i = 1; i <= totalPage; i++){
               <p class="internal">开始抽奖</p>
           </div>
       </div>
-<%--      在js里面 当抽奖结束 调用后端进行添加优惠券--%>
       <script src="js/turntable.js?v=1" defer>
       </script>
   </article>
