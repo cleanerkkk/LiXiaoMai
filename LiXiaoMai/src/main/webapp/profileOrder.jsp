@@ -44,6 +44,7 @@
                 for (Order order: list){
                     List<Order> id=productMap.get(order.getId());
                     List<Order> sId=productMap.get(order.getSId());
+                    List<Order> dId=productMap.get(order.getDeliverId());
                     List<Order> sName=productMap.get(order.getSName());
                     List<Order> gId=productMap.get(order.getGId());
                     List<Order> goodSum=productMap.get(order.getGoodsNum());
