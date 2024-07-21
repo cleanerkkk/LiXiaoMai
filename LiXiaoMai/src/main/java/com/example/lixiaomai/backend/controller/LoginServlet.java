@@ -1,10 +1,8 @@
 package com.example.lixiaomai.backend.controller;
 
 import com.example.lixiaomai.backend.entity.Business;
-import com.example.lixiaomai.backend.service.AdminService;
-import com.example.lixiaomai.backend.service.BusinessService;
-import com.example.lixiaomai.backend.service.CustomerService;
-import com.example.lixiaomai.backend.service.DelivermanService;
+import com.example.lixiaomai.backend.entity.Wallet;
+import com.example.lixiaomai.backend.service.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,6 +39,14 @@ public class LoginServlet extends HttpServlet {
             case "customer":
                 CustomerService customerService = new CustomerService();
                 loginResult = customerService.login(username, password);
+                WalletService walletService = new WalletService();
+                Wallet wallet = walletService.getWalletById(customerService.getUserByUsername(username).getId());
+                int cnt = 0;
+                for (int i = 0; i < wallet.getDiscountNum().size(); i++) {
+                    cnt += wallet.getDiscountNum().get(i);
+                }
+                boolean ableToTurn = cnt >= 5;
+                request.setAttribute("ableToTurn", ableToTurn);
 
                 break;
             case "admin":

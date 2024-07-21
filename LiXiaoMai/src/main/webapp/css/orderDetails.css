@@ -21,9 +21,9 @@ h2 {
     color:black;
 }
 h3 {
-    text-align: right;
-    margin: 0;
-    font-size: 20px;
+    text-align: center;
+    margin-top: 0;
+    color:black;
 }
 table {
     width: 100%;
@@ -51,4 +51,13 @@ a {
 }
 a:hover {
     text-decoration: underline;
+}
+.cutLine{
+    padding-bottom: 10px;
+    border-bottom: #3F6580 solid 1px;
+    text-align: center;
+}
+.account{
+    text-align: center;
+    text-decoration: #9e89ff;
 }

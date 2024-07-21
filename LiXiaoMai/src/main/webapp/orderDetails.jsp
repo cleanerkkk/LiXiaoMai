@@ -18,15 +18,17 @@
 </head>
 <body>
 <h2>订单详情</h2>
-
+<div class="account">
+    <p>用户类型：${userType} 用户姓名：${name}</p>
+</div>
 <div class="order-details">
     <%
         // 获取订单ID参数
         String orderId = request.getParameter("id");
 
-        // 根据订单ID查询订单详细信息（假设有一个方法getOrderById）
-        OrderService orderService=new OrderService();
-        Order order=orderService.getOrderById(Integer.parseInt(orderId));
+        // 根据订单ID查询订单详细信息
+        OrderService orderService = new OrderService();
+        Order order = orderService.getOrderById(Integer.parseInt(orderId));
 
         if (order != null) {
             int id = order.getId();
@@ -37,21 +39,51 @@
             Timestamp startTime = order.getStartTime();
             double total = order.getTotal();
     %>
-    <p><strong>订单ID：</strong><%= id %></p>
-    <p><strong>商家ID：</strong><%= sId %></p>
-    <p><strong>店铺名称：</strong><%= sName %></p>
-    <p><strong>商品信息：</strong></p>
-    <ul>
+    <table border="1">
+        <tr>
+            <th>订单ID</th>
+            <td><%= id %></td>
+        </tr>
+        <tr>
+            <th>商家ID</th>
+            <td><%= sId %></td>
+        </tr>
+        <tr>
+            <th>店铺名称</th>
+            <td><%= sName %></td>
+        </tr>
+        <tr>
+            <th>下订单时间</th>
+            <td><%= startTime %></td>
+        </tr>
+        <tr>
+            <th>订单总价</th>
+            <td><%= total %></td>
+        </tr>
+    </table>
+    <div class="cutLine">
+        <p>    </p>
+    </div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <h3>商品信息</h3>
+    <table border="1">
+        <tr>
+            <th>商品ID</th>
+            <th>数量</th>
+        </tr>
         <%
             for (int i = 0; i < gId.size(); i++) {
         %>
-        <li>商品ID: <%= gId.get(i) %> 数量: <%= goodSum.get(i) %></li>
+        <tr>
+            <td><%= gId.get(i) %></td>
+            <td><%= goodSum.get(i) %></td>
+        </tr>
         <%
             }
         %>
-    </ul>
-    <p><strong>下订单时间：</strong><%= startTime %></p>
-    <p><strong>订单总价：</strong><%= total %></p>
+    </table>
     <%
     } else {
     %>
