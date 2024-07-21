@@ -206,15 +206,15 @@
         font-size: 26px
     }
 
-    .wrap {
+     .container .wrap {
         padding: 0;list-style: none;text-decoration: none;font-size: 17px;
         width: 700px;
         height: 700px;
-        position: absolute;
+        position: relative;
         left: 50%;
         margin-left: -350px;
         top: 50%;
-        margin-top: -350px;
+        margin-top: 0px;
         background: #24c7b8;
         border-radius: 50%;
         top: 45%
@@ -614,12 +614,9 @@ for (int i = 1; i <= totalPage; i++){
   </article>
 
   <article id="coupon" style="display: none;">
-      <p class="result none" ></p>
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
+      <script src="js/turntable.js?v=1" defer>
+      </script>
+      <div class="result none" ></div>
       <div class="wrap">
           <ul class="turntable">
               <li id="num2"> <div class="title">2</div> </li>
@@ -640,8 +637,7 @@ for (int i = 1; i <= totalPage; i++){
               <p class="internal">开始抽奖</p>
           </div>
       </div>
-      <script src="js/turntable.js?v=1" defer>
-      </script>
+
   </article>
 
   <article id="profile" style="display: none;">
