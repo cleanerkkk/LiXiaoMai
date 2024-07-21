@@ -7,6 +7,7 @@ import com.example.lixiaomai.backend.entity.Wallet;
 import com.example.lixiaomai.backend.service.CouponService;
 import com.example.lixiaomai.backend.service.CustomerService;
 import com.example.lixiaomai.backend.service.WalletService;
+import jdk.internal.net.http.common.Pair;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -43,22 +44,46 @@ public class ProfileCouponServlet extends HttpServlet {
             WalletService walletService = new WalletService();
             Wallet wallet = walletService.getWalletById(id);
 
-            Map<Coupon, Integer> couponMap = new HashMap<>();
+            List<Pair<Coupon,Integer>> list = new ArrayList<>();
             for (int i = 0; i < wallet.getDId().size(); i++) {
                 int wid = wallet.getDId().get(i);
                 Coupon coupon = couponService.getCouponById(wid);
                 int cnt = wallet.getDiscountNum().get(i);
-                couponMap.put(coupon, cnt);
+                list.add(new Pair<>(coupon,cnt));
 
             }
-            session.setAttribute("couponMap", couponMap);
-            response.sendRedirect("profileCoupon.jsp");
+
+            int page = 1;
+            int recordsPerPage = 2;
+            String x = request.getParameter("page");
+
+            if (x != null) {
+                try {
+                    page = Integer.parseInt(request.getParameter("page"));
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+            }
+            int allRecords = list.size();
+            int totalPages = (int) Math.ceil(allRecords * 1.0 / recordsPerPage);
+            int start = (page - 1) * recordsPerPage;
+            int end = Math.min(start + recordsPerPage, allRecords);
+            List<Pair<Coupon,Integer>> paginatedList = list.subList(start, end);
+            request.setAttribute("couponList", paginatedList);
+            request.setAttribute("totalPages", totalPages);
+            request.setAttribute("currentPage", page);
+
+
+            request.getRequestDispatcher("profileCoupon.jsp").forward(request, response);
 
         } else {
             String errorMessage = "You are not a customer!";
             request.setAttribute("error", errorMessage);
             request.getRequestDispatcher("profile.jsp?error=" + errorMessage).forward(request, response);
         }
+
+
+
 
 
 
