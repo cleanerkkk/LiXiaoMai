@@ -206,11 +206,11 @@
         font-size: 26px
     }
 
-    .wrap {
+     .container .wrap {
         padding: 0;list-style: none;text-decoration: none;font-size: 17px;
         width: 700px;
         height: 700px;
-        position: absolute;
+        position: relative;
         left: 50%;
         margin-left: -350px;
         top: 50%;
@@ -614,6 +614,8 @@ for (int i = 1; i <= totalPage; i++){
   </article>
 
   <article id="coupon" style="display: none;">
+      <script src="js/turntable.js?v=1" defer>
+      </script>
       <div class="result none" ></div>
       <div class="wrap">
           <ul class="turntable">
@@ -635,8 +637,7 @@ for (int i = 1; i <= totalPage; i++){
               <p class="internal">开始抽奖</p>
           </div>
       </div>
-      <script src="js/turntable.js?v=1" defer>
-      </script>
+
   </article>
 
   <article id="profile" style="display: none;">
