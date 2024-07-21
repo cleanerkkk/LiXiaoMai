@@ -18,6 +18,9 @@
 </head>
 <body>
 <h2>订单详情</h2>
+<div class="account">
+    <p>用户类型：${userType} 用户姓名：${name}</p>
+</div>
 <div class="order-details">
     <%
         // 获取订单ID参数
