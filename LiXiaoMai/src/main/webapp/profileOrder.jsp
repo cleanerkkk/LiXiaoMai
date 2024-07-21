@@ -102,7 +102,6 @@
 <%
     }
 %>
-<p>查询相关</p>
 <button id="backToIndex"><a href="index.jsp">返回主页</a></button>
 </body>
 </html>
