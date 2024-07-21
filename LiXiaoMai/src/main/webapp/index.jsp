@@ -134,15 +134,19 @@ for (int i = 1; i <= totalPage; i++){
   </article>
 
   <article id="profile" style="display: none;">
+    <section class="layout">
+        <div class="header">
+            <div class="profile-card">
+                <img src="profile.jpg" alt="用户头像">
+                <div class="profile-info">
+                    <h2>${name}</h2>
+                    <h2>${userType}</h2>
+                    <p>${name}@example.com</p>
+                </div>
+            </div>
+        </div>
+
     <div class="containerNew">
-    <div class="profile-card">
-      <img src="profile.jpg" alt="用户头像">
-      <div class="profile-info">
-        <h2>${name}</h2>
-        <h2>${userType}</h2>
-        <p>${name}@example.com</p>
-      </div>
-    </div>
 
     <div class="nav">
       <div>
@@ -177,6 +181,7 @@ for (int i = 1; i <= totalPage; i++){
       </div>
     </div>
     </div>
+    </section>
   </article>
 </div>
 </body>
