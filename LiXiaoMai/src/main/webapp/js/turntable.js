@@ -42,6 +42,16 @@ window.onload = function(){
         var res = newArray[this.arr[this.num][0]];
         this.text ='结果为：'+ res;
 
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "CouponServlet", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log("Response from server: ", xhr.responseText);
+            }
+        };
+        xhr.send("result=" + encodeURIComponent(res));
+
         console.log(this.arr[this.num])
         console.log(this.speed)
     }
