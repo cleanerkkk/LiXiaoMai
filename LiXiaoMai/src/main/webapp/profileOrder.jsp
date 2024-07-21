@@ -42,7 +42,7 @@
 <h2>课程管理</h2>
 
 <div class="account">
-    <p>学号：${stuinfo} 姓名：${stuname}</p>
+    <p>用户类型：${stuinfo} 用户姓名：${stuname}</p>
 </div>
 <table>
     <thead>
