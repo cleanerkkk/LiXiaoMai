@@ -21,7 +21,7 @@ public class WalletResultSetHandler implements ResultSetHandler<List<Wallet>> {
             wallet.setBalance(rs.getDouble("balance"));
 
             wallet.setDId(Tool.StringToList(rs.getString("dId"), Integer.class));
-            wallet.setDiscountNum(Tool.StringToList(rs.getString("DISCOUNTNUM"), Double.class));
+            wallet.setDiscountNum(Tool.StringToList(rs.getString("DISCOUNTNUM"), Integer.class));
             wallets.add(wallet);
         }
         return wallets;
