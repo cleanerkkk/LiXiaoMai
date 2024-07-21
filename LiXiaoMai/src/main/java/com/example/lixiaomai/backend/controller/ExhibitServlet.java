@@ -4,6 +4,7 @@ import com.example.lixiaomai.backend.entity.Business;
 import com.example.lixiaomai.backend.entity.Product;
 import com.example.lixiaomai.backend.service.BusinessService;
 import com.example.lixiaomai.backend.service.ProductService;
+import lombok.Data;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
