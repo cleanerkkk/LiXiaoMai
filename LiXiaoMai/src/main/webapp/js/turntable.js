@@ -38,7 +38,9 @@ window.onload = function(){
         this.initialDegMini = this.turns*360+this.arr[this.num][2];//初始最小值度数
         this.initialDegMax = this.turns*360+this.arr[this.num][1];//初始最大值度数
         this.MathAngle = Math.ceil(Math.random()*(this.initialDegMax-this.initialDegMini) )+this.initialDegMini;//转盘停止的角度
-        this.text ='结果为：'+ newArray[this.arr[this.num][0]];
+
+        var res = newArray[this.arr[this.num][0]];
+        this.text ='结果为：'+ res;
 
         console.log(this.arr[this.num])
         console.log(this.speed)
