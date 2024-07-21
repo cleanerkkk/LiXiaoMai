@@ -11,6 +11,68 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<style>
+    table {
+        width: 80%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        color: #333;
+    }
+
+    tr:hover {
+        background-color: #f9f9f9;
+    }
+
+    #linker {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    #linker a {
+        display: inline-block;
+        margin-right: 20px;
+        text-decoration: none;
+        color: #333;
+        padding: 10px 20px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+    }
+
+    #linker a:hover {
+        background-color: #ddd;
+    }
+    nav {
+        margin-top: 20px;
+        text-align: center;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    nav ul li {
+        display: inline;
+        margin: 0 5px;
+    }
+    nav ul li a {
+        text-decoration: none;
+        color: #007BFF;
+    }
+    nav ul li a:hover {
+        text-decoration: underline;
+    }
+</style>
 <html>
 <head>
     <title>Title</title>
@@ -60,9 +122,7 @@
         <td><%=startTime%></td>
         <td><%=total%></td>
         </tr>
-        <div class = "business-info">
-            <img src=" "alt=""id="">
-        </div>
+
         <%
             }}
         else{
@@ -72,37 +132,38 @@
 
             }
         %>
-        <%
-            if (totalPage != null && currentPage != null && totalPage > 1) {
-        %>
-        <nav>
-            <ul>
-                <%
-                    for (int i = 1; i <= totalPage; i++) {
-                        if (i == currentPage) {
-                %>
-                <li><strong><%= i %></strong></li>
-                <%
-                } else {
-                %>
-                <li><a href="ProfileOrder?page=<%= i %>"><%= i %></a></li>
-                <%
-                    }
-                    if (i < totalPage) {
-                %>
-                <li>&nbsp;|&nbsp;</li>
-                <%
-                        }
-                    }
-                %>
-            </ul>
-        </nav>
-        <%
-            }
-        %>
+
     </thead>
 
 </table>
+<%
+    if (totalPage != null && currentPage != null && totalPage > 1) {
+%>
+<nav>
+    <ul>
+        <%
+            for (int i = 1; i <= totalPage; i++) {
+                if (i == currentPage) {
+        %>
+        <li><strong><%= i %></strong></li>
+        <%
+        } else {
+        %>
+        <li><a href="ProfileOrder?page=<%= i %>"><%= i %></a></li>
+        <%
+            }
+            if (i < totalPage) {
+        %>
+        <li>&nbsp;|&nbsp;</li>
+        <%
+                }
+            }
+        %>
+    </ul>
+</nav>
+<%
+    }
+%>
 <p>查询相关</p>
 <button id="backToIndex"><a href="index.jsp">返回主页</a></button>
 </body>
