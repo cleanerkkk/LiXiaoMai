@@ -87,11 +87,13 @@ CREATE TABLE IF NOT EXISTS `ADMIN`(
                                       `UNAME` VARCHAR(20)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+drop table business;
 CREATE TABLE IF NOT EXISTS `BUSINESS`(
                                          `ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                                          `PASSWORD` VARCHAR(20),
                                          `SHOPNAME` VARCHAR(20),
                                          `UNAME` VARCHAR(16),
+                                          `NAME` VARCHAR(10),
                                          `ADDRESS` VARCHAR(32),
                                          `TELEPHONE` VARCHAR(11),
                                          `IDCARD` VARCHAR(18)
