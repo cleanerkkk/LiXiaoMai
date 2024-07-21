@@ -1,6 +1,5 @@
 
 
-use lxm;
 
 drop table product;
 CREATE TABLE IF NOT EXISTS `PRODUCT`(
