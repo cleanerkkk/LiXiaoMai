@@ -145,40 +145,45 @@ for (int i = 1; i <= totalPage; i++){
                 </div>
             </div>
         </div>
-
-    <div class="containerNew">
-
-    <div class="nav">
-      <div>
-        <img src="./imgsrc/settings.png">
-        <p></p>
-          <a href="ProfileSettings">账户设置</a>
-      </div>
-      <div>
-        <img src="./imgsrc/order.PNG">
-        <p></p>
-        <a href="ProfileOrder">全部订单</a>
-      </div>
-      <div>
-        <img src="./imgsrc/coupon.PNG">
-        <p></p>
-        <a href="profileCoupon.jsp">红包卡券</a>
-      </div>
-      <div>
-        <img src="./imgsrc/exit.png" >
-        <p></p>
-        <a href="login.jsp">退出登录</a>
-      </div>
-    </div>
-    <div class="sections">
-        <div class="section">
-          <h3>最近订单</h3>
-          <p>这里显示最近的订单信息...</p>
+        <div class="leftSide">
+            <div class="section">
+                <h3>最近订单</h3>
+                <p>这里显示最近的订单信息...</p>
+            </div>
         </div>
-      <div class="section">
-          <h3>收藏的餐馆</h3>
-          <p>这里显示收藏的餐馆信息...</p>
-      </div>
+        <div class="rightSide">
+            <div class="section">
+                <h3>收藏的餐馆</h3>
+                <p>这里显示收藏的餐馆信息...</p>
+            </div>
+        </div>
+    <div class="containerNew">
+    <div class="body">
+        <div class="nav">
+            <div>
+                <img src="./imgsrc/settings.png">
+                <p></p>
+                <a href="ProfileSettings">账户设置</a>
+            </div>
+            <div>
+                <img src="./imgsrc/order.PNG">
+                <p></p>
+                <a href="ProfileOrder">全部订单</a>
+            </div>
+            <div>
+                <img src="./imgsrc/coupon.PNG">
+                <p></p>
+                <a href="profileCoupon.jsp">红包卡券</a>
+            </div>
+            <div>
+                <img src="./imgsrc/exit.png" >
+                <p></p>
+                <a href="login.jsp">退出登录</a>
+            </div>
+        </div>
+        <div class="note">
+            <h2>个人简介</h2>
+        </div>
     </div>
     </div>
     </section>
