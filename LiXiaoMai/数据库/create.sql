@@ -1,8 +1,7 @@
 
-
 use lxm;
 
-drop table product;
+
 CREATE TABLE IF NOT EXISTS `PRODUCT`(
     `ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `NAME` VARCHAR(16) NOT NULL,
@@ -13,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `PRODUCT`(
     `SID` INT NOT NULL
     )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-drop table deliverman;
+
 CREATE TABLE IF NOT EXISTS `DELIVERMAN`(
     `ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `NAME` VARCHAR(10) NOT NULL,
@@ -27,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `DELIVERMAN`(
     `STATUS` INT NOT NULL
     )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-drop table customer;
+
 CREATE TABLE IF NOT EXISTS `CUSTOMER`(
     `ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `NAME` VARCHAR(10) NOT NULL,
@@ -39,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `CUSTOMER`(
     `ADDRESS` VARCHAR(100) NOT NULL
     )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-drop table comment;
+
 CREATE TABLE IF NOT EXISTS `COMMENT`(
     `ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `STARTID` INT NOT NULL DEFAULT '0',
@@ -54,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `COMMENT`(
     `STATUS` INT NOT NULL DEFAULT '1'
     )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-drop table `order`;
+
 CREATE TABLE IF NOT EXISTS `ORDER`(
     `ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `CID` INT NOT NULL,
@@ -72,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `ORDER`(
     `CNAME` VARCHAR(16) NOT NULL
     )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-drop table cart;
+
 CREATE TABLE IF NOT EXISTS `CART`(
     `CID` INT NOT NULL,
     `GID` VARCHAR(100),
@@ -80,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `CART`(
     `TOTAL` DECIMAL(10,2)
     )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-drop table wallet;
+
 CREATE TABLE IF NOT EXISTS `WALLET`(
                                        `ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                                        `PASSWORD` VARCHAR(6),
@@ -89,14 +88,14 @@ CREATE TABLE IF NOT EXISTS `WALLET`(
                                        `DISCOUNTNUM` VARCHAR(100)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-drop table admin;
+
 CREATE TABLE IF NOT EXISTS `ADMIN`(
                                       `ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                                       `PASSWORD` VARCHAR(20),
                                       `UNAME` VARCHAR(20)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-drop table business;
+
 CREATE TABLE IF NOT EXISTS `BUSINESS`(
                                          `ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                                          `PASSWORD` VARCHAR(20),
@@ -108,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `BUSINESS`(
                                          `IDCARD` VARCHAR(18)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-drop table coupon;
+
 CREATE TABLE IF NOT EXISTS `COUPON`(
                                        `ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                                        `LIMIT` INT,
