@@ -44,11 +44,11 @@
 </script>
 <body>
 <h2>个人信息设置</h2>
-<article id="register" style="display: none;">
+<article id="register">
     <div class="account">
         <p>用户类型：${userType} 用户姓名：${name}</p>
     </div>
-    <form action = "ProfileSettingsServlet" method = "post">
+    <form action = "" method = "post">
         <div>
             <label for="registerUser">用户类型:</label>
             <select name="registerUser" id="registerUser" onchange="showInput()">

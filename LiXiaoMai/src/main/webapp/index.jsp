@@ -145,22 +145,22 @@ for (int i = 1; i <= totalPage; i++){
 
     <div class="nav">
       <div>
-        <img src="./imgsrc/settings.png" alt="收藏">
+        <img src="./imgsrc/settings.png">
         <p></p>
-        <a href="profileSettings.jsp">账户设置</a>
+          <a href="ProfileSettings">账户设置</a>
       </div>
       <div>
-        <img src="./imgsrc/order.PNG" alt="浏览记录">
+        <img src="./imgsrc/order.PNG">
         <p></p>
         <a href="profileOrder.jsp">全部订单</a>
       </div>
       <div>
-        <img src="./imgsrc/coupon.PNG" alt="红包卡券">
+        <img src="./imgsrc/coupon.PNG">
         <p></p>
         <a href="profileCoupon.jsp" onclick="">红包卡券</a>
       </div>
       <div>
-        <img src="./imgsrc/exit.png" alt="美团币">
+        <img src="./imgsrc/exit.png" >
         <p></p>
         <a href="login.jsp">退出登录</a>
       </div>
