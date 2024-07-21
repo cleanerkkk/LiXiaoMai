@@ -40,18 +40,19 @@ CREATE TABLE IF NOT EXISTS `CUSTOMER`(
 
 drop table comment;
 CREATE TABLE IF NOT EXISTS `COMMENT`(
-    `ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `STARTID` INT NOT NULL DEFAULT '0',
-    `ENDID` INT NOT NULL DEFAULT '0',
-    `STARTNAME` VARCHAR(16) NOT NULL,
-    `ENDNAME` VARCHAR(16) NOT NULL,
-    `TIME` DATE NOT NULL,
-    `CONTENT` VARCHAR(100) NOT NULL,
-    `LIKES` INT NOT NULL,
-    `COID` INT NOT NULL DEFAULT '0',
-    `DISLIKES` INT NOT NULL,
-    `STATUS` INT NOT NULL DEFAULT '1'
-    )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+                                        `ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                                        `OID` INT NOT NULL,
+                                        `STARTID` INT DEFAULT '0',
+                                        `ENDID` INT DEFAULT '0',
+                                        `STARTNAME` VARCHAR(16),
+                                        `ENDNAME` VARCHAR(16),
+                                        `TIME` DATETIME NOT NULL,
+                                        `CONTENT` VARCHAR(100),
+                                        `LIKES` INT,
+                                        `COID` INT DEFAULT '0',
+                                        `DISLIKES` INT DEFAULT '0',
+                                        `STATUS` INT NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 drop table `order`;
 CREATE TABLE IF NOT EXISTS `ORDER`(

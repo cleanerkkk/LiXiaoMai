@@ -85,6 +85,16 @@ public class CommentDao {
         }
     }
 
+    public List<Comment> getAllcommentByOid(int oid){
+        try{
+            String sql = "SELECT * FROM COMMENT WHERE OID = ?";
+            Connection conn = DatabaseUtils.getConnection();
+            return runner.query(conn,sql,new BeanListHandler<>(Comment.class),oid);
+        } catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
 
 
 }
