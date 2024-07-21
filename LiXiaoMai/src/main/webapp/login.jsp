@@ -125,7 +125,7 @@
 
         // 确保三项信息均已填写
         if (!username || !password ||!captcha1) {
-            alert("请你把所有三项表格填满");
+            alert("NOT NULL");
             return false;
         }
     }
@@ -216,7 +216,7 @@
         <img src = "CaptchaServlet" alt="Captcha" id = "captchaImg" onclick="refreshCaptcha()">
     </div>
     <div>
-        <button id = "button" type = "submit">登录</button>
+        <button id = "button" type = "submit" onclick="infoVerify()">登录</button>
     </div>
 
     </form>
