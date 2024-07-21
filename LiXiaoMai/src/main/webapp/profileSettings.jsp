@@ -39,7 +39,7 @@
     </style>
 </head>
 <body>
-<h2>课程管理</h2>
+<h2>个人信息设置</h2>
 
 <button id="back"><a href="index.jsp">返回主页</a></button>
 </body>

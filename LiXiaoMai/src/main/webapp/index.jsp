@@ -11,14 +11,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
+        width:100%;
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
     }
     nav {
+      width:100%;
       background-color: white;
       color: black;
-      padding: 10px;
-      background-size: 100% 100%;
+      padding: 20px;
       background-position: center;
       background-repeat: no-repeat;
       font-weight: bold;
@@ -29,6 +30,7 @@
       color: orange;
     }
     .links nav ul {
+        width:100%;
       text-align: center;
       list-style-type: none;
       padding: 0;
@@ -36,11 +38,13 @@
     }
 
     .links nav ul li {
+        width:100%;
       display: inline;
       margin-right: 20px;
     }
 
     .links nav ul li a {
+        width:100%;
       color: black;
       text-decoration: none;
     }
