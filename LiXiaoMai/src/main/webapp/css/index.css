@@ -509,9 +509,7 @@ article {
     left: 39%
 }
 .layout {
-    width: 1366px;
-    height: 768px;
-
+    width: 100%;
     display: grid;
     grid:
     "header header header" auto
