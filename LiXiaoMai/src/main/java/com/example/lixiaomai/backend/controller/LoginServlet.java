@@ -32,7 +32,8 @@ public class LoginServlet extends HttpServlet {
         request.getSession().invalidate();
         if (!captcha.equalsIgnoreCase(generCaptcha)){
             errorMessage = "验证码错误";
-            response.sendRedirect("login.jsp?error=" + errorMessage);
+            request.setAttribute("error", errorMessage);
+            request.getRequestDispatcher("login.jsp?error=" + errorMessage).forward(request, response);
             return ;
         }
         boolean loginResult;
@@ -65,6 +66,7 @@ public class LoginServlet extends HttpServlet {
         }
         else{
             errorMessage = "用户名或密码错误";
+            request.setAttribute("error", errorMessage);
             request.getRequestDispatcher("login.jsp?error=" + errorMessage).forward(request, response);
         }
 

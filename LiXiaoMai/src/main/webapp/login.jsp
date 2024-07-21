@@ -129,13 +129,10 @@
             return false;
         }
     }
-    function errorUpdate(){
-        var errormessage=$(error);
-        if(errormessage!=NULL){
-            alert(errormessage);
-            return false;
-        }
+        function showAlert(message) {
+        alert(message);
     }
+
     document.addEventListener("DOMContentLoaded", function() {
         var tabs = document.querySelectorAll("nav ul li");
         var articles = document.querySelectorAll(".container article");
@@ -190,6 +187,13 @@
         <li data-tab="register">注册</li>
     </ul>
 </nav>
+<%
+    String error = (String)request.getAttribute("error");
+    if (error != null && !error.isEmpty()) { %>
+<script>
+    showAlert("<%= error %>");
+</script>
+<% } %>
 <div class="container">
 
     <article id="loginRelated" >
