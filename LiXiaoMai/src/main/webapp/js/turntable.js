@@ -18,6 +18,7 @@ window.onload = function(){
 
     var turntable = getClassName('ul','turntable')[0];
     var result = getClassName('p','result')[0];
+    var newArray = [" ", "特等奖", "三等奖", "二等奖", "谢谢参与", "三等奖", "谢谢参与", "二等奖", "三等奖", "谢谢参与", "三等奖", "二等奖", "一等奖"];
 
     function CreateParameter (turntableDom,resultDom){
         //参数
@@ -37,7 +38,7 @@ window.onload = function(){
         this.initialDegMini = this.turns*360+this.arr[this.num][2];//初始最小值度数
         this.initialDegMax = this.turns*360+this.arr[this.num][1];//初始最大值度数
         this.MathAngle = Math.ceil(Math.random()*(this.initialDegMax-this.initialDegMini) )+this.initialDegMini;//转盘停止的角度
-        this.text ='结果为：'+ this.arr[this.num][0];
+        this.text ='结果为：'+ newArray[this.arr[this.num][0]];
 
         console.log(this.arr[this.num])
         console.log(this.speed)
@@ -100,7 +101,7 @@ window.onload = function(){
         this.initialDegMax = this.turns*360+this.arr[this.num][1];
         this.MathAngle = Math.ceil(Math.random()*(this.initialDegMax-this.initialDegMini) )+this.initialDegMini;
         this.flag = true;
-        this.text ='结果为：'+ this.arr[this.num][0];
+        this.text ='结果为：'+ newArray[this.arr[this.num][0]];
 
     }
 

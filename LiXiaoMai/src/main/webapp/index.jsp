@@ -210,7 +210,7 @@
         padding: 0;list-style: none;text-decoration: none;font-size: 17px;
         width: 700px;
         height: 700px;
-        position: absolute;
+        position: relative;
         left: 50%;
         margin-left: -350px;
         top: 50%;
@@ -614,21 +614,21 @@ for (int i = 1; i <= totalPage; i++){
   </article>
 
   <article id="coupon" style="display: none;">
-      <div class="result none" ></div>
+      <p class="result none" ></p>
       <div class="wrap">
           <ul class="turntable">
-              <li id="num2"> <div class="title">2</div> </li>
-              <li id="num3"> <div class="title">3</div> </li>
-              <li id="num4"> <div class="title">4</div> </li>
-              <li id="num5"> <div class="title">5</div> </li>
-              <li id="num6"> <div class="title">6</div> </li>
-              <li id="num7"> <div class="title">7</div> </li>
-              <li id="num8"> <div class="title">8</div> </li>
-              <li id="num9"> <div class="title">9</div> </li>
-              <li id="num10"> <div class="title">10</div> </li>
-              <li id="num11"> <div class="title">11</div> </li>
-              <li id="num12"> <div class="title">12</div> </li>
-              <li id="num1"> <div class="title">1</div> </li>
+              <li id="num2"> <div class="title">三等奖</div> </li>
+              <li id="num3"> <div class="title">二等奖</div> </li>
+              <li id="num4"> <div class="title">谢谢参与</div> </li>
+              <li id="num5"> <div class="title">三等奖</div> </li>
+              <li id="num6"> <div class="title">谢谢参与</div> </li>
+              <li id="num7"> <div class="title">二等奖</div> </li>
+              <li id="num8"> <div class="title">三等奖</div> </li>
+              <li id="num9"> <div class="title">谢谢参与</div> </li>
+              <li id="num10"> <div class="title">三等奖</div> </li>
+              <li id="num11"> <div class="title">二等奖</div> </li>
+              <li id="num12"> <div class="title">一等奖</div> </li>
+              <li id="num1"> <div class="title">特等奖</div> </li>
           </ul>
           <div class="pointerDisk">
               <span class="triangleUp"></span>
