@@ -6,6 +6,7 @@ import com.example.lixiaomai.backend.service.BusinessService;
 import com.example.lixiaomai.backend.service.CustomerService;
 import com.example.lixiaomai.backend.service.DelivermanService;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,11 +16,11 @@ import java.io.IOException;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        request.getSession().invalidate();
+
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -28,10 +29,11 @@ public class LoginServlet extends HttpServlet {
         String errorMessage;
 
         String generCaptcha = (String) request.getSession().getAttribute("captchaValue");
-
+        request.getSession().invalidate();
         if (!captcha.equalsIgnoreCase(generCaptcha)){
             errorMessage = "验证码错误";
-            response.sendRedirect("loginFailure.jsp?error=" + errorMessage);
+            response.sendRedirect("login.jsp?error=" + errorMessage);
+            return ;
         }
         boolean loginResult;
         switch (userType) {
@@ -63,7 +65,7 @@ public class LoginServlet extends HttpServlet {
         }
         else{
             errorMessage = "用户名或密码错误";
-            response.sendRedirect("login.jsp?error=" + errorMessage);
+            request.getRequestDispatcher("login.jsp?error=" + errorMessage).forward(request, response);
         }
 
 

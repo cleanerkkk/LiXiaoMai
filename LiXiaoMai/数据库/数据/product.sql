@@ -11,4 +11,4 @@ INSERT INTO PRODUCT (ID, NAME, PRICE, STOCK, TYPE, DESCRIPTION, SID)
 VALUES (4, '香辣鸡翅', 12, 21, '小食', '鲜美多汁，一口热辣过瘾', 2);
 
 INSERT INTO PRODUCT (ID, NAME, PRICE, STOCK, TYPE, DESCRIPTION, SID)
-VALUES (3, '抹茶软雪星冰乐', 38, 7, '饮品', '精选宁夏牛乳，与香草籽搅打成沁甜雪乳质地', 3);
+VALUES (5, '抹茶软雪星冰乐', 38, 7, '饮品', '精选宁夏牛乳，与香草籽搅打成沁甜雪乳质地', 3);
