@@ -28,6 +28,9 @@ public class BusinessService {
     public boolean existBusiness(String username){
         return businessDao.getBusinessByUsername(username) != null;
     }
+    public Business getBusinessByUsername(String username){
+        return businessDao.getBusinessByUsername(username);
+    }
 
     public boolean delBusiness(int id){
         return businessDao.delBusiness(id);

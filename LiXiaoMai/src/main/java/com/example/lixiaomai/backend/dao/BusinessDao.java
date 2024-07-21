@@ -24,10 +24,10 @@ public class BusinessDao {
     }
 
     public boolean addBusiness(Business business) {
-        String sql = "INSERT INTO Business (id, password, shopName, uName, name, address, telephone, idCard) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Business (password, shopName, uName, name, address, telephone, idCard) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try {
             Connection conn = DatabaseUtils.getConnection();
-            return runner.update(conn, sql, business.getId(), business.getPassword(), business.getShopName(), business.getUName(), business.getName(), business.getAddress(), business.getTelephone(), business.getIdCard()) > 0;
+            return runner.update(conn, sql,business.getPassword(), business.getShopName(), business.getUName(), business.getName(), business.getAddress(), business.getTelephone(), business.getIdCard()) > 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

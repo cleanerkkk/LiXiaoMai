@@ -39,7 +39,7 @@
     </style>
 </head>
 <body>
-<h2>课程管理</h2>
+<h2>订单管理</h2>
 
 <div class="account">
     <p>用户类型：${userType} 用户姓名：${userName}</p>
@@ -54,6 +54,7 @@
         <th>商品数量</th>
         <th>下订单时间</th>
     </tr>
+
     </thead>
     <p>查询相关</p>
 </table>

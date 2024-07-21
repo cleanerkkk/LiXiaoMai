@@ -27,6 +27,10 @@ public class CustomerService {
         return customerDao.findUName(name, password);
     }
 
+
+    public Customer getUserByUsername(String username){
+        return customerDao.findUserByUsername(username);
+    }
     public boolean login(String username, String password){
         Customer customer = customerDao.findUserByUsername(username);
         return customer != null && customer.getPassword().equals(password);
