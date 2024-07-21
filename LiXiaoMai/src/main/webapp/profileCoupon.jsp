@@ -9,34 +9,10 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="css/profileCoupon.css">
     <meta charset="GBK">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>优惠券界面</title>
-    <style>
-        body{
-            text-align: center;
-            font-family: "宋体",sans-serif;
-        }
-        h2{
-            font-size: 32px;
-        }
-        table {
-            width: 80%;
-            margin: 20px auto;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #dddddd;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-        }
-    </style>
 </head>
 <body>
 <h2>优惠券管理</h2>

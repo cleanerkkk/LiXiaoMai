@@ -2,6 +2,7 @@ package com.example.lixiaomai.backend.dao;
 
 import com.example.lixiaomai.backend.entity.Order;
 import com.example.lixiaomai.backend.tools.DatabaseUtils;
+import com.example.lixiaomai.backend.tools.OrderResultSetHandler;
 import com.example.lixiaomai.backend.tools.Tool;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
@@ -17,8 +18,8 @@ public class OrderDao {
     public List<Order> getAllOrderByCid(int cId){
         try{
             Connection conn = DatabaseUtils.getConnection();
-            String sql = "SELECT * FROM ORDER WHERE cid = ?";
-            return runner.query(conn, sql, new BeanListHandler<>(Order.class), cId);
+            String sql = "SELECT * FROM `ORDER` WHERE cid = ?";
+            return runner.query(conn, sql, new OrderResultSetHandler(), cId);
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
@@ -26,8 +27,8 @@ public class OrderDao {
     public List<Order> getAllOrderByDeliverId(int did){
         try{
             Connection conn = DatabaseUtils.getConnection();
-            String sql = "SELECT * FROM ORDER WHERE did = ?";
-            return runner.query(conn, sql, new BeanListHandler<>(Order.class), did);
+            String sql = "SELECT * FROM `ORDER` WHERE did = ?";
+            return runner.query(conn, sql, new OrderResultSetHandler(), did);
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
@@ -35,7 +36,7 @@ public class OrderDao {
     public List<Order> getAllOrderBySid(int sId){
         try{
             Connection conn = DatabaseUtils.getConnection();
-            String sql = "SELECT * FROM ORDER WHERE sid = ?";
+            String sql = "SELECT * FROM `ORDER` WHERE sid = ?";
             return runner.query(conn, sql, new BeanListHandler<>(Order.class), sId);
         }catch (SQLException e){
             throw new RuntimeException(e);
@@ -45,7 +46,7 @@ public class OrderDao {
     public boolean addOrder(Order order){
         try{
             Connection conn = DatabaseUtils.getConnection();
-            String sql = "INSERT INTO ORDER (CID, SID, GID, GOODSNUM, ENDTIME, STARTTIME, TOTAL, STATUS, SNAME, DISCOUNTNUM, DID, CNAME) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO `ORDER` (CID, SID, GID, GOODSNUM, ENDTIME, STARTTIME, TOTAL, STATUS, SNAME, DISCOUNTNUM, DID, CNAME) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
             String gId = Tool.ListToString(order.getGId());
             String goodsNum = Tool.ListToString(order.getGoodsNum());
             String discountId = Tool.ListToString(order.getDiscountId());
@@ -60,7 +61,7 @@ public class OrderDao {
     public boolean updateOrder(Order order){
         try{
             Connection conn = DatabaseUtils.getConnection();
-            String sql = "UPDATE ORDER SET CID = ?, SID = ?, GID = ?, GOODSNUM = ?, ENDTIME = ?, STARTTIME = ?, TOTAL = ?, STATUS = ?, SNAME = ?, DISCOUNTNUM = ?, DID = ?, CNAME = ? WHERE ID = ?";
+            String sql = "UPDATE `ORDER` SET CID = ?, SID = ?, GID = ?, GOODSNUM = ?, ENDTIME = ?, STARTTIME = ?, TOTAL = ?, STATUS = ?, SNAME = ?, DISCOUNTNUM = ?, DID = ?, CNAME = ? WHERE ID = ?";
             String gId = Tool.ListToString(order.getGId());
             String goodsNum = Tool.ListToString(order.getGoodsNum());
             String discountId = Tool.ListToString(order.getDiscountId());
@@ -75,7 +76,7 @@ public class OrderDao {
     public boolean delOrderById(int id){
         try{
             Connection conn = DatabaseUtils.getConnection();
-            String sql = "DELETE FROM ORDER WHERE ID = ?";
+            String sql = "DELETE FROM `ORDER` WHERE ID = ?";
             return runner.update(conn, sql, id) > 0;
         }catch (SQLException e){
             throw new RuntimeException(e);
@@ -85,7 +86,7 @@ public class OrderDao {
     public Order getOrderById(int id){
         try{
             Connection conn = DatabaseUtils.getConnection();
-            String sql = "SELECT * FROM ORDER WHERE ID = ?";
+            String sql = "SELECT * FROM `ORDER` WHERE ID = ?";
             return runner.query(conn, sql, new BeanHandler<>(Order.class), id);
         }catch (SQLException e){
             throw new RuntimeException(e);

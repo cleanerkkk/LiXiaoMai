@@ -9,34 +9,10 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="css/profileSettings.css">
     <meta charset="GBK">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人信息设置</title>
-    <style>
-        body{
-            text-align: center;
-            font-family: "宋体",sans-serif;
-        }
-        h2{
-            font-size: 32px;
-        }
-        table {
-            width: 80%;
-            margin: 20px auto;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #dddddd;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-        }
-    </style>
 </head>
 <script>
     function showInput() {
@@ -60,15 +36,18 @@
             document.getElementById("input1").style.display = 'block';
             document.getElementById("input4").style.display = 'block';
             document.getElementById("input5").style.display = 'block';
-        } else{
+        } else {
             document.getElementById("input3").style.display = 'block';
             document.getElementById("input6").style.display = 'block';
         }
+    }
 </script>
 <body>
 <h2>个人信息设置</h2>
-<article id="register" style="display: none;">
-    <h2>“理小卖”外卖综合管理平台账号注册</h2>
+<article id="register">
+    <div class="account">
+        <p>用户类型：${userType} 用户姓名：${name}</p>
+    </div>
     <form action = "" method = "post">
         <div>
             <label for="registerUser">用户类型:</label>
