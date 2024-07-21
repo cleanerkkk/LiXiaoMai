@@ -1,5 +1,6 @@
 <%@ page import="com.example.lixiaomai.backend.entity.Coupon" %>
 <%@ page import="java.util.List" %>
+<%@ page import="org.apache.commons.lang3.tuple.Pair" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -82,16 +83,19 @@
     <tr>
         <th>优惠券id</th>
         <th>优惠券名称</th>
+        <th>优惠券数量</th>
         <th>优惠券起用金额</th>
         <th>优惠券优惠金额</th>
     </tr>
     <%
-        List<Coupon> list = (List<Coupon>) request.getAttribute("orderList");
+        List<Pair<Coupon,Integer>> list = (List<Pair<Coupon,Integer>>) request.getAttribute("couponList");
         Integer totalPage = (Integer) request.getAttribute("totalPages");
         Integer currentPage = (Integer) request.getAttribute("currentPage");
 
         if (list != null && list.size() > 0){
-            for (Coupon coupon : list){
+            for (Pair<Coupon,Integer> pci : list){
+                Coupon coupon = pci.getLeft();
+                int num = pci.getRight();
                 int id = coupon.getId();
                 int limit = coupon.getLimit();
                 double discount = coupon.getDiscount();
@@ -99,6 +103,7 @@
     <tr>
         <td><%=id%></td>
         <td>天天爆红包</td>
+        <td><%=num%></td>
         <td><%=limit%></td>
         <td><%=discount%></td>
     </tr>
@@ -129,7 +134,7 @@
         <%
         } else {
         %>
-        <li><a href="ProfileOrder?page=<%= i %>"><%= i %></a></li>
+        <li><a href="ProfileCoupon?page=<%= i %>"><%= i %></a></li>
         <%
             }
             if (i < totalPage) {
