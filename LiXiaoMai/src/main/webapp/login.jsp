@@ -126,13 +126,13 @@
         // 确保三项信息均已填写
         if (!username || !password ||!captcha1) {
             alert("NOT NULL");
-            return false;
+            return ;
         }
+        document.getElementById("Form").submit();
     }
         function showAlert(message) {
         alert(message);
     }
-
     document.addEventListener("DOMContentLoaded", function() {
         var tabs = document.querySelectorAll("nav ul li");
         var articles = document.querySelectorAll(".container article");
@@ -196,7 +196,7 @@
 
     <article id="loginRelated" >
     <h2>“理小卖”外卖综合管理平台登录</h2>
-    <form action = "LoginServlet" method = "post">
+    <form action = "LoginServlet" method = "post" id = "Form">
     <div>
         <label for="user">用户类型:</label>
         <select name="user" id="user">
@@ -220,7 +220,7 @@
         <img src = "CaptchaServlet" alt="Captcha" id = "captchaImg" onclick="refreshCaptcha()">
     </div>
     <div>
-        <button id = "button" type = "submit" onclick="infoVerify()">登录</button>
+        <button id = "button" type = "button" onclick="infoVerify()">登录</button>
     </div>
 
     </form>
