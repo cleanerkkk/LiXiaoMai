@@ -532,3 +532,8 @@ footer {
     padding: 10px;
     margin-top: 20px;
 }
+.cutLine{
+    padding-bottom: 10px;
+    border-bottom: #3F6580 solid 1px;
+    text-align: center;
+}
