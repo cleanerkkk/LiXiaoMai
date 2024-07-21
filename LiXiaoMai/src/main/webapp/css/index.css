@@ -525,3 +525,10 @@ article {
 .body { grid-area: body; }
 .rightSide { grid-area: rightSide; }
 .footer { grid-area: footer; }
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}

@@ -203,6 +203,11 @@ for (int i = 1; i <= totalPage; i++){
         </div>
     </div>
     </div>
+    <div class="footer">
+        <footer>
+            &copy; 南京理工大学 软件课程设计(I)小组作业 刘宇翔 赵曰程 仇星博 2024.7.25
+        </footer>
+    </div>
     </section>
   </article>
 </div>
