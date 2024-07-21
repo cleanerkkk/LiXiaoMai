@@ -9,6 +9,6 @@ public class Wallet {
     private String password;
     private double balance;
     private List<Integer> dId;
-    private List<Double> discountNum;
+    private List<Integer> discountNum;
 
 }

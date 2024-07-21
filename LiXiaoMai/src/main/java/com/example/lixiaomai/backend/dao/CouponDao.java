@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class CouponDao {
     private final QueryRunner runner = DatabaseUtils.getRunner();
 
-    public Coupon getAllInfoOfCoupon(int id) {
+    public Coupon getCouponById(int id) {
         try {
             Connection conn = DatabaseUtils.getConnection();
             String sql = "SELECT * FROM COUPON WHERE id = ?";
@@ -36,7 +36,7 @@ public class CouponDao {
         String sql="DELETE FROM COUPON where id=?";
         try{
             Connection conn=DatabaseUtils.getConnection();
-            Coupon coupon=getAllInfoOfCoupon(id);
+            Coupon coupon= getCouponById(id);
             return runner.update(conn,sql,coupon.getId(),coupon.getLimit(),coupon.getDiscount())>0;
         }
         catch (SQLException e){

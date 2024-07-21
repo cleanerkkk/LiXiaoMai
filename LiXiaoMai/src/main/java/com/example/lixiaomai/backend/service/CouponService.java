@@ -6,8 +6,8 @@ import com.example.lixiaomai.backend.entity.Coupon;
 public class CouponService {
     static CouponDao couponDAO = new CouponDao();
 
-    public Coupon getAllInfoOfCoupon(int id){
-        return couponDAO.getAllInfoOfCoupon(id);
+    public Coupon getCouponById(int id){
+        return couponDAO.getCouponById(id);
     }
 
     public boolean addCoupon(Coupon coupon){

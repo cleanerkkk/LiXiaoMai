@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class WalletDao {
     private final QueryRunner runner = DatabaseUtils.getRunner();
 
-    public  Wallet getAllInfoOfWalletById(int id) {
+    public  Wallet getWalletById(int id) {
         try {
             Connection conn = DatabaseUtils.getConnection();
             String sql = "SELECT * FROM WALLET WHERE id = ?";

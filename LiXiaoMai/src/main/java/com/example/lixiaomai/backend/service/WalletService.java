@@ -6,8 +6,8 @@ import com.example.lixiaomai.backend.entity.Wallet;
 public class WalletService {
     static WalletDao walletDAO = new WalletDao();
 
-    public Wallet getAllInfoOfWalletById(int id){
-        return walletDAO.getAllInfoOfWalletById(id);
+    public Wallet getWalletById(int id){
+        return walletDAO.getWalletById(id);
     }
 
     public boolean addWallet(Wallet wallet){
