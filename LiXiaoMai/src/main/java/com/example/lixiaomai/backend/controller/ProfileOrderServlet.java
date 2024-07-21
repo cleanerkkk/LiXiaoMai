@@ -46,7 +46,7 @@ public class ProfileOrderServlet extends HttpServlet {
             session.setAttribute("orderList",list);
         }
         response.sendRedirect("profileOrder.jsp");
-        //1234
+        //12346
 
 
 
