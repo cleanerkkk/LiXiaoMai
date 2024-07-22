@@ -13,6 +13,28 @@
     <title>Title</title>
     <link rel="stylesheet" href="css/businessDetails.css" type = "text/css">
 </head>
+<script>
+    function increaseQuantity(inputId,productStock) {
+        var input = document.getElementById(inputId);
+        var value = parseInt(input.value, 10);
+        var flag=0;
+        value = isNaN(value) ? 0 : value;
+        flag=(value>=productStock)? 0:1;
+        if(flag){
+            value++;
+        }
+        input.value = value;
+    }
+
+    function decreaseQuantity(inputId) {
+        var input = document.getElementById(inputId);
+        var value = parseInt(input.value, 10);
+        value = isNaN(value) ? 0 : value;
+        value--;
+        if (value < 0) value = 0;
+        input.value = value;
+    }
+</script>
 <body>
 <h2>商家详情与商品一览表</h2>
 <div class="account">
@@ -36,6 +58,7 @@
     <p></p>
     <p></p>
     <p></p>
+    <form action="addToCart" method="post">
     <table border="1">
         <tr>
             <th>商品ID</th>
@@ -54,6 +77,7 @@
                 String productDescription=productForShop.get(i).getDescription();
                 int productStock=productForShop.get(i).getStock();
                 int productPrice=productForShop.get(i).getPrice();
+                String inputId = "quantity_" + productID;
         %>
         <tr>
             <td><%= productID %></td>
@@ -61,13 +85,19 @@
             <td><%= productType%></td>
             <td><%= productDescription%></td>
             <td><%= productStock%></td>
-            <td> </td>
+            <td>
+                <button type="button" onclick="decreaseQuantity('<%= inputId %>')">-</button>
+                <input type="text" id="<%= inputId %>" name="quantity_<%= productID %>" value="0" size="2" readonly>
+                <button type="button" onclick="increaseQuantity('<%= inputId %>','<%=productStock%>')">+</button>
+            </td>
             <td><%=productPrice%></td>
         </tr>
         <%
             }
         %>
     </table>
+    <input type="submit" value="加入购物车">
+    </form>
     <%
     } else {
     %>
@@ -75,6 +105,7 @@
     <%
         }
     %>
+
 </div>
 <button id="backToMain"><a href="index.jsp">返回主页</a></button>
 </body>
