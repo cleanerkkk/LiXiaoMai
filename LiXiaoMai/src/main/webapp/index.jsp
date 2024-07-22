@@ -86,8 +86,10 @@
                     product1=product.get(i);
                     int ID=product1.getId();
                     String ProductName=product1.getName();
+                    String ProductDescription=product1.getDescription();
                     %>
                     <p><%=ProductName%></p>
+                    <p><%=ProductDescription%></p>
                     <img src="./imgsrc.product<%=ID%>.jpg" style="width: 80px;
     height: 80px;
     object-fit: cover;
