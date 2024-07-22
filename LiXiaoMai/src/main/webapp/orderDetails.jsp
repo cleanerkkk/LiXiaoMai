@@ -27,10 +27,11 @@
     <%
         Order order = (Order) request.getAttribute("order");
         List<String> productName = (List<String>) request.getAttribute("productNameList");
-
+        String deliverName = (String) request.getAttribute("deliverName");
         if (order != null) {
             int id = order.getId();
             String sName = order.getSName();
+
             List<Integer> goodSum = order.getGoodsNum();
             Timestamp startTime = order.getStartTime();
             double total = order.getTotal();
@@ -43,6 +44,10 @@
         <tr>
             <th>店铺名称</th>
             <td><%= sName %></td>
+        </tr>
+        <tr>
+            <th>骑手名称</th>
+            <td><%=deliverName%></td>
         </tr>
         <tr>
             <th>订单时间</th>
@@ -76,6 +81,26 @@
             }
         %>
     </table>
+    <div class="comments">
+        <form action="comment" method="post">
+            <div>
+                <label for = "business">商家</label>
+                <input type="text" id = "business" name = "business">
+            </div>
+            <div>
+                <label for = "deliverman">骑手</label>
+                <input type="text" id = "deliverman" name = "deliverman">
+            </div>
+            <div>
+                <button type="submit">提交</button>
+            </div>
+            <input type="hidden" name="deliverId" value="<%=order.getDeliverId()%>">
+            <input type="hidden" name="businessId" value="<%=order.getSId()%>">
+            <input type="hidden" name="oId" value="<%=order.getId()%>">
+            <input type="hidden" name="businessName" value="<%=order.getSName()%>">
+            <input type="hidden" name="deliverName" value="<%=deliverName%>">
+        </form>
+    </div>
     <%
     } else {
     %>
@@ -84,9 +109,7 @@
         }
     %>
 </div>
-<div class="comments">
 
-</div>
 <button id="backToOrders"><a href="ProfileOrder">返回订单列表</a></button>
 </body>
 </html>

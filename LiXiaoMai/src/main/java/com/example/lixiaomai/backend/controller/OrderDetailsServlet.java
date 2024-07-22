@@ -3,6 +3,7 @@ package com.example.lixiaomai.backend.controller;
 import com.example.lixiaomai.backend.entity.Comment;
 import com.example.lixiaomai.backend.entity.Order;
 import com.example.lixiaomai.backend.service.CommentService;
+import com.example.lixiaomai.backend.service.DelivermanService;
 import com.example.lixiaomai.backend.service.OrderService;
 import com.example.lixiaomai.backend.service.ProductService;
 import com.mysql.cj.Session;
@@ -41,6 +42,10 @@ public class OrderDetailsServlet extends HttpServlet{
             productNameList.add(productName);
         }
         List<Comment> commentList = commentService.getCommentByOId(id);
+        DelivermanService delivermanService = new DelivermanService();
+        int deliverId = order.getDeliverId();
+        String deliverName = delivermanService.getDelivermanById(deliverId).getName();
+        request.setAttribute("deliverName", deliverName);
         request.setAttribute("commentList", commentList);
         request.setAttribute("order", order);
         request.setAttribute("productNameList", productNameList);

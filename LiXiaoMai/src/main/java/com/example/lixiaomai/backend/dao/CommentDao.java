@@ -25,11 +25,11 @@ public class CommentDao {
 
     public boolean addComment(Comment comment) { //发起一条新的评论
         try {
-            String sql = "INSERT INTO COMMENT (STARTID,ENDID,STARTNAME,ENDNAME,TIME,CONTENT,LIKES,COID,DISLIKES,STATUS) VALUES (?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO COMMENT (STARTID,ENDID,OID,STARTNAME,ENDNAME,TIME,CONTENT,LIKES,COID,DISLIKES,STATUS) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
             Connection conn = DatabaseUtils.getConnection();
             return runner.update(conn,
                     sql,
-                    comment.getStartId(), comment.getEndId(), comment.getStartName(), comment.getEndName(), comment.getTime(), comment.getContent(), comment.getLikes(), comment.getCoId(), comment.getDislikes(), comment.getStatus()) > 0;
+                    comment.getStartId(), comment.getEndId(),comment.getOId() ,comment.getStartName(), comment.getEndName(), comment.getTime(), comment.getContent(), comment.getLikes(), comment.getCoId(), comment.getDislikes(), comment.getStatus()) > 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -26,6 +26,17 @@ public class DelivermanDao {
         }
     }
 
+    public Deliverman getDelivermanById(int id){
+        try{
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "SELECT * FROM DELIVERMAN WHERE ID = ?";
+            Deliverman deliverman = runner.query(conn, sql, new BeanHandler<>(Deliverman.class), id);
+            return deliverman;
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     public boolean delDeliverman(int id){
         try{
             Connection conn = DatabaseUtils.getConnection();

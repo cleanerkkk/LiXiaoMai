@@ -10,6 +10,9 @@ public class DelivermanService {
         return delivermanDao.addDeliverman(deliverman);
     }
 
+    public  Deliverman getDelivermanById(int id){
+        return delivermanDao.getDelivermanById(id);
+    }
     public boolean delDeliverman(int id){
         return delivermanDao.delDeliverman(id);
     }
