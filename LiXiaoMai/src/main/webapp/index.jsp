@@ -47,7 +47,6 @@
 <p></p>
 <div class="container">
   <article id="main">
-    <div class="business">
   <%
     List<Business> list = (List<Business>) request.getAttribute("BusinessList");
     Map<Integer, List<Product>> productMap = (Map<Integer, List<Product>>) request.getAttribute("ProductMap");
@@ -87,9 +86,6 @@
   %>
             </div>
         </div>
-      </div>
-      <div class = "business-info">
-          <img src=" "alt=""id="">
       </div>
     <%
 
@@ -131,7 +127,6 @@ for (int i = 1; i <= totalPage; i++){
       <%
         }
       %>
-    </div>
   </article>
 
   <article id="coupon" style="display: none;">
