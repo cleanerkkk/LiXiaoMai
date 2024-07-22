@@ -1,7 +1,10 @@
 package com.example.lixiaomai.backend.controller;
 
+import com.example.lixiaomai.backend.entity.Business;
 import com.example.lixiaomai.backend.entity.Comment;
 import com.example.lixiaomai.backend.entity.Order;
+import com.example.lixiaomai.backend.entity.Product;
+import com.example.lixiaomai.backend.service.BusinessService;
 import com.example.lixiaomai.backend.service.CommentService;
 import com.example.lixiaomai.backend.service.OrderService;
 import com.example.lixiaomai.backend.service.ProductService;
@@ -21,25 +24,16 @@ public class BusinessDetailsServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        Integer id = Integer.parseInt(request.getParameter("id"));
+        int id = Integer.parseInt(request.getParameter("id"));//id为商家id
 
-        OrderService orderService = new OrderService();
-        ProductService productService = new ProductService();
-        CommentService commentService = new CommentService();
+        BusinessService businessService=new BusinessService();
+        Business business=businessService.getAllInfoOfBusiness(id);
+        ProductService productService=new ProductService();
+        List<Product> productForShop=productService.getAllProductBySid(id);
 
-        Order order = orderService.getOrderById(id);
-        List<String> productNameList = new ArrayList<>();
-
-        List<Integer> productIds = order.getGId();
-        for (int pId : productIds) {
-            String productName = productService.getProductById(pId).getName();
-            productNameList.add(productName);
-        }
-        List<Comment> commentList = commentService.getCommentByOId(id);
-        request.setAttribute("commentList", commentList);
-        request.setAttribute("order", order);
-        request.setAttribute("productNameList", productNameList);
-        request.getRequestDispatcher("orderDetails.jsp").forward(request, response);
-
+        request.setAttribute("business",business);
+        request.setAttribute("id",id);
+        request.setAttribute("productForShop",productForShop);
+        request.getRequestDispatcher("businessDetails.jsp").forward(request, response);
     }
 }

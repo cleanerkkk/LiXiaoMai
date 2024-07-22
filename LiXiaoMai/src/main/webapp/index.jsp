@@ -72,7 +72,7 @@
             </div>
             <div class="merchant-info" style="    flex: 1;
     padding: 20px;">
-                <h2><%=BusinessName%></h2>
+                <h2><a href="BusinessDetailsServlet?id=<%=BusinessId%>"> <%=BusinessName%></a></h2>
                 <p><%=BusinessAddress%></p>
                 <div class="dish-images" style="display: flex;
     gap: 10px;">
