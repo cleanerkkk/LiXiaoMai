@@ -33,8 +33,8 @@
 <div class="cart-details">
     <%
         Cart cart = (Cart) request.getAttribute("Cart");
-        List<Product> productForCart=(List<Product>)request.getAttribute("productForCart");
-        List<Integer> productNumList = (List<Integer>) request.getAttribute("productNum");
+        List<Integer> gIdList = (List<Integer>) cart.getGId();
+        List<Integer>
         if (productForCart != null) {
     %>
     <div class="cutLine">
