@@ -46,7 +46,7 @@
 <p></p>
 <p></p>
 <div class="container">
-  <article id="main">
+  <article id="main" display="flex">
   <%
     List<Business> list = (List<Business>) request.getAttribute("BusinessList");
     Map<Integer, List<Product>> productMap = (Map<Integer, List<Product>>) request.getAttribute("ProductMap");
@@ -58,14 +58,23 @@
         String BusinessAddress=business.getAddress();
         int BusinessId=business.getId();
         %>
-        <div class="merchant">
+        <div class="merchant" style="display: flex !important;
+    background-color: #ffffff !important;
+    margin-bottom: 20px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 5px !important;
+    overflow: hidden !important;">
             <div class="merchant-image">
-                <img src="./imgsrc.business<%=BusinessId%>.jpg">
+                <img src="./imgsrc.business<%=BusinessId%>.jpg" style="width: 150px;
+    height: 150px;
+    object-fit: cover;">
             </div>
-            <div class="merchant-info">
+            <div class="merchant-info" style="    flex: 1;
+    padding: 20px;">
                 <h2><%=BusinessName%></h2>
                 <p><%=BusinessAddress%></p>
-                <div class="dish-images">
+                <div class="dish-images" style="display: flex;
+    gap: 10px;">
                 <%
                 List<Product> product = productMap.get(business.getId());
                 int len=product.size();
@@ -79,7 +88,10 @@
                     String ProductName=product1.getName();
                     %>
                     <p><%=ProductName%></p>
-                    <img src="./imgsrc.product<%=ID%>.jpg">
+                    <img src="./imgsrc.product<%=ID%>.jpg" style="width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;">
                     <%
                 }%>
                 </div>
