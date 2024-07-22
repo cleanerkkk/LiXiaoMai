@@ -58,7 +58,7 @@
     <p></p>
     <p></p>
     <p></p>
-    <form action="addToCart" method="post">
+    <form action="AddCartServlet" method="post">
     <table border="1">
         <tr>
             <th>商品ID</th>
@@ -96,7 +96,7 @@
             }
         %>
     </table>
-    <input type="submit" value="加入购物车">
+    <input type="submit" value="加入购物车" >
     </form>
     <%
     } else {
