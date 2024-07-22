@@ -1,8 +1,10 @@
 package com.example.lixiaomai.backend.controller;
 
 import com.example.lixiaomai.backend.entity.Cart;
+import com.example.lixiaomai.backend.entity.Customer;
 import com.example.lixiaomai.backend.entity.Product;
 import com.example.lixiaomai.backend.service.CartService;
+import com.example.lixiaomai.backend.service.CustomerService;
 import com.example.lixiaomai.backend.service.ProductService;
 
 import javax.servlet.ServletException;
@@ -26,6 +28,9 @@ public class CartServlet extends HttpServlet {
 
         Integer id = (Integer) session.getAttribute("id");
 
+        CustomerService customerService = new CustomerService();
+        Customer customer = customerService.getUserById(id);
+
         CartService cartService = new CartService();
         Cart cart = cartService.getCartByCid(id);
         ProductService productService = new ProductService();
@@ -34,10 +39,10 @@ public class CartServlet extends HttpServlet {
             Product product = productService.getProductById(gid);
             list.add(product);
         }
-
+        request.setAttribute("name", customer.getName());
         request.setAttribute("product", list);
         request.setAttribute("cart", cart);
-        response.sendRedirect("cart.jsp");
+        request.getRequestDispatcher("cart.jsp").forward(request,response);
 
 
 

@@ -27,7 +27,7 @@ public class CustomerService {
         return customerDao.findUName(name, password);
     }
 
-
+    public Customer getUserById(int id){return customerDao.findUserByID(id);}
     public Customer getUserByUsername(String username){
         return customerDao.findUserByUsername(username);
     }

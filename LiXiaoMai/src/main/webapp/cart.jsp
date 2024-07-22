@@ -34,10 +34,10 @@
     <%
         Cart cart = (Cart) request.getAttribute("cart");
         List<Product> gList = (List<Product>) request.getAttribute("product");
-        List<Integer> gIdList = (List<Integer>) cart.getGId();
-        List<Integer> gNumList = (List<Integer>) cart.getGoodsNum();
-        double total = cart.getTotal();
         if (cart != null) {
+            List<Integer> gIdList = cart.getGId();
+            List<Integer> gNumList = cart.getGoodsNum();
+            double total = cart.getTotal();
     %>
     <div class="cutLine">
         <p>    </p>

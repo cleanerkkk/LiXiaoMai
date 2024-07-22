@@ -14,6 +14,16 @@ import java.util.List;
 public class CustomerDao {
     private final QueryRunner runner = DatabaseUtils.getRunner();
 
+
+    public Customer findUserByID(int id){
+        try{
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "SELECT * FROM CUSTOMER WHERE id = ?";
+            return runner.query(conn, sql, new BeanHandler<>(Customer.class), id);
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
     public boolean addCustomer(Customer customer){
         try{
             Connection conn = DatabaseUtils.getConnection();
