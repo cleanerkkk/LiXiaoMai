@@ -117,24 +117,24 @@ article {
     color: #666;
 }
 
-.nav {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 30px;
+nav {
+    margin-top: 20px;
+    text-align: center;
 }
-
-.nav a {
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin: 0 5px;
+}
+nav ul li a {
     text-decoration: none;
-    color: #007bff;
-    font-size: 1.1em;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background 0.3s;
+    color: #007BFF;
 }
-
-.nav a:hover {
-    background: #007bff;
-    color: #fff;
+nav ul li a:hover {
+    text-decoration: underline;
 }
 
 .sections {

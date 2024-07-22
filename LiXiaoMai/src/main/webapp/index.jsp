@@ -7,11 +7,12 @@
 <html>
 <head>
   <title>理小卖外卖平台</title>
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/index.css" type = "text/css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     var tabs = document.querySelectorAll("nav ul li");
