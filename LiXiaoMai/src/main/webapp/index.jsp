@@ -46,6 +46,15 @@
 <p></p>
 <p></p>
 <p></p>
+
+
+
+
+<a href="cart"> 购物车 </a>
+
+
+
+
 <div class="container">
   <article id="main" display="flex">
   <%

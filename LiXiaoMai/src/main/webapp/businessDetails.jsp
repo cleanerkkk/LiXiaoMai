@@ -1,3 +1,4 @@
+<% List<Product> productForShop = null; %>
 <%@ page import="com.example.lixiaomai.backend.entity.Business" %>
 <%@ page import="com.example.lixiaomai.backend.entity.Product" %>
 <%@ page import="java.util.List" %><%--
@@ -34,18 +35,45 @@
         if (value < 0) value = 0;
         input.value = value;
     }
+    function collectQuantities() {
+        var form = document.forms['productForm'];
+        var productForShop = productForShop.size();
+        var quantities = [];
+        var ids = [];
+
+        for (var i = 0; i < productForShop; i++) {
+            var inputId = 'quantity_' + i;
+            var input = document.getElementById(inputId);
+            if (input && parseInt(input.value, 10) > 0) {
+                quantities.push(input.value);
+                ids.push(input.name.substring(9));
+            }
+        }
+
+        var quantitiesField = document.createElement('input');
+        quantitiesField.type = 'hidden';
+        quantitiesField.name = 'quantities';
+        quantitiesField.value = JSON.stringify(quantities);
+        form.appendChild(quantitiesField);
+
+        var idsField = document.createElement('input');
+        idsField.type = 'hidden';
+        idsField.name = 'ids';
+        idsField.value = JSON.stringify(ids);
+        form.appendChild(idsField);
+    }
 </script>
 <body>
 <h1>商家详情与商品一览表</h1>
 <div class="business-details">
     <%
-        Business business=(Business) request.getAttribute("business");
-        List<Product> productForShop=(List<Product>)request.getAttribute("productForShop");
+        Business business = (Business) request.getAttribute("business");
+        productForShop = (List<Product>) request.getAttribute("productForShop");
         if (business != null) {
             int id = business.getId();
-            String shopName= business.getShopName();
-            String address= business.getAddress();
-            String telephone= business.getTelephone();
+            String shopName = business.getShopName();
+            String address = business.getAddress();
+            String telephone = business.getTelephone();
     %>
     <h2><%=shopName%></h2>
     <div class="account">
@@ -58,7 +86,7 @@
     <p></p>
     <p></p>
     <p></p>
-    <form action="AddCartServlet" method="post">
+    <form action="AddCartServlet" method="post" onsubmit="collectQuantities()">
     <table border="1">
         <tr>
             <th>商品ID</th>
@@ -71,24 +99,24 @@
         </tr>
         <%
             for (int i = 0; i < productForShop.size(); i++) {//第一个td是那个勾选框
-                int productID=productForShop.get(i).getId();
-                String productName=productForShop.get(i).getName();
-                String productType=productForShop.get(i).getType();
-                String productDescription=productForShop.get(i).getDescription();
-                int productStock=productForShop.get(i).getStock();
-                int productPrice=productForShop.get(i).getPrice();
+                int productID = productForShop.get(i).getId();
+                String productName = productForShop.get(i).getName();
+                String productType = productForShop.get(i).getType();
+                String productDescription = productForShop.get(i).getDescription();
+                int productStock = productForShop.get(i).getStock();
+                int productPrice = productForShop.get(i).getPrice();
                 String inputId = "quantity_" + productID;
         %>
         <tr>
-            <td><%= productID %></td>
-            <td><%= productName %></td>
-            <td><%= productType%></td>
-            <td><%= productDescription%></td>
-            <td><%= productStock%></td>
+            <td><%=productID%></td>
+            <td><%=productName%></td>
+            <td><%=productType%></td>
+            <td><%=productDescription%></td>
+            <td><%=productStock%></td>
             <td>
-                <button type="button" onclick="decreaseQuantity('<%= inputId %>')">-</button>
-                <input type="text" id="<%= inputId %>" name="quantity_<%= productID %>" value="0" size="2" readonly>
-                <button type="button" onclick="increaseQuantity('<%= inputId %>','<%=productStock%>')">+</button>
+                <button type="button" onclick="decreaseQuantity('<%=inputId%>')">-</button>
+                <input type="text" id="<%=inputId%>" name="quantity_<%=productID%>" value="0" size="2" readonly>
+                <button type="button" onclick="increaseQuantity('<%=inputId%>','<%=productStock%>')">+</button>
             </td>
             <td><%=productPrice%></td>
         </tr>
@@ -96,6 +124,7 @@
             }
         %>
     </table>
+    <input type="hidden" name="name" value="${name}">
     <input type="submit" value="加入购物车" >
     </form>
     <%
