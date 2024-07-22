@@ -19,33 +19,34 @@ window.onload = function(){
     var turntable = getClassName('ul','turntable')[0];
     var result = getClassName('p','result')[0];
     var newArray = [" ", "特等奖", "三等奖", "二等奖", "谢谢参与", "三等奖", "谢谢参与", "二等奖", "三等奖", "谢谢参与", "三等奖", "二等奖", "一等奖"];
-
-    function CreateParameter (turntableDom,resultDom){
+    var result;
+    function CreateParameter (turntableDom,resultDom) {
         //参数
         this.turntable = turntableDom;//转盘dom
         this.result = resultDom;//结果dom
         this.flag = true;//开关设置
-        this.times = 20;//执行时间
-        this.turns = Math.ceil(Math.random()*3+1);//旋转圈数
-        this.speed = Math.floor(Math.random()*5)+3;//速度
+        this.times = 10;//执行时间
+        this.turns = Math.ceil(Math.random() * 3 + 1);//旋转圈数
+        this.speed = Math.floor(Math.random() * 5) + 3;//速度
         this.turnNum = 12;//格子总数
-        this.deg = 360/this.turnNum;//转盘所对应的度数
+        this.deg = 360 / this.turnNum;//转盘所对应的度数
         this.initital = 0;//转盘旋转角度
-        this.turnBuffer = this.deg/2-5;//每个格子对应的度数缓冲区
-        this.num = Math.ceil(Math.random() * this.turnNum)-1;//随机抽取的位置
+        this.turnBuffer = this.deg / 2 - 5;//每个格子对应的度数缓冲区
+        this.num = Math.ceil(Math.random() * this.turnNum) - 1;//随机抽取的位置
         this.MathNum = 14;//重新编排编号数字与转盘对应，14是因为i=1时已经减去了一个
-        this.arr =  this.NewArr(this.MathNum,this.deg,this.turnBuffer);//转盘角度参数
-        this.initialDegMini = this.turns*360+this.arr[this.num][2];//初始最小值度数
-        this.initialDegMax = this.turns*360+this.arr[this.num][1];//初始最大值度数
-        this.MathAngle = Math.ceil(Math.random()*(this.initialDegMax-this.initialDegMini) )+this.initialDegMini;//转盘停止的角度
+        this.arr = this.NewArr(this.MathNum, this.deg, this.turnBuffer);//转盘角度参数
+        this.initialDegMini = this.turns * 360 + this.arr[this.num][2];//初始最小值度数
+        this.initialDegMax = this.turns * 360 + this.arr[this.num][1];//初始最大值度数
+        this.MathAngle = Math.ceil(Math.random() * (this.initialDegMax - this.initialDegMini)) + this.initialDegMini;//转盘停止的角度
 
         var res = newArray[this.arr[this.num][0]];
-        this.text ='结果为：'+ res;
-
-
+        this.text = '结果为：' + res;
+        result = res;
 
 
     }
+
+
 
     CreateParameter.prototype.NewArr = function (MathNum,deg,turnBuffer){
         //计算转盘的各个角度参数
@@ -128,10 +129,27 @@ window.onload = function(){
         }
 
     })()
+    function sendToServer(result) {
+            fetch('coupon', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ result: result })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+    }
     document.onclick = function(e){
         var target = e.target || e.srcElement;
         if(target.className == 'internal'){
             let Parameter = new ProxySingleParameter(turntable,result);
+            console.log("123");
             if(Parameter.flag){
                 Parameter.result.classList.remove('none');
                 Parameter.star();
@@ -139,6 +157,7 @@ window.onload = function(){
             }else{
                 console.log(Parameter.arr[Parameter.num]);
             }
+            sendToServer(result);
         }
     }
 }
