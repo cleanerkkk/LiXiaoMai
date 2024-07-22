@@ -1,6 +1,7 @@
 package com.example.lixiaomai.backend.dao;
 
 import com.example.lixiaomai.backend.entity.Cart;
+import com.example.lixiaomai.backend.tools.CartResultSetHandler;
 import com.example.lixiaomai.backend.tools.DatabaseUtils;
 import com.example.lixiaomai.backend.tools.Tool;
 import org.apache.commons.dbutils.QueryRunner;
@@ -16,7 +17,7 @@ public class CartDao {
         try {
             String sql = "SELECT * FROM CART WHERE CID = ?";
             Connection conn = DatabaseUtils.getConnection();
-            return runner.query(conn, sql, new BeanHandler<>(Cart.class), Cid);
+            return runner.query(conn, sql, new CartResultSetHandler(), Cid);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
