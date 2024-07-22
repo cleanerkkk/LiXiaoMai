@@ -138,9 +138,6 @@ window.onload = function(){
                 body: JSON.stringify({ result: result })
             })
                 .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-                })
                 .catch((error) => {
                     console.error('Error:', error);
                 });
@@ -149,7 +146,6 @@ window.onload = function(){
         var target = e.target || e.srcElement;
         if(target.className == 'internal'){
             let Parameter = new ProxySingleParameter(turntable,result);
-            console.log("123");
             if(Parameter.flag){
                 Parameter.result.classList.remove('none');
                 Parameter.star();

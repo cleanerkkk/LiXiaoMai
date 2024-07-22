@@ -19,7 +19,6 @@ public class CouponDao {
             throw new RuntimeException(e);
         }
     }
-
     public boolean addCoupon(Coupon coupon){
         String sql="INSERT INTO COUPON (`id`, `limit`, `discount`) VALUES (?, ?, ?)";
         try {
