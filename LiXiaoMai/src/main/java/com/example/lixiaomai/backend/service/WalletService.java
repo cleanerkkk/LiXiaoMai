@@ -1,6 +1,7 @@
 package com.example.lixiaomai.backend.service;
 
 import com.example.lixiaomai.backend.dao.WalletDao;
+import com.example.lixiaomai.backend.entity.Coupon;
 import com.example.lixiaomai.backend.entity.Wallet;
 
 public class WalletService {
@@ -24,5 +25,9 @@ public class WalletService {
 
     public boolean updateBalanceById(int id, double newBalance){
         return walletDAO.updateBalanceById(id, newBalance);
+    }
+
+    public boolean addCouponById(int id, Coupon coupon){
+        return walletDAO.addCouponById(id, coupon);
     }
 }

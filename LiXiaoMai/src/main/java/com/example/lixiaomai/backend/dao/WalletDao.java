@@ -1,4 +1,5 @@
 package com.example.lixiaomai.backend.dao;
+import com.example.lixiaomai.backend.entity.Coupon;
 import com.example.lixiaomai.backend.entity.Wallet;
 import com.example.lixiaomai.backend.tools.*;
 import org.apache.commons.dbutils.QueryRunner;
@@ -6,6 +7,7 @@ import org.apache.commons.dbutils.handlers.BeanHandler;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 public class WalletDao {
     private final QueryRunner runner = DatabaseUtils.getRunner();
@@ -74,5 +76,60 @@ public class WalletDao {
             DatabaseUtils.close(conn);
         }
         return isUpdated;
+    }
+
+    public boolean updateWalletById(int id, Wallet wallet) {
+        Connection conn = null;
+        boolean isUpdated = false;
+        try {
+            conn = DatabaseUtils.getConnection();
+            QueryRunner runner = DatabaseUtils.getRunner();
+            String did = Tool.ListToString(wallet.getDId());
+            String discountNum = Tool.ListToString(wallet.getDiscountNum());
+            String updateQuery = "UPDATE WALLET SET password = ?, balance = ?, did = ?, discountNum = ? WHERE id = ?";
+            int rowsAffected = runner.update(conn, updateQuery, wallet.getPassword(), wallet.getBalance(), did, discountNum, id);
+            isUpdated = rowsAffected > 0;
+            return isUpdated;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    public boolean addCouponById(int id, Coupon coupon){
+        Connection conn = null;
+        boolean isUpdated = false;
+        try {
+            conn = DatabaseUtils.getConnection();
+            QueryRunner runner = DatabaseUtils.getRunner();
+            String sql = "SELECT * FROM WALLET WHERE id = ?";
+            Wallet wallet = runner.query(conn, sql, new WalletResultSetHandler(), id).get(0);
+            List<Integer> discountNum = wallet.getDiscountNum();
+            List<Integer> did = wallet.getDId();
+            int discountId = coupon.getId();
+            int ind = -1;
+            for (int i = 0; i < did.size(); i++) {
+                if (did.get(i) == discountId) {
+                    ind = i;
+                    break;
+                }
+            }
+            if (ind != -1){
+                discountNum.set(ind, discountNum.get(ind) + 1);
+                wallet.setDiscountNum(discountNum);
+                return updateWalletById(id, wallet);
+
+            } else {
+                did.add(discountId);
+                discountNum.add(1);
+                wallet.setDId(did);
+                wallet.setDiscountNum(discountNum);
+                return updateWalletById(id, wallet);
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

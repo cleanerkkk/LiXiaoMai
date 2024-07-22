@@ -84,8 +84,8 @@ CREATE TABLE IF NOT EXISTS `CART`(
 drop table wallet;
 CREATE TABLE IF NOT EXISTS `WALLET`(
                                        `ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                                       `PASSWORD` VARCHAR(6),
-                                       `BALANCE` DECIMAL(10,2),
+                                       `PASSWORD` VARCHAR(10),
+                                       `BALANCE` DECIMAL(10,2) default 0,
                                        `DID` VARCHAR(100),
                                        `DISCOUNTNUM` VARCHAR(100)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;

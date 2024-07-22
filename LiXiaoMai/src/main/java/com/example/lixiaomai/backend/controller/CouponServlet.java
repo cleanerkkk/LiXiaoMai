@@ -11,6 +11,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import com.example.lixiaomai.backend.entity.Coupon;
+import com.example.lixiaomai.backend.entity.Customer;
+import com.example.lixiaomai.backend.entity.Wallet;
+import com.example.lixiaomai.backend.service.CustomerService;
+import com.example.lixiaomai.backend.service.WalletService;
 import lombok.SneakyThrows;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -51,17 +56,34 @@ public class CouponServlet extends HttpServlet {
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
+        Coupon coupon = new Coupon();
+        if (result.equals("一等奖")){
+            coupon.setDiscount(15);
+            coupon.setLimit(20);
+            coupon.setId(1);
+        }
+        else if (result.equals("二等奖")){
+            coupon.setDiscount(10);
+            coupon.setLimit(15);
+            coupon.setId(2);
 
-        // 打印结果到服务器控制台
-        System.out.println("接收到的结果: " + result);
+        }
+        else if (result.equals("三等奖")){
+            coupon.setDiscount(5);
+            coupon.setLimit(10);
+            coupon.setId(3);
+        }
+        else if (result.equals("特等奖")){
+            coupon.setId(4);
+            coupon.setDiscount(20);
+            coupon.setLimit(0);
+        }
 
-        // 设置响应内容
-        JSONObject jsonResponse = new JSONObject();
-        jsonResponse.put("status", "success");
-        jsonResponse.put("message", "结果已接收");
+        String username = (String) request.getSession().getAttribute("name");
+        CustomerService customerService = new CustomerService();
+        int id = customerService.getUserByUsername(username).getId();
+        WalletService walletService = new WalletService();
+        walletService.addCouponById(id, coupon);
 
-        PrintWriter out = response.getWriter();
-        out.print(jsonResponse.toString());
-        out.flush();
     }
 }

@@ -3,9 +3,11 @@ package com.example.lixiaomai.backend.controller;
 import com.example.lixiaomai.backend.entity.Business;
 import com.example.lixiaomai.backend.entity.Customer;
 import com.example.lixiaomai.backend.entity.Deliverman;
+import com.example.lixiaomai.backend.entity.Wallet;
 import com.example.lixiaomai.backend.service.BusinessService;
 import com.example.lixiaomai.backend.service.CustomerService;
 import com.example.lixiaomai.backend.service.DelivermanService;
+import com.example.lixiaomai.backend.service.WalletService;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,6 +49,8 @@ public class RegisterServlet extends HttpServlet {
             }
 
             Customer customer = new Customer();
+            Wallet wallet = new Wallet();
+
             customer.setName(trueName);
             customer.setPassword(firstPassword);
             customer.setUName(registerUserName);
@@ -55,6 +59,10 @@ public class RegisterServlet extends HttpServlet {
             customer.setAddress(address);
             customer.setBirthday(date);
 
+            wallet.setPassword(firstPassword);
+
+            WalletService walletService = new WalletService();
+            walletService.addWallet(wallet);
             flag = customerService.addCustomer(customer);
 
         }
