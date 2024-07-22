@@ -12,4 +12,10 @@ public class Cart {
     private List<Integer> goodsNum;
     private double total;
 
+    public void clear(){
+        total = 0;
+        gId.clear();
+        goodsNum.clear();
+    }
+
 }
