@@ -1,8 +1,9 @@
 body {
-    width:100%;
-    height: 100%;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    display: flex;
 }
 nav {
     width:100%;
@@ -44,12 +45,9 @@ h3 {
 }
 
 .container {
-    width: 100%;
+    width: 80%;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -512,42 +510,42 @@ footer {
     border-bottom: #3F6580 solid 1px;
     text-align: center;
 }
-.merchant {
-    display: flex;
-    background-color: #ffffff;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    overflow: hidden;
+#main-container .merchant {
+    display: flex !important;
+    background-color: #ffffff !important;
+    margin-bottom: 20px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 5px !important;
+    overflow: hidden !important;
 }
 
-.merchant-image img {
+#main-container .merchant-image img {
     width: 150px;
     height: 150px;
     object-fit: cover;
 }
 
-.merchant-info {
+#main-container .merchant-info {
     flex: 1;
     padding: 20px;
 }
 
-.merchant-info h2 {
+#main-container .merchant-info h2 {
     margin: 0;
     font-size: 1.5em;
 }
 
-.merchant-info p {
+#main-container .merchant-info p {
     margin: 10px 0;
     color: #555;
 }
 
-.dish-images {
+#main-container .dish-images {
     display: flex;
     gap: 10px;
 }
 
-.dish-images img {
+#main-container .dish-images img {
     width: 80px;
     height: 80px;
     object-fit: cover;
