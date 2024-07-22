@@ -32,10 +32,12 @@
 </div>
 <div class="cart-details">
     <%
-        Cart cart = (Cart) request.getAttribute("Cart");
+        Cart cart = (Cart) request.getAttribute("cart");
+        List<Product> gList = (List<Product>) request.getAttribute("product");
         List<Integer> gIdList = (List<Integer>) cart.getGId();
-        List<Integer>
-        if (productForCart != null) {
+        List<Integer> gNumList = (List<Integer>) cart.getGoodsNum();
+        double total = cart.getTotal();
+        if (cart != null) {
     %>
     <div class="cutLine">
         <p>    </p>
@@ -52,30 +54,24 @@
                 <th>总价</th>
             </tr>
             <%
-                for (int i = 0; i < productForCart.size(); i++) {
-                    int productID=productForCart.get(i).getId();
-                    String productName=productForCart.get(i).getName();
-                    int productStock=productForCart.get(i).getStock();
-                    int productNum=productNumList.get(i);
-                    int productPrice=productForCart.get(i).getPrice();
-                    String inputId = "quantity_" + productID;
+                for (int i = 0; i < gIdList.size(); i++) {
+                    int gNum = gNumList.get(i);
+                    Product product = gList.get(i);
+                    String productName=product.getName();
+                    int productPrice = product.getPrice();
+                    int pTotal = productPrice * gNum;
             %>
             <tr>
-                <td><%= productID %></td>
                 <td><%= productName %></td>
-                <td><%= productStock%></td>
-                <td>
-                    <button type="button" onclick="decreaseQuantity('<%= inputId %>')">-</button>
-                    <input type="text" id="<%= inputId %>" name="quantity_<%= productID %>" value="0" size="2" readonly>
-                    <button type="button" onclick="increaseQuantity('<%= inputId %>','<%=productStock%>')">+</button>
-                </td>
-                <td><%=productPrice%></td>
+                <td><%= gNum %></td>
+                <td><%= productPrice%></td>
+                <td><%=pTotal%></td>
             </tr>
             <%
                 }
             %>
         </table>
-        <input type="submit" value="加入购物车">
+        <input type="submit" value="购物">
     </form>
     <%
     } else {
