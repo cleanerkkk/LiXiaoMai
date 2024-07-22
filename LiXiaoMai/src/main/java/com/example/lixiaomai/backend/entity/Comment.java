@@ -9,6 +9,7 @@ public class Comment {
     private int id;
     private int startId;
     private int endId;
+    private int oId;
     private String content;
     private  Timestamp time;
 
