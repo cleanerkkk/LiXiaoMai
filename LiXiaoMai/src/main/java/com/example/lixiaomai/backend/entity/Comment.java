@@ -11,7 +11,7 @@ public class Comment {
     private int endId;
     private int oId;
     private String content;
-    private  Timestamp time;
+    private java.sql.Timestamp time;
 
     private String startName;
     private  String endName;
