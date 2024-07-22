@@ -35,39 +35,33 @@ public class AddCartServlet extends HttpServlet {
         List<Integer> gId = new ArrayList<>();
         List<Integer> goodsNum = new ArrayList<>();
 
-        if (quantities != null && ids != null) {
-            List<String> quantitiesList = Arrays.asList(request.getParameter("quantities").split(","));
-            List<String> idsList = Arrays.asList(request.getParameter("ids").split(","));
+        List<String> quantitiesList = Arrays.asList(request.getParameter("quantities").split(","));
+        List<String> idsList = Arrays.asList(request.getParameter("ids").split(","));
 
-            for (int i = 0; i < idsList.size(); i++) {
-                gId.add(Integer.parseInt(idsList.get(i)));
-                goodsNum.add(Integer.parseInt(quantitiesList.get(i)));
-            }
+        for (int i = 0; i < idsList.size(); i++) {
+            gId.add(Integer.parseInt(idsList.get(i)));
+            goodsNum.add(Integer.parseInt(quantitiesList.get(i)));
         }
 
         HttpSession session = request.getSession();
-        Cart cart = (Cart) session.getAttribute("cart");
-        if (cart == null) {
-            cart = new Cart();
-            cart.setCId(cId);
-            cart.setGId(gId);
-            cart.setGoodsNum(goodsNum);
-        } else {
-            // Update the cart
-            List<Integer> existingGId = cart.getGId();
-            List<Integer> existingGoodsNum = cart.getGoodsNum();
+        Cart cart = new Cart();
 
-            for (int i = 0; i < gId.size(); i++) {
-                int index = existingGId.indexOf(gId.get(i));
-                if (index != -1) {
-                    existingGoodsNum.set(index, existingGoodsNum.get(index) + goodsNum.get(i));
-                } else {
-                    existingGId.add(gId.get(i));
-                    existingGoodsNum.add(goodsNum.get(i));
-                }
+        cart.setCId(cId);
+        cart.setGId(gId);
+        cart.setGoodsNum(goodsNum);
+        // Update the cart
+        List<Integer> existingGId = cart.getGId();
+        List<Integer> existingGoodsNum = cart.getGoodsNum();
+
+        for (int i = 0; i < gId.size(); i++) {
+            int index = existingGId.indexOf(gId.get(i));
+            if (index != -1) {
+                existingGoodsNum.set(index, existingGoodsNum.get(index) + goodsNum.get(i));
+            } else {
+                existingGId.add(gId.get(i));
+                existingGoodsNum.add(goodsNum.get(i));
             }
         }
-
         session.setAttribute("cart", cart);
         request.getRequestDispatcher("cart.jsp").forward(request, response);
     }
