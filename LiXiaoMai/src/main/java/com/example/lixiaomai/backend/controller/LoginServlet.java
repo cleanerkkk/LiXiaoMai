@@ -36,12 +36,15 @@ public class LoginServlet extends HttpServlet {
             return ;
         }
         boolean loginResult;
+        Integer id = null;
         switch (userType) {
             case "customer":
                 CustomerService customerService = new CustomerService();
                 loginResult = customerService.login(username, password);
+                id = customerService.getUserByUsername(username).getId();
                 WalletService walletService = new WalletService();
                 Wallet wallet = walletService.getWalletById(customerService.getUserByUsername(username).getId());
+
                 int cnt = 0;
                 for (int i = 0; i < wallet.getDiscountNum().size(); i++) {
                     cnt += wallet.getDiscountNum().get(i);
@@ -58,9 +61,11 @@ public class LoginServlet extends HttpServlet {
             case "deliverman":
                 DelivermanService delivermanService = new DelivermanService();
                 loginResult = delivermanService.login(username, password);
+                id = delivermanService.getDelivermanByUsername(username).getId();
                 break;
             default:
                 BusinessService businessService = new BusinessService();
+                id = businessService.getBusinessByUsername(username).getId();
                 loginResult = businessService.login(username, password);
                 break;
         }
@@ -68,7 +73,7 @@ public class LoginServlet extends HttpServlet {
         if (loginResult){
             request.getSession().setAttribute("name", username);
             request.getSession().setAttribute("userType", userType);
-
+            request.getSession().setAttribute("id", id);
 
             response.sendRedirect("exhibit");
         }
