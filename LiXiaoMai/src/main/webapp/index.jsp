@@ -47,7 +47,6 @@
 <p></p>
 <div class="container">
   <article id="main">
-    <div class="business">
   <%
     List<Business> list = (List<Business>) request.getAttribute("BusinessList");
     Map<Integer, List<Product>> productMap = (Map<Integer, List<Product>>) request.getAttribute("ProductMap");
@@ -55,16 +54,41 @@
     Integer totalPage = (Integer) request.getAttribute("totalPages");
     if ((list != null && !list.isEmpty())){
         for (Business business : list){
-        List<Product> product = productMap.get(business.getId());
-        //去图片库获取信息URL
-        //String urlImg="img+i";
-
+        String BusinessName=business.getName();
+        String BusinessAddress=business.getAddress();
+        int BusinessId=business.getId();
+        %>
+        <div class="merchant">
+            <div class="merchant-image">
+                <img src="./imgsrc.business<%=BusinessId%>.jpg">
+            </div>
+            <div class="merchant-info">
+                <h2><%=BusinessName%></h2>
+                <p><%=BusinessAddress%></p>
+                <div class="dish-images">
+                <%
+                List<Product> product = productMap.get(business.getId());
+                int len=product.size();
+                if(len>=3){
+                    len=3;
+                }
+                for(int i=0;i<len;i++){
+                    Product product1=new Product();
+                    product1=product.get(i);
+                    int ID=product1.getId();
+                    String ProductName=product1.getName();
+                    %>
+                    <p><%=ProductName%></p>
+                    <img src="./imgsrc.product<%=ID%>.jpg">
+                    <%
+                }
+        }
   %>
-      <div class = "business-info">
-          <img src=" "alt=""id="">
+            </div>
+        </div>
       </div>
     <%
-            }
+
     }
         else{
           %>
@@ -103,7 +127,6 @@ for (int i = 1; i <= totalPage; i++){
       <%
         }
       %>
-    </div>
   </article>
 
   <article id="coupon" style="display: none;">
