@@ -1,6 +1,7 @@
 body {
     background-color: #f9f9f9;
     font-family: "宋体", sans-serif;
+    text-align: center;
     color: #333;
     margin: 0;
     padding: 0;
@@ -13,6 +14,10 @@ body {
     padding: 20px;
     border-radius: 8px;
     margin-top: 50px;
+}
+h1{
+    text-align: center;
+    font-weight: bold;
 }
 h2 {
     text-align: center;
