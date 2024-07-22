@@ -21,11 +21,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet("/OrderDetails")
+@WebServlet("/orderDetails")
 public class OrderDetailsServlet extends HttpServlet{
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+
 
         Integer id = Integer.parseInt(request.getParameter("id"));
 
@@ -42,6 +43,12 @@ public class OrderDetailsServlet extends HttpServlet{
             productNameList.add(productName);
         }
         List<Comment> commentList = commentService.getCommentByOId(id);
+
+        Comment commentEndWithBusiness = commentService.getCommentEndWithBusinessByOId(id);
+        Comment commentEndWithDeliverman = commentService.getCommentEndWithDelivermanByOId(id);
+        request.setAttribute("businessComment", commentEndWithBusiness);
+        request.setAttribute("deliverComment", commentEndWithDeliverman);
+
         DelivermanService delivermanService = new DelivermanService();
         int deliverId = order.getDeliverId();
         String deliverName = delivermanService.getDelivermanById(deliverId).getName();

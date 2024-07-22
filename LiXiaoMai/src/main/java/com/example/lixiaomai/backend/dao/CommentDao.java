@@ -1,6 +1,8 @@
 package com.example.lixiaomai.backend.dao;
 
 import com.example.lixiaomai.backend.entity.Comment;
+import com.example.lixiaomai.backend.service.BusinessService;
+import com.example.lixiaomai.backend.service.DelivermanService;
 import com.example.lixiaomai.backend.tools.DatabaseUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
@@ -33,6 +35,45 @@ public class CommentDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public Comment getCommentEndWithBusinessByOid(int oid){
+        try{
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "SELECT * FROM COMMENT WHERE OID = ?";
+            List<Comment> comments = runner.query(conn,sql,new BeanListHandler<>(Comment.class),oid);
+            BusinessService businessService = new BusinessService();
+            for (Comment comment : comments){
+                int id = comment.getEndId();
+                String sName = businessService.getBusinessById(id).getShopName();
+                if (sName.equals(comment.getEndName())){
+                    return comment;
+                }
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+    public Comment getCommentEndWithDelivermanByOid(int oid){
+        try{
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "SELECT * FROM COMMENT WHERE OID = ?";
+            List<Comment> comments = runner.query(conn,sql,new BeanListHandler<>(Comment.class),oid);
+            DelivermanService delivermanService = new DelivermanService();
+            for (Comment comment : comments){
+                int id = comment.getEndId();
+                String sName = delivermanService.getDelivermanById(id).getName();
+                if (sName.equals(comment.getEndName())){
+                    return comment;
+                }
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
     }
 
     public List<Comment> getCommentByStartId(int StartId){

@@ -51,7 +51,7 @@
                 double total = order.getTotal();
         %>
         <tr>
-            <td><a href="OrderDetails?id=<%=id%>"><%=id%></a></td>
+            <td><a href="orderDetails?id=<%=id%>"><%=id%></a></td>
             <td><%=sName%></td>
              <td><%=productName%></td>
               <td><%=goodSum%></td>

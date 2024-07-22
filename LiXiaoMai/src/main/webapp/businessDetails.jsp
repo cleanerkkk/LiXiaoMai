@@ -36,11 +36,8 @@
     }
 </script>
 <body>
-<h2>商家详情与商品一览表</h2>
-<div class="account">
-    <p>用户类型：${userType} 用户姓名：${name}</p>
-</div>
-<div class="order-details">
+<h1>商家详情与商品一览表</h1>
+<div class="business-details">
     <%
         Business business=(Business) request.getAttribute("business");
         List<Product> productForShop=(List<Product>)request.getAttribute("productForShop");
@@ -50,7 +47,10 @@
             String address= business.getAddress();
             String telephone= business.getTelephone();
     %>
-    <h3><%=shopName%></h3>
+    <h2><%=shopName%></h2>
+    <div class="account">
+        <p>用户类型：${userType} 用户姓名：${name}</p>
+    </div>
     <h4 style="text-align: center">商家地址：<%=address%>     商家电话：<%=telephone%></h4>
     <div class="cutLine">
         <p>    </p>
@@ -58,7 +58,7 @@
     <p></p>
     <p></p>
     <p></p>
-    <form action="addToCart" method="post">
+    <form action="AddCartServlet" method="post">
     <table border="1">
         <tr>
             <th>商品ID</th>
@@ -96,7 +96,7 @@
             }
         %>
     </table>
-    <input type="submit" value="加入购物车">
+    <input type="submit" value="加入购物车" >
     </form>
     <%
     } else {

@@ -39,4 +39,12 @@ public class CommentService {
     public List<Comment> getCommentByOId(int oId){
         return commentDao.getAllcommentByOid(oId);
     }
+
+    public Comment getCommentEndWithBusinessByOId(int oId){
+        return commentDao.getCommentEndWithBusinessByOid(oId);
+    }
+
+    public Comment getCommentEndWithDelivermanByOId(int oId){
+        return commentDao.getCommentEndWithDelivermanByOid(oId);
+    }
 }
