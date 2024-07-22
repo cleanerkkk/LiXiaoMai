@@ -8,6 +8,10 @@ import java.util.List;
 public class BusinessService {
     static BusinessDao businessDao = new BusinessDao();
 
+    public Business getBusinessById(int id){
+        return businessDao.getBusinessById(id);
+    }
+
     public boolean login(String username, String password) {
         Business business = businessDao.getBusinessByUsername(username);
         return business != null && business.getPassword().equals(password);

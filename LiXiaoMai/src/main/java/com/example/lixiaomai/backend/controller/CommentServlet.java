@@ -61,7 +61,7 @@ public class CommentServlet extends HttpServlet {
 
         commentService.addComment(comment);
 
-        request.getRequestDispatcher("orderDetails.jsp").forward(request, response);
+        response.sendRedirect("orderDetails?id=" + oId);
 
 
 

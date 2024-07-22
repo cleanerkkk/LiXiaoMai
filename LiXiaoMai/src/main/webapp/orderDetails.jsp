@@ -82,6 +82,11 @@
         %>
     </table>
     <div class="comments">
+        <%
+            Comment business = (Comment) request.getAttribute("businessComment");
+            Comment deliver = (Comment) request.getAttribute("deliverComment");
+            if (business == null) {
+        %>
         <form action="comment" method="post">
             <div>
                 <label for = "business">商家</label>
@@ -92,7 +97,7 @@
                 <input type="text" id = "deliverman" name = "deliverman">
             </div>
             <div>
-                <button type="submit">提交</button>
+                <button type="submit">提交评论</button>
             </div>
             <input type="hidden" name="deliverId" value="<%=order.getDeliverId()%>">
             <input type="hidden" name="businessId" value="<%=order.getSId()%>">
@@ -100,6 +105,31 @@
             <input type="hidden" name="businessName" value="<%=order.getSName()%>">
             <input type="hidden" name="deliverName" value="<%=deliverName%>">
         </form>
+        <%
+            } else{
+        %>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>赞同数</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <th>对商家评论</th>
+                    <td><%= business.getContent() %></td>
+                    <td><%= business.getLikes()%></td>
+                </tr>
+                <tr>
+                    <th>对骑手评论</th>
+                    <td><%= deliver.getContent() %></td>
+                    <td><%= business.getLikes()%></td>
+                </tr>
+            </table>
+        <%
+            }
+        %>
     </div>
     <%
     } else {

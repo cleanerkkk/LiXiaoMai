@@ -13,6 +13,16 @@ import java.util.List;
 public class BusinessDao {
     private final QueryRunner runner = DatabaseUtils.getRunner();
 
+    public Business getBusinessById(int id){
+        try {
+            String sql = "SELECT * FROM Business WHERE id = ?";
+            Connection conn = DatabaseUtils.getConnection();
+            return runner.query(conn, sql, new BeanHandler<>(Business.class), id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public Business getAllInfoOfBusiness(int id) {
         try {
             Connection conn = DatabaseUtils.getConnection();
