@@ -81,11 +81,12 @@
                     <p><%=ProductName%></p>
                     <img src="./imgsrc.product<%=ID%>.jpg">
                     <%
-                }
+                }%>
+                </div>
+            </div>
+<%
         }
   %>
-            </div>
-        </div>
       </div>
     <%
 
