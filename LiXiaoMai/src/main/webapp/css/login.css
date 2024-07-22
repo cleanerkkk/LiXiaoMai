@@ -2,12 +2,11 @@ body {
     font-family: Arial, sans-serif;
     background-image: linear-gradient(to left bottom, #f9f1f5, #ffd1ea, #ffb1e1, #ff8fd8, #ff68d0, #e573e5, #c47ff5, #9e89ff, #2fb1ff, #00d1ff, #00ebff, #00ffef);
     background-repeat: no-repeat;
-    width: 100%;
+    background-size: 100% 100%;
 }
 nav {
     background-color: transparent;
     color: black;
-    padding: 10px;
     background-size: 100% 100%;
     background-position: center;
     font-weight: bold;
@@ -33,7 +32,13 @@ nav ul {
 nav ul li {
     text-align: right;
     display: inline;
-    margin-right: 20px;
+    margin-right: 0;
+}
+nav ul li:first-child{
+    margin-right: 0;
+}
+nav ul li:last-child{
+    margin-right:0;
 }
 
 nav ul li a {
@@ -96,9 +101,8 @@ article {
     cursor: pointer; /* 鼠标悬停时显示指针图标 */
     margin-left: 50px; /* 图片与输入框之间的间距 */
 }
-register {
-    width: 1175px;
-    margin-bottom: 20px;
+.register {
+    margin:0 auto;
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: rgba(0, 0, 0, 0.1);
