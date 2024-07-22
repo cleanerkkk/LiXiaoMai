@@ -4,6 +4,7 @@ import com.example.lixiaomai.backend.entity.Business;
 import com.example.lixiaomai.backend.entity.Wallet;
 import com.example.lixiaomai.backend.service.*;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -67,8 +68,9 @@ public class LoginServlet extends HttpServlet {
         if (loginResult){
             request.getSession().setAttribute("name", username);
             request.getSession().setAttribute("userType", userType);
-            
-            request.getRequestDispatcher("index.jsp").forward(request,response);
+
+
+            response.sendRedirect("exhibit");
         }
         else{
             errorMessage = "用户名或密码错误";
