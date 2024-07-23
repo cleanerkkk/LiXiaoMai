@@ -3,6 +3,7 @@ package com.example.lixiaomai.backend.controller;
 import com.example.lixiaomai.backend.entity.Cart;
 import com.example.lixiaomai.backend.entity.Customer;
 import com.example.lixiaomai.backend.entity.Product;
+import com.example.lixiaomai.backend.service.CartService;
 import com.example.lixiaomai.backend.service.CustomerService;
 import com.example.lixiaomai.backend.service.ProductService;
 
@@ -34,6 +35,7 @@ public class AddCartServlet extends HttpServlet {
 
         CustomerService customerService = new CustomerService();
         Customer customer = customerService.getUserByUsername(userName);
+        CartService cartService=new CartService();
         ProductService productService=new ProductService();
         Product product =new Product();
 
@@ -57,9 +59,8 @@ public class AddCartServlet extends HttpServlet {
         cart.setGoodsNum(goodsNum);
         double total=productService.calculateTotal(gId,goodsNum);
         cart.setTotal(total);
+        boolean changed=cartService.updateCart(cart);
 
-
-        session.setAttribute("cart", cart);
         response.sendRedirect("cart");
     }
 }
