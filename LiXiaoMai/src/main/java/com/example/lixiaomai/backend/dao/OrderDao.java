@@ -46,7 +46,7 @@ public class OrderDao {
     public boolean addOrder(Order order){
         try{
             Connection conn = DatabaseUtils.getConnection();
-            String sql = "INSERT INTO `ORDER` (CID, SID, GID, GOODSNUM, ENDTIME, STARTTIME, TOTAL, STATUS, SNAME, DISCOUNTNUM, DID, CNAME) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO `ORDER` (CID, SID, GID, GOODSNUM, ENDTIME, STARTTIME, TOTAL, STATUS, SNAME, DISCOUNTNUM, DID, CNAME) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
             String gId = Tool.ListToString(order.getGId());
             String goodsNum = Tool.ListToString(order.getGoodsNum());
             String discountId = Tool.ListToString(order.getDiscountId());
