@@ -3,6 +3,8 @@ package com.example.lixiaomai.backend.service;
 import com.example.lixiaomai.backend.dao.CouponDao;
 import com.example.lixiaomai.backend.entity.Coupon;
 
+import java.util.List;
+
 public class CouponService {
     static CouponDao couponDAO = new CouponDao();
 
@@ -24,5 +26,14 @@ public class CouponService {
 
     public boolean updateDiscountById(int id,double newDiscount){
         return couponDAO.updateDiscountById(id, newDiscount);
+    }
+
+    public double calculateDiscount(List<Integer> discountId, List<Integer> discountNum){
+        double total = 0;
+        for (int i = 0; i < discountId.size(); i++) {
+            Coupon coupon = getCouponById(discountId.get(i));
+            total += coupon.getDiscount() * discountNum.get(i);
+        }
+        return total;
     }
 }
