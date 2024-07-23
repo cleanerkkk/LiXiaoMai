@@ -75,7 +75,7 @@
     <p></p>
     <p></p>
     <p></p>
-    <form name="productForm" action="addCart" method="post" onsubmit="collectQuantities()">
+    <form name="productForm" onsubmit="collectQuantities()" action="addCart" method="post" >
         <table border="1">
             <tr>
                 <th>商品ID</th>
