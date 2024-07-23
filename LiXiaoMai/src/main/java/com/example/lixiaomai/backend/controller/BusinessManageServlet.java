@@ -49,16 +49,17 @@ public class BusinessManageServlet extends HttpServlet {
         ProductService productService = new ProductService();
 
         String action = request.getParameter("action");
+        String productName = request.getParameter("name");
+        String description = request.getParameter("description");
+        double price = Double.parseDouble(request.getParameter("price"));
+        int stock = Integer.parseInt(request.getParameter("stock"));
+        String type = request.getParameter("type");
+        String url = request.getParameter("image");
 
         if (action.equals("add") ) {
-            String productName = request.getParameter("name");
-            String description = request.getParameter("description");
-            double price = Double.parseDouble(request.getParameter("price"));
-            int stock = Integer.parseInt(request.getParameter("stock"));
-            String type = request.getParameter("type");
-            String url = request.getParameter("image");
+
             Product product = new Product();
-            product.setName(name);
+            product.setName(productName);
             product.setDescription(description);
             product.setPrice(price);
             product.setStock(stock);
@@ -66,14 +67,12 @@ public class BusinessManageServlet extends HttpServlet {
             product.setPitcutreUrl(url);
             product.setType(type);
             productService.addProduct(product);
+        } else if (action.equals("update") ){
+
+
+        } else if (action.equals("delete")) {
+            int pId = Integer.parseInt(request.getParameter("pId"));
         }
-//        } else if (action.equals("update") ){
-//            String name = request.getParameter("Productname");
-//
-//        } else if (action.equals("delete") {
-//            int pId = Integer.parseInt(request.getParameter("pId"));
-//            productService.delProductById(pId);
-//        }
 
 
     }
