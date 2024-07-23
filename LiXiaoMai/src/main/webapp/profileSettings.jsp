@@ -113,6 +113,6 @@
         </div>
     </form>
 </article>
-<button id="back"><a href="index.jsp">返回主页</a></button>
+<button id="back"><a href="exhibit">返回主页</a></button>
 </body>
 </html>
