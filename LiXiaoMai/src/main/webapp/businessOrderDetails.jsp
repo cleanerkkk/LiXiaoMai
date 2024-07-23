@@ -40,7 +40,7 @@
         </tr>
         <tr>
             <th>消费者名称</th>
-            <td><%=customerUName%>></td>
+            <td><%=customerUName%></td>
         </tr>
         <tr>
             <th>订单时间</th>
