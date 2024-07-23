@@ -1,8 +1,10 @@
 package com.example.lixiaomai.backend.controller;
 
+import com.example.lixiaomai.backend.entity.Business;
 import com.example.lixiaomai.backend.entity.Cart;
 import com.example.lixiaomai.backend.entity.Customer;
 import com.example.lixiaomai.backend.entity.Product;
+import com.example.lixiaomai.backend.service.BusinessService;
 import com.example.lixiaomai.backend.service.CartService;
 import com.example.lixiaomai.backend.service.CustomerService;
 import com.example.lixiaomai.backend.service.ProductService;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -30,12 +33,24 @@ public class CartServlet extends HttpServlet {
         Integer id = (Integer) session.getAttribute("id");
 
         CustomerService customerService = new CustomerService();
-        Customer customer = customerService.getUserById(id);
-
+        BusinessService businessService = new BusinessService();
         CartService cartService = new CartService();
+
+        Customer customer = customerService.getUserById(id);
         Cart cart = cartService.getCartByCid(id);
+
+
         Map<Integer, List<Pair<Integer,Integer>>> map = cartService.diffProducts(cart);
+        Map<Integer, String> sNameMap = new HashMap<>();
+
+        for (Map.Entry<Integer, List<Pair<Integer,Integer>>> entry : map.entrySet()) {
+            int sId = entry.getKey();
+            ProductService productService = new ProductService();
+            sNameMap.put(sId, productService.getShopNameBySid(sId));
+        }
+
         request.setAttribute("name", customer.getName());
+
         request.setAttribute("productMap", map);
         request.setAttribute("cart", cart);
         request.getRequestDispatcher("cart.jsp").forward(request,response);
