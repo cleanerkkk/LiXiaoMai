@@ -76,7 +76,7 @@ public class BusinessManageServlet extends HttpServlet {
         } else if (action.equals("delete")) {
             productService.deleteProductById(productId);
         }
-        response.sendRedirect("businessManage");
+        response.sendRedirect(request.getContextPath() + "/sameServlet");
 
     }
 }
