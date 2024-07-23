@@ -6,15 +6,14 @@ import com.example.lixiaomai.backend.service.BusinessService;
 import com.example.lixiaomai.backend.service.ProductService;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.io.IOException;
+import javax.servlet.http.*;
+import java.io.*;
 import java.util.List;
 
 @WebServlet("/businessManage")
+@MultipartConfig
 public class BusinessManageServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.setCharacterEncoding("UTF-8");
@@ -52,10 +51,35 @@ public class BusinessManageServlet extends HttpServlet {
         String productName = request.getParameter("name");
         String description = request.getParameter("description");
         double price = Double.parseDouble(request.getParameter("price"));
-        int stock = Integer.parseInt(request.getParameter("stock"));
+        String stockx = request.getParameter("stock");
+        int stock = 0;
+        if (stockx != null) {
+            stock = Integer.parseInt(stockx);
+        }
         String type = request.getParameter("type");
-        String url = request.getParameter("image");
-        Integer productId = Integer.parseInt(request.getParameter("productId"));
+        String productIdx = request.getParameter("productId");
+        int productId = 0;
+        if (productIdx != null) {
+            productId = Integer.parseInt(productIdx);
+        }
+
+        Part filePart = request.getPart("image");
+        String filePath = request.getServletContext().getRealPath("/imgsrc/") + productName +".jpg";
+
+        InputStream fileContent = filePart.getInputStream();
+
+        File file = new File(filePath);
+        try (OutputStream output = new FileOutputStream(file)) {
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = fileContent.read(buffer)) > 0) {
+                output.write(buffer, 0, length);
+            }
+        }catch (IOException e) {
+            System.err.println("图片保存失败：" + e.getMessage());
+            e.printStackTrace();
+        }
+
 
         Product product = new Product();
         product.setName(productName);
@@ -63,20 +87,22 @@ public class BusinessManageServlet extends HttpServlet {
         product.setPrice(price);
         product.setStock(stock);
         product.setSId(id);
-        product.setPitcutreUrl(url);
+        product.setPitcutreUrl(filePath);
         product.setType(type);
 
 
         if (action.equals("add") ) {
             productService.addProduct(product);
-            response.sendRedirect("businessManage.jsp");
+            doGet(request, response);
+            return;
         } else if (action.equals("update") ){
             product.setId(productId);
             productService.updateProduct(product);
         } else if (action.equals("delete")) {
             productService.deleteProductById(productId);
         }
-        response.sendRedirect(request.getContextPath() + "/sameServlet");
+        doGet(request, response);
 
     }
 }
+

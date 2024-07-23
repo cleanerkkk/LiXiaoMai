@@ -57,11 +57,11 @@ public class ProductDao {
     public boolean addProduct(Product product) {
 
         try {
-            String sql = "INSERT INTO PRODUCT (NAME, PRICE, STOCK, TYPE, DESCRIPTION, SID) VALUES (?,?,?,?,?,?)";
+            String sql = "INSERT INTO PRODUCT (NAME, PRICE, STOCK,URL,TYPE, DESCRIPTION, SID) VALUES (?,?,?,?,?,?,?)";
             Connection conn = DatabaseUtils.getConnection();
             return runner.update(conn,
                     sql,
-                    product.getName(), product.getPrice(), product.getStock(), product.getType(), product.getDescription(), product.getSId()) > 0;
+                    product.getName(), product.getPrice(), product.getStock(),product.getPitcutreUrl(), product.getType(), product.getDescription(), product.getSId()) > 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
