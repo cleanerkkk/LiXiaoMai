@@ -29,7 +29,6 @@ public class CheckoutServlet extends HttpServlet {
         for (Map.Entry<Integer, List<Pair<Integer,Integer>>> entry : map.entrySet()) {
             int sId = entry.getKey();
             List<Pair<Integer,Integer>> list = entry.getValue();
-            Order
         }
 
 
