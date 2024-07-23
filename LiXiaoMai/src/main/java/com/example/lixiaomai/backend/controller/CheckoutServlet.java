@@ -3,8 +3,10 @@ package com.example.lixiaomai.backend.controller;
 import com.example.lixiaomai.backend.entity.Business;
 import com.example.lixiaomai.backend.entity.Cart;
 import com.example.lixiaomai.backend.entity.Order;
+import com.example.lixiaomai.backend.entity.Product;
 import com.example.lixiaomai.backend.service.BusinessService;
 import com.example.lixiaomai.backend.service.CartService;
+import com.example.lixiaomai.backend.service.ProductService;
 import com.example.lixiaomai.backend.tools.Tool;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -27,7 +29,9 @@ public class CheckoutServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Integer id = (Integer) session.getAttribute("id");
         String name = (String) session.getAttribute("name");
+
         CartService cartService = new CartService();
+        ProductService productService = new ProductService();
 
         Integer sId = Integer.parseInt(request.getParameter("sId"));
         List<Integer> gIds = Tool.StringToList(request.getParameter("gIds"), Integer.class);
@@ -35,6 +39,7 @@ public class CheckoutServlet extends HttpServlet {
         List<Integer> discountIds = Tool.StringToList(request.getParameter("discountIds"), Integer.class);
         List<Integer> discountNum = Tool.StringToList(request.getParameter("discountNum"), Integer.class);
 
+        double total =
 
 
 
