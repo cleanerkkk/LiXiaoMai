@@ -1,40 +1,39 @@
 <%@ page import="com.example.lixiaomai.backend.entity.Cart" %>
 <%@ page import="com.example.lixiaomai.backend.entity.Product" %>
+<%@ page import="com.example.lixiaomai.backend.entity.Coupon" %>
 <%@ page import="java.util.List" %>
 <%@ page import="org.apache.commons.lang3.tuple.Pair" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="com.example.lixiaomai.backend.entity.Coupon" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>购物车</title>
     <link rel="stylesheet" href="css/cart.css" type="text/css">
     <script>
-        function updateTotalPrice() {
+        function updateMerchantTotalPrice(sId) {
             var total = 0;
-            var totalFields = document.getElementsByClassName('product-total');
+            var totalFields = document.getElementsByClassName('product-total-' + sId);
             for (var i = 0; i < totalFields.length; i++) {
                 total += parseFloat(totalFields[i].innerText);
             }
 
-            var couponDiscount = parseFloat(document.getElementById('coupon-discount').innerText) || 0;
+            var couponDiscount = parseFloat(document.getElementById('coupon-discount-' + sId).innerText) || 0;
             total -= couponDiscount;
 
-            document.getElementById('grand-total').innerText = total.toFixed(2);
+            document.getElementById('merchant-total-' + sId).innerText = total.toFixed(2);
         }
 
-        function showCoupons() {
-            var couponSection = document.getElementById('coupon-section');
+        function showCoupons(sId) {
+            var couponSection = document.getElementById('coupon-section-' + sId);
             couponSection.style.display = 'block';
         }
 
-        function applyCoupon() {
-            var couponSelect = document.getElementById('coupon-select');
+        function applyCoupon(sId) {
+            var couponSelect = document.getElementById('coupon-select-' + sId);
             var discount = parseFloat(couponSelect.value);
-            document.getElementById('coupon-discount').innerText = discount.toFixed(2);
+            document.getElementById('coupon-discount-' + sId).innerText = discount.toFixed(2);
 
-            updateTotalPrice();
+            updateMerchantTotalPrice(sId);
         }
     </script>
 </head>
@@ -51,7 +50,6 @@
         List<Coupon> coupons = (List<Coupon>) request.getAttribute("couponList");
 
         if (productMap != null) {
-            double total = cart.getTotal();
             for(Map.Entry<Integer, List<Pair<Product, Integer>>> entry : productMap.entrySet()){
                 int sId = entry.getKey();
                 List<Pair<Product, Integer>> list = entry.getValue();
@@ -61,7 +59,7 @@
     <div class="cutLine">
         <p>    </p>
     </div>
-    <p>商家名称:<%=mapName.get(sId)%></p>
+    <p>商家名称:<%= mapName.get(sId) %></p>
     <form action=" " method="post">
         <table border="1">
             <tr>
@@ -71,72 +69,66 @@
                 <th>总价</th>
             </tr>
             <%
-                String exProductName = "[";
-                String exNum = "[";
-                String exPrice = "[";
-                double exTotal = 0;
-                for(int i = 0; i < products.size(); ++i) {
+                for (int i = 0; i < products.size(); ++i) {
                     Product product = products.get(i);
                     String productName = product.getName();
                     int num = goodsNum.get(i);
-                    int productPrice = product.getPrice();
+                    double productPrice = product.getPrice();
                     double pTotal = productPrice * num;
-                    if(i != 0){
-                        exProductName += ",";
-                        exNum += ",";
-                        exPrice += ",";
-                    }
-                    exProductName += productName;
-                    exNum += num;
-                    exPrice += productPrice;
-                    exTotal += pTotal;
-                }
-                exProductName += "]";
-                exNum += "]";
-                exPrice += "]";
             %>
             <tr>
-                <td><%= exProductName %></td>
-                <td><%= exNum %></td>
-                <td><%= exPrice %></td>
-                <td class="product-total"><%= exTotal %></td>
+                <td><%= productName %></td>
+                <td>
+                    <input type="number" value="<%= num %>" readonly>
+                </td>
+                <td><%= productPrice %></td>
+                <td class="product-total-<%= sId %>"><%= pTotal %></td>
             </tr>
+            <% } %>
         </table>
         <!-- Coupon Section -->
-        <button type="button" onclick="showCoupons()">使用优惠券</button>
-        <div id="coupon-section" style="display:none;">
-            <select id="coupon-select" onchange="applyCoupon()">
+        <button type="button" onclick="showCoupons(<%= sId %>)">使用优惠券</button>
+        <div id="coupon-section-<%= sId %>" style="display:none;">
+            <select id="coupon-select-<%= sId %>" onchange="applyCoupon(<%= sId %>)">
                 <option value="0">请选择优惠券</option>
-                <% for (Coupon coupon : coupons) {
-                    double discount = coupon.getDiscount();
-                    String couponName;
-                    if(coupon.getLimit() == 0){
-                        couponName = "无门槛券";
-                    }else{
-                        couponName = "满减券";
-                    }
+                <% if (coupons != null) {
+                    for (Coupon coupon : coupons) {
+                        double discount = coupon.getDiscount();
+                        String couponName;
+                        if (coupon.getLimit() == 0) {
+                            couponName = "无门槛券";
+                        } else {
+                            couponName = "满减券";
+                        }
                 %>
-                <option value="<%= discount %>"><%= couponName %> - 折扣 <%= coupon %> 元</option>
-                <% } %>
+                <option value="<%= discount %>"><%= couponName %> - 折扣 <%= discount %> 元</option>
+                <% } } %>
             </select>
+        </div>
+        <!-- End of Coupon Section -->
+        <div>
+            <p>商家总价: <span id="merchant-total-<%= sId %>">0.00</span></p>
+            <p>优惠券折扣: <span id="coupon-discount-<%= sId %>">0.00</span></p>
         </div>
         <input type="submit" value="购物">
     </form>
     <%
         }
     %>
-    <div>
-        <p>总价: <span id="grand-total"><%= total %></span></p>
-        <p>优惠券折扣: <span id="coupon-discount">0.00</span></p>
-    </div>
-    <%
-    } else {
-    %>
+    <% } else { %>
     <p>购物车内暂无信息。</p>
-    <%
-        }
-    %>
+    <% } %>
 </div>
 <button id="backToMain"><a href="exhibit">返回主页</a></button>
+<script>
+    // Initialize total price for each merchant on page load
+    <% if (productMap != null) {
+        for (Map.Entry<Integer, List<Pair<Product, Integer>>> entry : productMap.entrySet()) {
+            int sId = entry.getKey();
+    %>
+    updateMerchantTotalPrice(<%= sId %>);
+    <% }
+    } %>
+</script>
 </body>
 </html>
