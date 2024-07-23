@@ -23,8 +23,8 @@ public class CartService {
         return cartDao.updateCart(cart);
     }
 
-    public Map<Integer, List<Pair<Integer,Integer>>> diffProducts(Cart cart){
-        Map<Integer,List<Pair<Integer,Integer>>> map = new HashMap<>();
+    public Map<Integer, List<Pair<Product,Integer>>> diffProducts(Cart cart){
+        Map<Integer,List<Pair<Product,Integer>>> map = new HashMap<>();
         List<Integer> gIds = cart.getGId();
         ProductService productService = new ProductService();
         for (int i = 0; i < gIds.size(); i++){
@@ -32,9 +32,9 @@ public class CartService {
             Integer cnt = cart.getGoodsNum().get(i);
             Product product = productService.getProductById(id);
             int sid = product.getSId();
-            Pair<Integer,Integer> pair = Pair.of(id,cnt);
+            Pair<Product,Integer> pair = Pair.of(product,cnt);
             if (!map.containsKey(sid)) {
-                List<Pair<Integer,Integer>> list = new ArrayList<>();
+                List<Pair<Product,Integer>> list = new ArrayList<>();
                 map.put(sid, list);
                 map.get(sid).add(pair);
             }
