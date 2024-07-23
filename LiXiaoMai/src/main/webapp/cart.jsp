@@ -45,10 +45,10 @@
 <div class="cart-details">
     <%
         Cart cart = (Cart) request.getAttribute("cart");
-        double total = cart.getTotal();
         Map<Integer, List<Pair<Product, Integer>>> productMap = (Map<Integer, List<Pair<Product, Integer>>>) request.getAttribute("productMap");
         Map<Integer, Integer> mapName = (Map<Integer, Integer>) request.getAttribute("sNameMap");
         if (productMap != null) {
+            double total = cart.getTotal();
             for(Map.Entry<Integer, List<Pair<Product, Integer>>> entry : productMap.entrySet()){
                 int sId = entry.getKey();
                 List<Pair<Product, Integer>> list = entry.getValue();
@@ -90,7 +90,7 @@
                             }
                             exProductName += "]";
                             exNum += "]";
-                            exPrice = "]";
+                            exPrice += "]";
                         %>
                         <tr>
                             <td><%= exProductName %></td>
