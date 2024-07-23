@@ -40,6 +40,9 @@ public class CommentService {
         return commentDao.getAllcommentByOid(oId);
     }
 
+    public Comment getCommentEndWithCustomerByOId(int oId){
+        return commentDao.getCommentEndWithCustomerByOid(oId);
+    }
     public Comment getCommentEndWithBusinessByOId(int oId){
         return commentDao.getCommentEndWithBusinessByOid(oId);
     }
