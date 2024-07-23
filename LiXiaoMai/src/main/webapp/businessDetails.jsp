@@ -58,6 +58,7 @@
 <div class="business-details">
     <%
         Business business = (Business) request.getAttribute("business");
+        String USERNAME= String.valueOf(session.getAttribute("name"));
         List<Product> productForShop = (List<Product>) request.getAttribute("productForShop");
         if (business != null) {
             String shopName = business.getShopName();
@@ -75,7 +76,7 @@
     <p></p>
     <p></p>
     <p></p>
-    <form name="productForm" action="addCart" method="post" onsubmit="collectQuantities()">
+    <form name="productForm" onsubmit="collectQuantities()" action="addCart" method="post" >
         <table border="1">
             <tr>
                 <th>商品ID</th>

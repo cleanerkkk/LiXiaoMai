@@ -12,6 +12,8 @@ import java.util.List;
 public class ProductDao {
     private final QueryRunner runner = DatabaseUtils.getRunner();
 
+
+
     public List<Product> getAllProductBySid(int sId) {
         try {
             Connection conn = DatabaseUtils.getConnection();

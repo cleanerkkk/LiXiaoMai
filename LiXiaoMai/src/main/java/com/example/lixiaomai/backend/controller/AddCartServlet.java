@@ -2,7 +2,9 @@ package com.example.lixiaomai.backend.controller;
 
 import com.example.lixiaomai.backend.entity.Cart;
 import com.example.lixiaomai.backend.entity.Customer;
+import com.example.lixiaomai.backend.entity.Product;
 import com.example.lixiaomai.backend.service.CustomerService;
+import com.example.lixiaomai.backend.service.ProductService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,7 +25,7 @@ public class AddCartServlet extends HttpServlet {
 
         String quantitiesParam = request.getParameter("quantities");
         String idsParam = request.getParameter("ids");
-        String userName = request.getParameter("userId");
+        String userName = request.getParameter("name");
 
         if (quantitiesParam == null || idsParam == null) {
             response.sendRedirect("error.jsp");
@@ -32,6 +34,9 @@ public class AddCartServlet extends HttpServlet {
 
         CustomerService customerService = new CustomerService();
         Customer customer = customerService.getUserByUsername(userName);
+        ProductService productService=new ProductService();
+        Product product =new Product();
+
         int cId = customer.getId();
 
         List<Integer> gId = new ArrayList<>();
@@ -41,35 +46,18 @@ public class AddCartServlet extends HttpServlet {
         List<String> idsList = Arrays.asList(idsParam.replace("[", "").replace("]", "").split(","));
 
         for (int i = 0; i < idsList.size(); i++) {
-            gId.add(Integer.parseInt(idsList.get(i).trim()));
-            goodsNum.add(Integer.parseInt(quantitiesList.get(i).trim()));
+            gId.add(Integer.parseInt(idsList.get(i).trim().replace("\"","")));
+            goodsNum.add(Integer.parseInt(quantitiesList.get(i).trim().replace("\"","")));
         }
 
         HttpSession session = request.getSession();
-        Cart cart = (Cart) session.getAttribute("cart");
+        Cart cart = new Cart();
+        cart.setCId(cId);
+        cart.setGId(gId);
+        cart.setGoodsNum(goodsNum);
+        double total=productService.calculateTotal(gId,goodsNum);
+        cart.setTotal(total);
 
-        if (cart == null) {
-            cart = new Cart();
-            cart.setCId(cId);
-            cart.setGId(gId);
-            cart.setGoodsNum(goodsNum);
-        } else {
-            List<Integer> existingGId = cart.getGId();
-            List<Integer> existingGoodsNum = cart.getGoodsNum();
-
-            for (int i = 0; i < gId.size(); i++) {
-                int index = existingGId.indexOf(gId.get(i));
-                if (index != -1) {
-                    existingGoodsNum.set(index, existingGoodsNum.get(index) + goodsNum.get(i));
-                } else {
-                    existingGId.add(gId.get(i));
-                    existingGoodsNum.add(goodsNum.get(i));
-                }
-            }
-
-            cart.setGId(existingGId);
-            cart.setGoodsNum(existingGoodsNum);
-        }
 
         session.setAttribute("cart", cart);
         request.getRequestDispatcher("cart.jsp").forward(request, response);
