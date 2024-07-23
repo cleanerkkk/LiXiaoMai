@@ -53,6 +53,7 @@ public class CheckoutServlet extends HttpServlet {
         cartService.delProductByGIdList(id, gIds, goodsNum);
         double newTotal = cart.getTotal() - finnalPrice;
         cartService.updateTotalBycId(cart, newTotal);
+        cartService.updateTotalBycId(cart, newTotal);
 //        cartService.updateCart(cart);
 
         Order order = new Order();
