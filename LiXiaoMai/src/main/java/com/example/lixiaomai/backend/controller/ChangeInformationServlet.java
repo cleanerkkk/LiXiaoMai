@@ -111,7 +111,7 @@ public class ChangeInformationServlet extends HttpServlet {
             response.sendRedirect("profileSettings.jsp?error=" + "修改成功");
         }
         else
-            response.sendRedirect("profileSettingsjsp?error=" + "修改失败");
+            response.sendRedirect("profileSettings.jsp?error=" + "修改失败");
 
 
     }
