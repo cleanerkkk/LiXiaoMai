@@ -4,27 +4,37 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
-    <link rel="stylesheet" href="css/cart.css" type = "text/css">
-</head>
-<script>
-    function increaseQuantity(inputId) {
-        var input = document.getElementById(inputId);
-        var value = parseInt(input.value, 10);
-        value = isNaN(value) ? 0 : value;
-        value++;
-        input.value = value;
-    }
+    <title>购物车</title>
+    <link rel="stylesheet" href="css/cart.css" type="text/css">
+    <script>
+        function updateQuantity(productId, isIncrement) {
+            var quantityField = document.getElementById('quantity-' + productId);
+            var quantity = parseInt(quantityField.value);
+            var priceField = document.getElementById('price-' + productId);
+            var price = parseFloat(priceField.innerText);
+            if (isIncrement) {
+                quantity++;
+            } else if (quantity > 0) {
+                quantity--;
+            }
+            quantityField.value = quantity;
 
-    function decreaseQuantity(inputId) {
-        var input = document.getElementById(inputId);
-        var value = parseInt(input.value, 10);
-        value = isNaN(value) ? 0 : value;
-        value--;
-        if (value < 0) value = 0;
-        input.value = value;
-    }
-</script>
+            var totalField = document.getElementById('total-' + productId);
+            totalField.innerText = (quantity * price).toFixed(2);
+
+            updateTotalPrice();
+        }
+
+        function updateTotalPrice() {
+            var total = 0;
+            var totalFields = document.getElementsByClassName('product-total');
+            for (var i = 0; i < totalFields.length; i++) {
+                total += parseFloat(totalFields[i].innerText);
+            }
+            document.getElementById('grand-total').innerText = total.toFixed(2);
+        }
+    </script>
+</head>
 <body>
 <h2>购物车</h2>
 <div class="account">
@@ -42,9 +52,6 @@
     <div class="cutLine">
         <p>    </p>
     </div>
-    <p></p>
-    <p></p>
-    <p></p>
     <form action=" " method="post">
         <table border="1">
             <tr>
@@ -55,22 +62,30 @@
             </tr>
             <%
                 for (int i = 0; i < gIdList.size(); i++) {
+                    int gId = gIdList.get(i);
                     int gNum = gNumList.get(i);
                     Product product = gList.get(i);
-                    String productName=product.getName();
-                    int productPrice = product.getPrice();
-                    int pTotal = productPrice * gNum;
+                    String productName = product.getName();
+                    double productPrice = product.getPrice();
+                    double pTotal = productPrice * gNum;
             %>
             <tr>
                 <td><%= productName %></td>
-                <td><%= gNum %></td>
-                <td><%= productPrice%></td>
-                <td><%=pTotal%></td>
+                <td>
+                    <button type="button" onclick="updateQuantity(<%= gId %>, false)">-</button>
+                    <input type="text" id="quantity-<%= gId %>" value="<%= gNum %>" readonly>
+                    <button type="button" onclick="updateQuantity(<%= gId %>, true)">+</button>
+                </td>
+                <td id="price-<%= gId %>"><%= productPrice %></td>
+                <td id="total-<%= gId %>" class="product-total"><%= pTotal %></td>
             </tr>
             <%
                 }
             %>
         </table>
+        <div>
+            <p>总价: <span id="grand-total"><%= total %></span></p>
+        </div>
         <input type="submit" value="购物">
     </form>
     <%
@@ -80,7 +95,6 @@
     <%
         }
     %>
-
 </div>
 <button id="backToMain"><a href="index.jsp">返回主页</a></button>
 </body>
