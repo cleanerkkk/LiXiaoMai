@@ -25,7 +25,7 @@ public class AddCartServlet extends HttpServlet {
 
         String quantitiesParam = request.getParameter("quantities");
         String idsParam = request.getParameter("ids");
-        String userName = request.getParameter("userId");
+        String userName = request.getParameter("name");
 
         if (quantitiesParam == null || idsParam == null) {
             response.sendRedirect("error.jsp");
