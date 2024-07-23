@@ -82,6 +82,6 @@
     %>
 
 </div>
-<button id="backToMain"><a href="index.jsp">返回主页</a></button>
+<button id="backToMain"><a href="exhibit">返回主页</a></button>
 </body>
 </html>

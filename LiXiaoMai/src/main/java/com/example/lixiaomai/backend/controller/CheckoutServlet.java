@@ -1,6 +1,9 @@
 package com.example.lixiaomai.backend.controller;
 
+import com.example.lixiaomai.backend.entity.Business;
 import com.example.lixiaomai.backend.entity.Cart;
+import com.example.lixiaomai.backend.entity.Order;
+import com.example.lixiaomai.backend.service.BusinessService;
 import com.example.lixiaomai.backend.service.CartService;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -22,13 +25,32 @@ public class CheckoutServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         Integer id = (Integer) session.getAttribute("id");
+        String name = (String) session.getAttribute("name");
         CartService cartService = new CartService();
 
         Map<Integer, List<Pair<Integer,Integer>>> map = cartService.diffProducts(cartService.getCartByCid(id));
-
+        BusinessService businessService = new BusinessService();
         for (Map.Entry<Integer, List<Pair<Integer,Integer>>> entry : map.entrySet()) {
             int sId = entry.getKey();
+            Business business = businessService.getBusinessById(sId);
             List<Pair<Integer,Integer>> list = entry.getValue();
+            List<Integer> gIds = list.stream().map(Pair::getLeft).toList();
+            List<Integer> goodsNum = list.stream().map(Pair::getRight).toList();
+            Order order = new Order();
+
+
+            order.setGId(gIds);
+            order.setGoodsNum(goodsNum);
+            order.setCId(id);
+            order.setCName(name);
+            order.setSId(sId);
+            order.setSName(business.getName());
+
+
+
+
+
+
         }
 
 
