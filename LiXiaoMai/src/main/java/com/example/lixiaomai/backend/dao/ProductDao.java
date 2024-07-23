@@ -22,6 +22,16 @@ public class ProductDao {
         }
     }
 
+    public boolean deleteProductById(int id) {
+        try {
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "DELETE FROM PRODUCT WHERE ID = ?";
+            return runner.update(conn, sql, id) > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public List<Product> getAllProductBySid(int sId) {
         try {
             Connection conn = DatabaseUtils.getConnection();

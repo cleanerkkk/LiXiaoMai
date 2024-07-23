@@ -26,6 +26,7 @@
         <input type="number" name="price" placeholder="价格">
         <input type="text" name="stock" placeholder="库存">
         <input type="text" name="type" placeholder="类型">
+        <input type="url" name="image" placeholder="商品图片">
         <button type="submit" name="add" value="add" action="add">添加商品</button>
     </form>
     <table>
@@ -38,7 +39,7 @@
         <% for (Product product : products) { %>
         <tr>
             <form action="businessManage" method="post">
-                <input type="hidden" name="id" value="<%= product.getId() %>">
+                <input type="hidden" name="ProductId" value="<%= product.getId() %>">
                 <td><input type="text" name="name" value="<%= product.getName() %>"></td>
                 <td><input type="text" name="description" value="<%= product.getDescription() %>"></td>
                 <td><input type="number" name="price" value="<%= product.getPrice() %>"></td>

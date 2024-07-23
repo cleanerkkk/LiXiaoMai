@@ -55,25 +55,28 @@ public class BusinessManageServlet extends HttpServlet {
         int stock = Integer.parseInt(request.getParameter("stock"));
         String type = request.getParameter("type");
         String url = request.getParameter("image");
+        Integer productId = Integer.parseInt(request.getParameter("productId"));
+
+        Product product = new Product();
+        product.setName(productName);
+        product.setDescription(description);
+        product.setPrice(price);
+        product.setStock(stock);
+        product.setSId(id);
+        product.setPitcutreUrl(url);
+        product.setType(type);
+
 
         if (action.equals("add") ) {
-
-            Product product = new Product();
-            product.setName(productName);
-            product.setDescription(description);
-            product.setPrice(price);
-            product.setStock(stock);
-            product.setSId(id);
-            product.setPitcutreUrl(url);
-            product.setType(type);
             productService.addProduct(product);
+            response.sendRedirect("businessManage.jsp");
         } else if (action.equals("update") ){
-
-
+            product.setId(productId);
+            productService.updateProduct(product);
         } else if (action.equals("delete")) {
-            int pId = Integer.parseInt(request.getParameter("pId"));
+            productService.deleteProductById(productId);
         }
-
+        response.sendRedirect("businessManage");
 
     }
 }
