@@ -120,3 +120,22 @@ button[type="submit"]:hover {
 input[type="hidden"] {
     display: none;
 }
+nav {
+    margin-top: 20px;
+    text-align: center;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin: 0 5px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #007BFF;
+}
+nav ul li a:hover {
+    text-decoration: underline;
+}
