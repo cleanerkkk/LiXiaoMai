@@ -22,6 +22,9 @@ public class CartService {
     public boolean updateCart(Cart cart){
         return cartDao.updateCart(cart);
     }
+    public boolean updateTotalBycId(Cart oldCart,double newTotal){
+        return cartDao.updateTotalBycId(oldCart, newTotal);
+    }
 
     public Map<Integer, List<Pair<Product,Integer>>> diffProducts(Cart cart){
         Map<Integer,List<Pair<Product,Integer>>> map = new HashMap<>();

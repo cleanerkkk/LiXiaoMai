@@ -72,6 +72,7 @@ public class AddCartServlet extends HttpServlet {
                 oldCart.getGoodsNum().add(goodsNum.get(i));
             }
         }
+        boolean changed1=cartService.updateTotalBycId(oldCart,total);
         boolean changed=cartService.updateCart(oldCart);
         response.sendRedirect("cart");
     }
