@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class BusinessIndexServlet extends HttpServlet {
@@ -16,7 +17,9 @@ public class BusinessIndexServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        int id = Integer.parseInt(request.getParameter("id"));//id为商家id
+        HttpSession session = request.getSession();
+
+        Integer id = (Integer) session.getAttribute("id");
         String action = request.getParameter("action");
 
         if(action == "add"){

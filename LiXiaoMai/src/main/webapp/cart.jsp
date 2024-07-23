@@ -1,6 +1,8 @@
 <%@ page import="com.example.lixiaomai.backend.entity.Cart" %>
 <%@ page import="com.example.lixiaomai.backend.entity.Product" %>
 <%@ page import="java.util.List" %>
+<%@ page import="org.apache.commons.lang3.tuple.Pair" %>
+<%@ page import="java.util.Map" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -43,51 +45,68 @@
 <div class="cart-details">
     <%
         Cart cart = (Cart) request.getAttribute("cart");
-        List<Product> gList = (List<Product>) request.getAttribute("product");
-        if (cart != null) {
-            List<Integer> gIdList = cart.getGId();
-            List<Integer> gNumList = cart.getGoodsNum();
-            double total = cart.getTotal();
-    %>
-    <div class="cutLine">
-        <p>    </p>
-    </div>
-    <form action=" " method="post">
-        <table border="1">
-            <tr>
-                <th>商品名称</th>
-                <th>选择数量</th>
-                <th>单价</th>
-                <th>总价</th>
-            </tr>
-            <%
-                for (int i = 0; i < gIdList.size(); i++) {
-                    int gId = gIdList.get(i);
-                    int gNum = gNumList.get(i);
-                    Product product = gList.get(i);
-                    String productName = product.getName();
-                    double productPrice = product.getPrice();
-                    double pTotal = productPrice * gNum;
-            %>
-            <tr>
-                <td><%= productName %></td>
-                <td>
-                    <button type="button" onclick="updateQuantity(<%= gId %>, false)">-</button>
-                    <input type="text" id="quantity-<%= gId %>" value="<%= gNum %>" readonly>
-                    <button type="button" onclick="updateQuantity(<%= gId %>, true)">+</button>
-                </td>
-                <td id="price-<%= gId %>"><%= productPrice %></td>
-                <td id="total-<%= gId %>" class="product-total"><%= pTotal %></td>
-            </tr>
-            <%
-                }
-            %>
-        </table>
-        <div>
-            <p>总价: <span id="grand-total"><%= total %></span></p>
-        </div>
-        <input type="submit" value="购物">
-    </form>
+        double total = cart.getTotal();
+        Map<Integer, List<Pair<Product, Integer>>> productMap = (Map<Integer, List<Pair<Product, Integer>>>) request.getAttribute("productMap");
+        Map<Integer, Integer> mapName = (Map<Integer, Integer>) request.getAttribute("sNameMap");
+        if (productMap != null) {
+            for(Map.Entry<Integer, List<Pair<Product, Integer>>> entry : productMap.entrySet()){
+                int sId = entry.getKey();
+                List<Pair<Product, Integer>> list = entry.getValue();
+                List<Product> products = list.stream().map(Pair::getLeft).toList();
+                List<Integer> goodsNum = list.stream().map(Pair::getRight).toList();
+                %>
+                <div class="cutLine">
+                    <p>    </p>
+                </div>
+                <p>商家名称:<%=mapName.get(sId)%></p>
+                <form action=" " method="post">
+                    <table border="1">
+                        <tr>
+                            <th>商品名称</th>
+                            <th>数量</th>
+                            <th>单价</th>
+                            <th>总价</th>
+                        </tr>
+                        <%
+                            String exProductName = "[";
+                            String exNum = "[";
+                            String exPrice = "[";
+                            double exTotal = 0;
+                            for(int i = 0; i < products.size(); ++i) {
+                                Product product = products.get(i);
+                                String productName = product.getName();
+                                int num = goodsNum.get(i);
+                                int productPrice = product.getPrice();
+                                double pTotal = productPrice * num;
+                                if(i != 0){
+                                    exProductName += ",";
+                                    exNum += ",";
+                                    exPrice += ",";
+                                }
+                                exProductName += productName;
+                                exNum += num;
+                                exPrice += productPrice;
+                                exTotal += pTotal;
+                            }
+                            exProductName += "]";
+                            exNum += "]";
+                            exPrice = "]";
+                        %>
+                        <tr>
+                            <td><%= exProductName %></td>
+                            <td><%= exNum %></td>
+                            <td><%= exPrice %></td>
+                            <td><%= exTotal %></td>
+                        </tr>
+                        <%
+                            }
+                        %>
+                    </table>
+                    <div>
+                        <p>总价: <span id="grand-total"><%= total %></span></p>
+                    </div>
+                    <input type="submit" value="购物">
+                </form>
     <%
     } else {
     %>
