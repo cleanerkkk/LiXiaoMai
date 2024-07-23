@@ -9,24 +9,6 @@
     <title>购物车</title>
     <link rel="stylesheet" href="css/cart.css" type="text/css">
     <script>
-        function updateQuantity(productId, isIncrement) {
-            var quantityField = document.getElementById('quantity-' + productId);
-            var quantity = parseInt(quantityField.value);
-            var priceField = document.getElementById('price-' + productId);
-            var price = parseFloat(priceField.innerText);
-            if (isIncrement) {
-                quantity++;
-            } else if (quantity > 0) {
-                quantity--;
-            }
-            quantityField.value = quantity;
-
-            var totalField = document.getElementById('total-' + productId);
-            totalField.innerText = (quantity * price).toFixed(2);
-
-            updateTotalPrice();
-        }
-
         function updateTotalPrice() {
             var total = 0;
             var totalFields = document.getElementsByClassName('product-total');
@@ -98,15 +80,15 @@
                             <td><%= exPrice %></td>
                             <td><%= exTotal %></td>
                         </tr>
-                        <%
-                            }
-                        %>
                     </table>
-                    <div>
-                        <p>总价: <span id="grand-total"><%= total %></span></p>
-                    </div>
                     <input type="submit" value="购物">
                 </form>
+            <%
+                }
+            %>
+        <div>
+            <p>总价: <span id="grand-total"><%= total %></span></p>
+        </div>
     <%
     } else {
     %>
