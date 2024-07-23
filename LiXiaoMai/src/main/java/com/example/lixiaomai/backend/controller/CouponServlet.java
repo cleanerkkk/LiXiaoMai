@@ -60,21 +60,21 @@ public class CouponServlet extends HttpServlet {
         if (result.equals("一等奖")){
             coupon.setDiscount(15);
             coupon.setLimit(20);
-            coupon.setId(1);
+            coupon.setId(10086);
         }
         else if (result.equals("二等奖")){
             coupon.setDiscount(10);
             coupon.setLimit(15);
-            coupon.setId(2);
+            coupon.setId(10087);
 
         }
         else if (result.equals("三等奖")){
             coupon.setDiscount(5);
             coupon.setLimit(10);
-            coupon.setId(3);
+            coupon.setId(10088);
         }
         else if (result.equals("特等奖")){
-            coupon.setId(4);
+            coupon.setId(666);
             coupon.setDiscount(20);
             coupon.setLimit(0);
         }
