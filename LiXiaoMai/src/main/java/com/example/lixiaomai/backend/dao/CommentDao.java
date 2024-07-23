@@ -58,6 +58,26 @@ public class CommentDao {
         return null;
     }
 
+
+    public Comment getCommentStartWithBusinessByOid(int oid){
+        try{
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "SELECT * FROM COMMENT WHERE OID = ?";
+            List<Comment> comments = runner.query(conn,sql,new BeanListHandler<>(Comment.class),oid);
+            BusinessService businessService = new BusinessService();
+            for (Comment comment : comments){
+                int id = comment.getStartId();
+                String sName = businessService.getBusinessById(id).getShopName();
+                if (sName.equals(comment.getStartName())){
+                    return comment;
+                }
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
     public Comment getCommentEndWithBusinessByOid(int oid){
         try{
             Connection conn = DatabaseUtils.getConnection();
