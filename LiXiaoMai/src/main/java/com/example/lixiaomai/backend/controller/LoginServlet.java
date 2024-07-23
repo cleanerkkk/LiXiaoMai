@@ -1,6 +1,7 @@
 package com.example.lixiaomai.backend.controller;
 
 import com.example.lixiaomai.backend.entity.Business;
+import com.example.lixiaomai.backend.entity.Deliverman;
 import com.example.lixiaomai.backend.entity.Wallet;
 import com.example.lixiaomai.backend.service.*;
 import com.mysql.cj.Session;
@@ -75,6 +76,13 @@ public class LoginServlet extends HttpServlet {
                 DelivermanService delivermanService = new DelivermanService();
                 loginResult = delivermanService.login(username, password);
                 id = delivermanService.getDelivermanByUsername(username).getId();
+                Deliverman deliverman=delivermanService.getDelivermanById(id);
+                request.getSession().setAttribute("deliverman",deliverman);
+                if (loginResult){
+                    request.getSession().setAttribute("id", id);
+                    response.sendRedirect("delivermanIndex.jsp");
+                    return;
+                }
                 break;
             default:
                 BusinessService businessService = new BusinessService();

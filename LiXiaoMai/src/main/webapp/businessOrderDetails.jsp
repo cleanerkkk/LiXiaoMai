@@ -78,6 +78,7 @@
         <%
             Comment customer = (Comment) request.getAttribute("customerComment");
             Comment deliver = (Comment) request.getAttribute("deliverComment");
+            Comment business = (Comment) request.getAttribute("businessComment");
             if (customer == null) {
         %>
 
@@ -135,6 +136,9 @@
                 <td><%= customer.getLikes()%></td>
             </tr>
         </table>
+
+
+<%--        商家评论--%>
         <%
             }
         %>
