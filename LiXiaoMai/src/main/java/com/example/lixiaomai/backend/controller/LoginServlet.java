@@ -79,7 +79,7 @@ public class LoginServlet extends HttpServlet {
                 id = business.getId();
                 if (loginResult){
                     request.getSession().setAttribute("id", id);
-                    response.sendRedirect("businessindex.jsp");
+                    response.sendRedirect("businessIndex.jsp");
                     return;
 
                 }
