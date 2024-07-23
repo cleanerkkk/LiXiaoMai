@@ -25,6 +25,7 @@
 
         function showCoupons(sId) {
             var couponSection = document.getElementById('coupon-section-' + sId);
+
             couponSection.style.display = 'block';
         }
 
@@ -67,7 +68,7 @@
 
         if (productMap != null) {
             for(Map.Entry<Integer, List<Pair<Product, Integer>>> entry : productMap.entrySet()){
-
+                int nowTotal = 0;
                 gIds = "";
                 goodNum = "";
                 int sId = entry.getKey();
@@ -101,6 +102,7 @@
                     }
                     gIds += productId;
                     goodNum += num;
+                    nowTotal += pTotal;
             %>
             <tr>
                 <td><%= productName %></td>
@@ -110,7 +112,8 @@
                 <td><%= productPrice %></td>
                 <td class="product-total-<%= sId %>"><%= pTotal %></td>
             </tr>
-            <% } %>
+            <% }
+            %>
         </table>
         <button type="button" onclick="showCoupons(<%= sId %>)">使用优惠券</button>
         <div id="coupon-section-<%= sId %>" style="display:none;">
@@ -121,14 +124,19 @@
                         double discount = coupon.getDiscount();
                         int couponId = coupon.getId();
                         String couponName;
-                        if (coupon.getLimit() == 0) {
+                        int limit = coupon.getLimit();
+                        if (limit == 0) {
                             couponName = "无门槛券";
                         } else {
                             couponName = "满减券";
                         }
                 %>
+                <%
+                    if(nowTotal >= limit){
+                %>
                 <option value="<%= discount %>" data-coupon-id="<%= couponId %>"><%= couponName %> - 折扣 <%= discount %> 元</option>
-                <% } } %>
+                <%
+                    } } } %>
             </select>
         </div>
         <!-- End of Coupon Section -->
