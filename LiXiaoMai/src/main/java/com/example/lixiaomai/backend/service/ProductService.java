@@ -9,6 +9,10 @@ public class ProductService {
 
     static ProductDao productDao = new ProductDao();
 
+    public double calculateTotal(List<Integer> gIds, List<Integer> goodsNum){
+        return productDao.calculateTotal(gIds, goodsNum);
+    }
+
     public List<Product> getAllProductBySid(int sId){
         return productDao.getAllProductBySid(sId);
     }
