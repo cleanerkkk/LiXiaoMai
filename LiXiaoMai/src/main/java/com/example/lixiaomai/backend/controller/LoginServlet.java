@@ -3,6 +3,7 @@ package com.example.lixiaomai.backend.controller;
 import com.example.lixiaomai.backend.entity.Business;
 import com.example.lixiaomai.backend.entity.Wallet;
 import com.example.lixiaomai.backend.service.*;
+import com.mysql.cj.Session;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -76,6 +77,7 @@ public class LoginServlet extends HttpServlet {
                 BusinessService businessService = new BusinessService();
                 Business business = businessService.getBusinessByUsername(username);
                 loginResult = businessService.login(username, password);
+                request.getSession().setAttribute("business", business);
                 id = business.getId();
                 if (loginResult){
                     request.getSession().setAttribute("id", id);

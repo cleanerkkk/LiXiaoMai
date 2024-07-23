@@ -46,7 +46,7 @@ public class CartServlet extends HttpServlet {
         for (Map.Entry<Integer, List<Pair<Integer,Integer>>> entry : map.entrySet()) {
             int sId = entry.getKey();
             ProductService productService = new ProductService();
-            sNameMap.put(sId, productService.getShopNameBySid(sId));
+//            sNameMap.put(sId, productService.getShopNameBySid(sId));
         }
 
         request.setAttribute("name", customer.getName());
