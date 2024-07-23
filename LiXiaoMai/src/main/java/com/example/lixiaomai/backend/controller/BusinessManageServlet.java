@@ -48,6 +48,12 @@ public class BusinessManageServlet extends HttpServlet {
         ProductService productService = new ProductService();
 
         String action = request.getParameter("action");
+        if (action.equals("delete")) {
+            int productId = Integer.parseInt(request.getParameter("productId"));
+            productService.deleteProductById(productId);
+            doGet(request, response);
+            return;
+        }
         String productName = request.getParameter("name");
         String description = request.getParameter("description");
         double price = Double.parseDouble(request.getParameter("price"));
@@ -64,21 +70,21 @@ public class BusinessManageServlet extends HttpServlet {
         }
 
         Part filePart = request.getPart("image");
-        String filePath = request.getServletContext().getRealPath("/imgsrc/") + productName +".jpg";
+            String filePath = request.getServletContext().getRealPath("/imgsrc/") + productName + ".jpg";
 
-        InputStream fileContent = filePart.getInputStream();
+            InputStream fileContent = filePart.getInputStream();
 
-        File file = new File(filePath);
-        try (OutputStream output = new FileOutputStream(file)) {
-            byte[] buffer = new byte[1024];
-            int length;
-            while ((length = fileContent.read(buffer)) > 0) {
-                output.write(buffer, 0, length);
+            File file = new File(filePath);
+            try (OutputStream output = new FileOutputStream(file)) {
+                byte[] buffer = new byte[1024];
+                int length;
+                while ((length = fileContent.read(buffer)) > 0) {
+                    output.write(buffer, 0, length);
+                }
+            } catch (IOException e) {
+                System.err.println("图片保存失败：" + e.getMessage());
+                e.printStackTrace();
             }
-        }catch (IOException e) {
-            System.err.println("图片保存失败：" + e.getMessage());
-            e.printStackTrace();
-        }
 
 
         Product product = new Product();
@@ -98,8 +104,6 @@ public class BusinessManageServlet extends HttpServlet {
         } else if (action.equals("update") ){
             product.setId(productId);
             productService.updateProduct(product);
-        } else if (action.equals("delete")) {
-            productService.deleteProductById(productId);
         }
         doGet(request, response);
 
