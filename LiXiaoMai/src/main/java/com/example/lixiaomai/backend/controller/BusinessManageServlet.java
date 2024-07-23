@@ -36,4 +36,45 @@ public class BusinessManageServlet extends HttpServlet {
         request.setAttribute("shopName",shopName);
         request.getRequestDispatcher("businessManage.jsp").forward(request,response);
     }
+
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+        HttpSession session = request.getSession();
+        int id = (int) session.getAttribute("id");
+        String name = (String) session.getAttribute("name");
+
+        BusinessService businessService = new BusinessService();
+        ProductService productService = new ProductService();
+
+        String action = request.getParameter("action");
+
+        if (action.equals("add") ) {
+            String productName = request.getParameter("name");
+            String description = request.getParameter("description");
+            double price = Double.parseDouble(request.getParameter("price"));
+            int stock = Integer.parseInt(request.getParameter("stock"));
+            String type = request.getParameter("type");
+            String url = request.getParameter("image");
+            Product product = new Product();
+            product.setName(name);
+            product.setDescription(description);
+            product.setPrice(price);
+            product.setStock(stock);
+            product.setSId(id);
+            product.setPitcutreUrl(url);
+            product.setType(type);
+            productService.addProduct(product);
+        }
+//        } else if (action.equals("update") ){
+//            String name = request.getParameter("Productname");
+//
+//        } else if (action.equals("delete") {
+//            int pId = Integer.parseInt(request.getParameter("pId"));
+//            productService.delProductById(pId);
+//        }
+
+
+    }
 }
