@@ -13,6 +13,9 @@ public class CouponDao {
     private final QueryRunner runner = DatabaseUtils.getRunner();
 
     public List<Coupon> getAllCouponsByIdList(List<Integer> list) {
+        if (list == null || list.isEmpty()) {
+            return new ArrayList<>();
+        }
         List<Coupon> coupons = new ArrayList<>();
         try{
             Connection conn = DatabaseUtils.getConnection();

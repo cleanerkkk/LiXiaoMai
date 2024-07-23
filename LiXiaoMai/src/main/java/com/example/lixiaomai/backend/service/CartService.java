@@ -55,7 +55,9 @@ public class CartService {
         if (index >= 0) {
             int oldNum = cart.getGoodsNum().get(index);
             if (oldNum > gNum) {
-                cart.getGoodsNum().set(index, oldNum - gNum);
+                List<Integer> goodsNum = cart.getGoodsNum();
+                goodsNum.set(index, oldNum - gNum);
+                cart.setGoodsNum(goodsNum);
             } else {
                 cart.getGId().remove(index);
                 cart.getGoodsNum().remove(index);
