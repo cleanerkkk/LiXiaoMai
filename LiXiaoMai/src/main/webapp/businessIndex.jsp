@@ -23,7 +23,7 @@
         <p>商家地址: <%= business.getAddress() %></p>
         <p>联系方式: <%= business.getTelephone() %></p>
     </div>
-    <a href="businessManage.jsp">管理商品</a>
+    <a href="businessManage">管理商品</a>
 </div>
 </body>
 </html>
