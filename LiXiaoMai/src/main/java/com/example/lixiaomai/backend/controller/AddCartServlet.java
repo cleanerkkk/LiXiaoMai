@@ -25,7 +25,7 @@ public class AddCartServlet extends HttpServlet {
 
         String quantitiesParam = request.getParameter("quantities");
         String idsParam = request.getParameter("ids");
-        String userName = request.getParameter("userId");
+        String userName = request.getParameter("name");
 
         if (quantitiesParam == null || idsParam == null) {
             response.sendRedirect("error.jsp");
@@ -55,12 +55,8 @@ public class AddCartServlet extends HttpServlet {
         cart.setCId(cId);
         cart.setGId(gId);
         cart.setGoodsNum(goodsNum);
-        double total=0;
-        for(int i=0;i<cart.getGId().size();i++){
-            int gID111= Integer.parseInt(idsList.get(i));
-            Product product111=new Product();
-
-        }
+        double total=productService.calculateTotal(gId,goodsNum);
+        cart.setTotal(total);
 
 
         session.setAttribute("cart", cart);
