@@ -22,6 +22,9 @@ public class CartService {
     public boolean updateCart(Cart cart){
         return cartDao.updateCart(cart);
     }
+    public boolean updateTotalBycId(Cart oldCart,double newTotal){
+        return cartDao.updateTotalBycId(oldCart, newTotal);
+    }
 
     public Map<Integer, List<Pair<Product,Integer>>> diffProducts(Cart cart){
         Map<Integer,List<Pair<Product,Integer>>> map = new HashMap<>();
@@ -43,5 +46,30 @@ public class CartService {
             }
         }
         return map;
+    }
+    public boolean mergeTwoCarts(Cart oldCart,Cart cart){
+        List<Integer> gId;
+        List<Integer> goodsNum;
+        gId=cart.getGId();
+        goodsNum=cart.getGoodsNum();
+        double total=cart.getTotal();
+        for (int i = 0; i < gId.size(); i++) {
+            int index = oldCart.getGId().indexOf(gId.get(i));
+            if (index >= 0) {
+                // 如果商品已经存在，更新数量
+                oldCart.getGoodsNum().set(index, oldCart.getGoodsNum().get(index) + goodsNum.get(i));
+            } else {
+                // 如果商品不存在，添加新的商品和数量
+                oldCart.getGId().add(gId.get(i));
+                oldCart.getGoodsNum().add(goodsNum.get(i));
+
+            }
+        }
+        boolean changed1=updateTotalBycId(oldCart,total);
+        boolean changed=updateCart(oldCart);
+        if(changed&&changed1){
+            return true;
+        }
+        return false;
     }
 }

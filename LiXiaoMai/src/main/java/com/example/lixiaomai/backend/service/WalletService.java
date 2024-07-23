@@ -4,6 +4,8 @@ import com.example.lixiaomai.backend.dao.WalletDao;
 import com.example.lixiaomai.backend.entity.Coupon;
 import com.example.lixiaomai.backend.entity.Wallet;
 
+import java.util.List;
+
 public class WalletService {
     static WalletDao walletDAO = new WalletDao();
 
@@ -29,5 +31,17 @@ public class WalletService {
 
     public boolean addCouponById(int id, Coupon coupon){
         return walletDAO.addCouponById(id, coupon);
+    }
+
+    public boolean delCouponById(int id, int couponId){
+        return walletDAO.delCouponById(id, couponId);
+    }
+
+    public boolean delCouponByIdList(int id, List<Integer> list){
+        boolean isUpdated = true;
+        for (int did : list){
+            isUpdated =  isUpdated && delCouponById(id, did);
+        }
+        return isUpdated;
     }
 }
