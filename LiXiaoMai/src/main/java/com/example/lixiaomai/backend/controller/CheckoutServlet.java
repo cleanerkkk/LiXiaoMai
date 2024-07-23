@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +21,7 @@ import java.util.Map;
 @WebServlet("/checkout")
 public class CheckoutServlet extends HttpServlet {
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
@@ -52,7 +53,8 @@ public class CheckoutServlet extends HttpServlet {
         cartService.delProductByGIdList(id, gIds, goodsNum);
         double newTotal = cart.getTotal() - finnalPrice;
         cartService.updateTotalBycId(cart, newTotal);
-        cartService.updateCart(cart);
+        cartService.updateTotalBycId(cart, newTotal);
+//        cartService.updateCart(cart);
 
         Order order = new Order();
         order.setCName(name);
@@ -69,6 +71,7 @@ public class CheckoutServlet extends HttpServlet {
 
         orderService.addOrder(order);
 
+        response.sendRedirect("cart");
 
 
 

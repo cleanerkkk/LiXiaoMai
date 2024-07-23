@@ -24,6 +24,7 @@
         <p>联系方式: <%= business.getTelephone() %></p>
     </div>
     <a href="businessManage">管理商品</a>
+    <a href="login.jsp">退出登录</a>
 </div>
 </body>
 </html>

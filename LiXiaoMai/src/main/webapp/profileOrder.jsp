@@ -101,6 +101,6 @@
     }
 %>
 <div class="commetRelated"></div>
-<button id="backToIndex"><a href="index.jsp">返回主页</a></button>
+<button id="backToIndex"><a href="exhibit">返回主页</a></button>
 </body>
 </html>

@@ -53,7 +53,7 @@ public class LoginServlet extends HttpServlet {
                 Wallet wallet = walletService.getWalletById(customerService.getUserByUsername(username).getId());
 
                 int cnt = 0;
-                for (int i = 0; i < wallet.getDiscountNum().size(); i++) {
+                for (int i = 0; wallet.getDiscountNum() != null &&   i < wallet.getDiscountNum().size(); i++) {
                     cnt += wallet.getDiscountNum().get(i);
                 }
                 boolean ableToTurn = cnt >= 5;
@@ -86,7 +86,6 @@ public class LoginServlet extends HttpServlet {
                     request.getSession().setAttribute("id", id);
                     response.sendRedirect("businessIndex.jsp");
                     return;
-
                 }
 
                 break;

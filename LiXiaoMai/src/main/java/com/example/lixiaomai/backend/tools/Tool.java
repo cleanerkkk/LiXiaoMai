@@ -40,8 +40,8 @@ public class Tool {
 
     }
     public static  <T> List<T> StringToList(String str, Class<T> type){
-        if (str == null)
-            return null;
+        if (str == null || str.isEmpty())
+            return new ArrayList<>();
         List<T> list = new ArrayList<>();
         if (str.charAt(0) == '[') {
             str = str.substring(1);
