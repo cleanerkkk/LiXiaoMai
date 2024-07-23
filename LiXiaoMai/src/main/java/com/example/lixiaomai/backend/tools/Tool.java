@@ -1,5 +1,6 @@
 package com.example.lixiaomai.backend.tools;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 //123
@@ -34,8 +35,12 @@ public class Tool {
     public static  <T> List<T> StringToList(String str, Class<T> type){
         if (str == null)
             return null;
-        String[] strings = str.split(",");
         List<T> list = new ArrayList<>();
+        if (str.charAt(0) == '[') {
+            str = str.substring(1);
+            str = str.substring(0, str.length() - 1);
+        }
+        String[] strings = str.split(",");
         for (String string : strings) {
             try{
                 list.add((T) Integer.valueOf(Integer.parseInt(string)));
