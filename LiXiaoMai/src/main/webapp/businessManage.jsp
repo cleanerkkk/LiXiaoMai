@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/businessManage.css">
 </head>
 <body>
+<h1>欢迎您！${shopName}</h1>
 <div class="container">
     <h1>管理商品</h1>
     <form action="#" method="post">

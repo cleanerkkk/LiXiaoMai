@@ -26,11 +26,14 @@ public class BusinessManageServlet extends HttpServlet {
 
         BusinessService businessService = new BusinessService();
         Business business=businessService.getBusinessById(id);
+        String shopName=business.getShopName();
         ProductService productService = new ProductService();
 
         List<Product> productList = productService.getAllProductBySid(id);
         request.setAttribute("productList", productList);
         request.setAttribute("business",business);
+        request.setAttribute("id",id);
+        request.setAttribute("shopName",shopName);
         request.getRequestDispatcher("businessManage.jsp").forward(request,response);
     }
 }
