@@ -24,7 +24,9 @@
         <input type="text" name="name" placeholder="商品名称">
         <input type="text" name="description" placeholder="商品描述">
         <input type="number" name="price" placeholder="价格">
-        <button type="submit">添加商品</button>
+        <input type="text" name="stock" placeholder="库存">
+        <input type="text" name="type" placeholder="类型">
+        <button type="submit" name="addProduct" value="addProduct" action="businessManage">添加商品</button>
     </form>
     <table>
         <tr>
@@ -41,8 +43,8 @@
                 <td><input type="text" name="description" value="<%= product.getDescription() %>"></td>
                 <td><input type="number" name="price" value="<%= product.getPrice() %>"></td>
                 <td>
-                    <button type="submit" name="action" value="update">更新</button>
-                    <button type="submit" name="action" value="delete">删除</button>
+                    <button type="submit" name="update" value="update" action="businessManage">更新</button>
+                    <button type="submit" name="delete" value="delete" action="businessManage">删除</button>
                 </td>
             </form>
         </tr>
