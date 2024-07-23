@@ -20,6 +20,7 @@
         Order order = (Order) request.getAttribute("order");
         List<String> productName = (List<String>) request.getAttribute("productNameList");
         String deliverName = (String) request.getAttribute("deliverName");
+        String customerUName = (String) request.getAttribute("customerUName");
         if (order != null) {
             int id = order.getId();
             String sName = order.getSName();
@@ -39,7 +40,7 @@
         </tr>
         <tr>
             <th>消费者名称</th>
-            <td><%=1%>></td>
+            <td><%=customerUName%>></td>
         </tr>
         <tr>
             <th>订单时间</th>
