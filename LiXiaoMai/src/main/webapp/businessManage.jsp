@@ -34,15 +34,21 @@
             <th>商品名称</th>
             <th>描述</th>
             <th>价格</th>
+            <th>库存</th>
+            <th>商品类型</th>
+            <th>商品图片</th>
             <th>操作</th>
         </tr>
         <% for (Product product : products) { %>
         <tr>
             <form action="businessManage" method="post">
-                <input type="hidden" name="ProductId" value="<%= product.getId() %>">
+                <input type="hidden" name="productId" value="<%= product.getId() %>">
                 <td><input type="text" name="name" value="<%= product.getName() %>"></td>
                 <td><input type="text" name="description" value="<%= product.getDescription() %>"></td>
                 <td><input type="number" name="price" value="<%= product.getPrice() %>"></td>
+                <td><input type="text" name="stock" value="<%=product.getStock()%>"></td>
+                <td><input type="text" name="type" value="<%=product.getType()%>"></td>
+                <td><input type="url" name="image" value="<%=product.getPitcutreUrl()%>"></td>
                 <td>
                     <button type="submit" name="update" value="update" action="update">更新</button>
                     <button type="submit" name="delete" value="delete" action="delete">删除</button>
