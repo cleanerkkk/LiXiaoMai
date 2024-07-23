@@ -23,7 +23,7 @@ import java.util.Map;
 @WebServlet("/checkout")
 public class CheckoutServlet extends HttpServlet {
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
