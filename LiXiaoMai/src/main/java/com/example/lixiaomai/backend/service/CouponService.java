@@ -33,6 +33,8 @@ public class CouponService {
     }
 
     public double calculateDiscount(List<Integer> discountId, List<Integer> discountNum){
+        if (discountId == null)
+            return 0;
         double total = 0;
         for (int i = 0; i < discountId.size(); i++) {
             Coupon coupon = getCouponById(discountId.get(i));

@@ -2,6 +2,7 @@ package com.example.lixiaomai.backend.controller;
 
 import com.example.lixiaomai.backend.entity.Comment;
 import com.example.lixiaomai.backend.service.CommentService;
+import com.example.lixiaomai.backend.tools.Tool;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -50,7 +51,7 @@ public class CommentServlet extends HttpServlet {
         comment.setDislikes(0);
         comment.setStartName(userName);
         comment.setEndName(businessName);
-        comment.setTime(new Timestamp(System.currentTimeMillis()));
+        comment.setTime(Tool.getTime());
         comment.setCoId(0);
 
         commentService.addComment(comment);

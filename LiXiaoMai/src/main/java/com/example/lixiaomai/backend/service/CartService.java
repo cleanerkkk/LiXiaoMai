@@ -69,6 +69,14 @@ public class CartService {
         return isUpdated;
     }
 
+    public boolean delProductByGIdList(int cid, List<Integer> gId, List<Integer> gNum) {
+        boolean isUpdated = true;
+        for (int i = 0; i < gId.size(); i++) {
+            isUpdated = isUpdated && delProductByGId(cid, gId.get(i), gNum.get(i));
+
+        }
+        return isUpdated;
+    }
 
     public boolean mergeTwoCarts(Cart oldCart, Cart cart) {
         List<Integer> gId;
