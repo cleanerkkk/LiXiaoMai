@@ -5,6 +5,7 @@ import com.example.lixiaomai.backend.entity.Product;
 import com.example.lixiaomai.backend.service.BusinessService;
 import com.example.lixiaomai.backend.service.ProductService;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +16,7 @@ import java.util.List;
 
 @WebServlet("/businessManage")
 public class BusinessManageServlet extends HttpServlet {
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
@@ -24,16 +25,15 @@ public class BusinessManageServlet extends HttpServlet {
         String name = (String) session.getAttribute("name");
 
         BusinessService businessService = new BusinessService();
+        Business business=businessService.getBusinessById(id);
+        String shopName=business.getShopName();
         ProductService productService = new ProductService();
 
         List<Product> productList = productService.getAllProductBySid(id);
         request.setAttribute("productList", productList);
-
-
-
-
-
-
-
+        request.setAttribute("business",business);
+        request.setAttribute("id",id);
+        request.setAttribute("shopName",shopName);
+        request.getRequestDispatcher("businessManage.jsp").forward(request,response);
     }
 }

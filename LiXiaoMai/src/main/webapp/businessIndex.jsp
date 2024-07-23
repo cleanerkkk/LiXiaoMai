@@ -18,12 +18,12 @@
 <h1>商家主页管理</h1>
 <div class="container">
     <h1>欢迎，<%= business.getName() %>!</h1>
-    <div class="merchant-info">
+    <div class="business-info">
         <p>商家名称: <%= business.getShopName()%></p>
         <p>商家地址: <%= business.getAddress() %></p>
         <p>联系方式: <%= business.getTelephone() %></p>
     </div>
-    <a href="businessManage.jsp">管理商品</a>
+    <a href="businessManage">管理商品</a>
 </div>
 </body>
 </html>

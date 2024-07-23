@@ -1,6 +1,8 @@
 package com.example.lixiaomai.backend.tools;
 
 import java.nio.charset.StandardCharsets;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 //123
@@ -31,6 +33,11 @@ public class Tool {
             }
         }
         return list;
+    }
+
+    public static Timestamp getTime(){
+        return new Timestamp(System.currentTimeMillis());
+
     }
     public static  <T> List<T> StringToList(String str, Class<T> type){
         if (str == null)
