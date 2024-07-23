@@ -79,7 +79,7 @@
         <p>    </p>
     </div>
     <p>商家名称:<%= mapName.get(sId) %></p>
-    <form action=" " method="post" id="form-<%=sId%>">
+    <form action="checkout" method="post" id="form-<%=sId%>">
         <table border="1">
             <tr>
                 <th>商品名称</th>
