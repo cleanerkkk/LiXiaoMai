@@ -35,4 +35,16 @@ public class CartDao {
             throw new RuntimeException(e);
         }
     }
+    public boolean updateTotalBycId(Cart oldCart,double newTotal){
+        int cid=oldCart.getCId();
+        try{
+            String sql = "UPDATE CART SET TOTAL = ? WHERE CID = ?";
+            Connection conn = DatabaseUtils.getConnection();
+            double total=oldCart.getTotal()+newTotal;
+            return runner.update(conn, sql,
+                    total, cid) > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
