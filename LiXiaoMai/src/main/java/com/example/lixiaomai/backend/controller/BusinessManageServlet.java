@@ -69,6 +69,7 @@ public class BusinessManageServlet extends HttpServlet {
 
         if (action.equals("add") ) {
             productService.addProduct(product);
+            response.sendRedirect("businessManage.jsp");
         } else if (action.equals("update") ){
             product.setId(productId);
             productService.updateProduct(product);
