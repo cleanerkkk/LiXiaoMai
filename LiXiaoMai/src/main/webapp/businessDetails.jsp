@@ -94,7 +94,7 @@
                     String productType = productForShop.get(i).getType();
                     String productDescription = productForShop.get(i).getDescription();
                     int productStock = productForShop.get(i).getStock();
-                    int productPrice = productForShop.get(i).getPrice();
+                    double productPrice = productForShop.get(i).getPrice();
                     String inputId = "quantity_" + productID;
             %>
             <tr>
