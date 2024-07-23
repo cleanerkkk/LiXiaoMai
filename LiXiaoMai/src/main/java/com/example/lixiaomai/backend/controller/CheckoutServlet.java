@@ -7,6 +7,7 @@ import com.example.lixiaomai.backend.entity.Product;
 import com.example.lixiaomai.backend.service.BusinessService;
 import com.example.lixiaomai.backend.service.CartService;
 import com.example.lixiaomai.backend.service.ProductService;
+import com.example.lixiaomai.backend.service.WalletService;
 import com.example.lixiaomai.backend.tools.Tool;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -31,6 +32,7 @@ public class CheckoutServlet extends HttpServlet {
         String name = (String) session.getAttribute("name");
 
         CartService cartService = new CartService();
+        WalletService walletService = new WalletService();
         ProductService productService = new ProductService();
 
         Integer sId = Integer.parseInt(request.getParameter("sId"));

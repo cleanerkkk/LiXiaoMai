@@ -100,7 +100,6 @@ public class WalletDao {
         boolean isUpdated = false;
         try {
             conn = DatabaseUtils.getConnection();
-            QueryRunner runner = DatabaseUtils.getRunner();
             String sql = "SELECT * FROM WALLET WHERE id = ?";
             Wallet wallet = runner.query(conn, sql, new WalletResultSetHandler(), id).get(0);
             List<Integer> discountNum = wallet.getDiscountNum();
@@ -131,5 +130,33 @@ public class WalletDao {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public boolean delCouponById(int id, int couponId){
+        boolean isUpdated = false;
+        try{
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "SELECT * FROM WALLET WHERE ID = ?";
+            Wallet wallet = runner.query(conn, sql, new WalletResultSetHandler(), id).get(0);
+            List<Integer> discountNum = wallet.getDiscountNum();
+            List<Integer> discountId = wallet.getDId();
+            for (int i = 0; i < discountId.size(); i++){
+                if (discountId.get(i) == couponId){
+                    discountNum.set(i, discountNum.get(i) - 1);
+                    if (discountNum.get(i) == 0){
+                        discountNum.remove(i);
+                        discountId.remove(i);
+                    }
+                    wallet.setDiscountNum(discountNum);
+                    wallet.setDId(discountId);
+                    isUpdated = updateWalletById(id, wallet);
+                    break;
+                }
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return isUpdated;
     }
 }
