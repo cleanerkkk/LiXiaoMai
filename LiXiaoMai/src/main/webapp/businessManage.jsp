@@ -26,6 +26,7 @@
         <input type="number" name="price" placeholder="价格">
         <input type="text" name="stock" placeholder="库存">
         <input type="text" name="type" placeholder="类型">
+        <input type="url" name="image" placeholder="商品图片">
         <button type="submit" name="add" value="add" action="add">添加商品</button>
     </form>
     <table>
