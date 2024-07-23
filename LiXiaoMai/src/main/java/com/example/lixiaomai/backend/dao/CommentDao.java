@@ -1,7 +1,9 @@
 package com.example.lixiaomai.backend.dao;
 
 import com.example.lixiaomai.backend.entity.Comment;
+import com.example.lixiaomai.backend.entity.Customer;
 import com.example.lixiaomai.backend.service.BusinessService;
+import com.example.lixiaomai.backend.service.CustomerService;
 import com.example.lixiaomai.backend.service.DelivermanService;
 import com.example.lixiaomai.backend.tools.DatabaseUtils;
 import org.apache.commons.dbutils.QueryRunner;
@@ -37,6 +39,25 @@ public class CommentDao {
         }
     }
 
+    public Comment getCommentStartWithCustomerByOid(int oid){
+        try{
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "SELECT * FROM COMMENT WHERE OID = ?";
+            List<Comment> comments = runner.query(conn, sql, new BeanListHandler<>(Comment.class), oid);
+            CustomerService customerService = new CustomerService();
+            for(Comment comment : comments){
+                int id = comment.getStartId();
+                String sName = customerService.getUserById(id).getUName();
+                if(sName.equals(comment.getStartName())){
+                    return comment;
+                }
+            }
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
     public Comment getCommentEndWithBusinessByOid(int oid){
         try{
             Connection conn = DatabaseUtils.getConnection();
@@ -47,6 +68,26 @@ public class CommentDao {
                 int id = comment.getEndId();
                 String sName = businessService.getBusinessById(id).getShopName();
                 if (sName.equals(comment.getEndName())){
+                    return comment;
+                }
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    public Comment getCommentStartWithDelivermanByOid(int oid){
+        try{
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "SELECT * FROM COMMENT WHERE OID = ?";
+            List<Comment> comments = runner.query(conn,sql,new BeanListHandler<>(Comment.class),oid);
+            DelivermanService delivermanService = new DelivermanService();
+            for (Comment comment : comments){
+                int id = comment.getStartId();
+                String sName = delivermanService.getDelivermanById(id).getName();
+                if (sName.equals(comment.getStartName())){
                     return comment;
                 }
 

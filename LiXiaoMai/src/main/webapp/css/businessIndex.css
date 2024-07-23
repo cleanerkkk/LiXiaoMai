@@ -1,61 +1,67 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
-    margin: 0;
-    padding: 0;
+body{
+    text-align: center;
+    font-family: "宋体",sans-serif;
 }
-
-.container {
+h2{
+    font-size: 32px;
+}
+table {
     width: 80%;
     margin: 0 auto;
-    padding: 20px;
-}
-
-h1 {
-    color: #333;
-}
-
-.business-info {
-    margin-bottom: 20px;
-}
-
-.business-info p {
-    margin: 5px 0;
-    color: #555;
-}
-
-table {
-    width: 100%;
     border-collapse: collapse;
-}
-
-table, th, td {
-    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 th, td {
-    padding: 10px;
+    padding: 12px 15px;
     text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
-form {
-    margin-bottom: 20px;
+th {
+    background-color: #f2f2f2;
+    color: #333;
 }
 
-input[type="text"], input[type="number"] {
-    width: calc(100% - 22px);
-    padding: 10px;
-    margin: 5px 0;
+tr:hover {
+    background-color: #f9f9f9;
 }
 
-button {
+#linker {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#linker a {
+    display: inline-block;
+    margin-right: 20px;
+    text-decoration: none;
+    color: #333;
     padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
+    background-color: #f2f2f2;
+    border-radius: 5px;
 }
 
-button:hover {
-    background-color: #45a049;
+#linker a:hover {
+    background-color: #ddd;
+}
+nav {
+    margin-top: 20px;
+    text-align: center;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin: 0 5px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #007BFF;
+}
+nav ul li a:hover {
+    text-decoration: underline;
 }

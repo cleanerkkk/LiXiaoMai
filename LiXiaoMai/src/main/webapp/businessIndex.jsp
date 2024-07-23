@@ -18,12 +18,17 @@
 <h1>商家主页管理</h1>
 <div class="container">
     <h1>欢迎，<%= business.getName() %>!</h1>
+    <h3>个人信息：</h3>
+    <div class="account">
+        <p>用户类型：${userType} 用户姓名：${name}</p>
+    </div>
     <div class="business-info">
         <p>商家名称: <%= business.getShopName()%></p>
         <p>商家地址: <%= business.getAddress() %></p>
         <p>联系方式: <%= business.getTelephone() %></p>
     </div>
     <a href="businessManage">管理商品</a>
+    <a href="businessOrderHistory">商家的历史订单详情</a>
     <a href="login.jsp">退出登录</a>
 </div>
 </body>

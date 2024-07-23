@@ -1,0 +1,141 @@
+body {
+    background-color: #f9f9f9;
+    font-family: "宋体", sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 60%;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 2px 15px rgba(64, 64, 64, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 50px;
+}
+h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-top: 0;
+    color:black;
+}
+h3 {
+    text-align: center;
+    margin-top: 0;
+    color:black;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    border: 1px solid #dddddd;
+    padding: 12px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+td {
+    background-color: #fefefe;
+}
+p {
+    margin: 5px 0;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    text-decoration: underline;
+}
+.cutLine{
+    padding-bottom: 10px;
+    border-bottom: #3F6580 solid 1px;
+    text-align: center;
+}
+.account{
+    text-align: center;
+    text-decoration: #9e89ff;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 20px;
+}
+
+.comments {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5cb85c;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    justify-content: center;
+
+}
+
+button[type="submit"]:hover {
+    background-color: #4cae4c;
+}
+
+input[type="hidden"] {
+    display: none;
+}
+nav {
+    margin-top: 20px;
+    text-align: center;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin: 0 5px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #007BFF;
+}
+nav ul li a:hover {
+    text-decoration: underline;
+}

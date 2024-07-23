@@ -20,6 +20,7 @@
         Order order = (Order) request.getAttribute("order");
         List<String> productName = (List<String>) request.getAttribute("productNameList");
         String deliverName = (String) request.getAttribute("deliverName");
+        String customerUName = (String) request.getAttribute("customerUName");
         if (order != null) {
             int id = order.getId();
             String sName = order.getSName();
@@ -39,7 +40,7 @@
         </tr>
         <tr>
             <th>消费者名称</th>
-            <td><%=1%>></td>
+            <td><%=customerUName%></td>
         </tr>
         <tr>
             <th>订单时间</th>
@@ -86,8 +87,8 @@
                 %>
         <form action="comment" method="post">
             <div>
-                <label for = "business">商家</label>
-                <input type="text" id = "business" name = "business">
+                <label for = "customer">消费者</label>
+                <input type="text" id = "customer" name = "customer">
             </div>
             <div>
                 <label for = "deliverman">骑手</label>
@@ -97,10 +98,10 @@
                 <button type="submit">提交评论</button>
             </div>
             <input type="hidden" name="deliverId" value="<%=order.getDeliverId()%>">
-            <input type="hidden" name="businessId" value="<%=order.getSId()%>">
+            <input type="hidden" name="customerId" value="<%=order.getCId()%>">
             <input type="hidden" name="oId" value="<%=order.getId()%>">
             <input type="hidden" name="businessName" value="<%=order.getSName()%>">
-            <input type="hidden" name="deliverName" value="<%=deliverName%>">
+            <input type="hidden" name="customerUName" value="<%=customerUName%>">
         </form>
         <%
         %>
@@ -113,13 +114,24 @@
             </tr>
             </thead>
             <tr>
-                <th>对商家评论</th>
+                <th>消费者评论</th>
                 <td><%= customer.getContent() %></td>
                 <td><%= customer.getLikes()%></td>
             </tr>
             <tr>
-                <th>对骑手评论</th>
+                <th>骑手评论</th>
+                <%
+                    if(deliver == null){
+                %>
+                <td>评价暂无</td>
+                <%
+                    }
+                    else{
+                %>
                 <td><%= deliver.getContent() %></td>
+                <%
+                    }
+                %>
                 <td><%= customer.getLikes()%></td>
             </tr>
         </table>

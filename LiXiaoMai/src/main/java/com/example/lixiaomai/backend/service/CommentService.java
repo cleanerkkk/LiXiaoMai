@@ -40,10 +40,16 @@ public class CommentService {
         return commentDao.getAllcommentByOid(oId);
     }
 
+    public Comment getCommentStartWithCustomerByOId(int oId){
+        return commentDao.getCommentStartWithCustomerByOid(oId);
+    }
     public Comment getCommentEndWithBusinessByOId(int oId){
         return commentDao.getCommentEndWithBusinessByOid(oId);
     }
 
+    public Comment getCommentStartWithDelivermanByOId(int oId){
+        return commentDao.getCommentStartWithDelivermanByOid(oId);
+    }
     public Comment getCommentEndWithDelivermanByOId(int oId){
         return commentDao.getCommentEndWithDelivermanByOid(oId);
     }
