@@ -99,6 +99,6 @@
 <%
     }
 %>
-<button id="backToIndex"><a href="exhibit">返回主页</a></button>
+<button id="backToIndex" style="text-align: center"><a href="businessIndex.jsp">返回主页</a></button>
 </body>
 </html>
