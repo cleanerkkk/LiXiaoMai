@@ -27,6 +27,9 @@ public class LoginServlet extends HttpServlet {
         String captcha = request.getParameter("captcha");
         String errorMessage;
 
+        request.getSession().setAttribute("name", username);
+        request.getSession().setAttribute("userType", userType);
+
         String generCaptcha = (String) request.getSession().getAttribute("captchaValue");
         request.getSession().invalidate();
         if (!captcha.equalsIgnoreCase(generCaptcha) && false){
@@ -52,6 +55,13 @@ public class LoginServlet extends HttpServlet {
                 boolean ableToTurn = cnt >= 5;
                 request.setAttribute("ableToTurn", ableToTurn);
 
+                if(loginResult){
+                    request.getSession().setAttribute("id", id);
+
+                    response.sendRedirect("exhibit");
+                    return;
+                }
+
                 break;
             case "admin":
                 AdminService adminService = new AdminService();
@@ -64,23 +74,22 @@ public class LoginServlet extends HttpServlet {
                 break;
             default:
                 BusinessService businessService = new BusinessService();
-                id = businessService.getBusinessByUsername(username).getId();
+                Business business = businessService.getBusinessByUsername(username);
                 loginResult = businessService.login(username, password);
+                id = business.getId();
+                if (loginResult){
+                    request.getSession().setAttribute("id", id);
+                    response.sendRedirect("businessindex.jsp");
+                    return;
+
+                }
+
                 break;
         }
 
-        if (loginResult){
-            request.getSession().setAttribute("name", username);
-            request.getSession().setAttribute("userType", userType);
-            request.getSession().setAttribute("id", id);
-
-            response.sendRedirect("exhibit");
-        }
-        else{
-            errorMessage = "用户名或密码错误";
-            request.setAttribute("error", errorMessage);
-            request.getRequestDispatcher("login.jsp?error=" + errorMessage).forward(request, response);
-        }
+        errorMessage = "用户名或密码错误";
+        request.setAttribute("error", errorMessage);
+        request.getRequestDispatcher("login.jsp?error=" + errorMessage).forward(request, response);
 
 
     }
