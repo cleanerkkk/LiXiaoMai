@@ -86,7 +86,6 @@ public class LoginServlet extends HttpServlet {
                     request.getSession().setAttribute("id", id);
                     response.sendRedirect("businessIndex.jsp");
                     return;
-
                 }
 
                 break;
