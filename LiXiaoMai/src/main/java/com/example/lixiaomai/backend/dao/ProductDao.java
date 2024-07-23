@@ -12,7 +12,15 @@ import java.util.List;
 public class ProductDao {
     private final QueryRunner runner = DatabaseUtils.getRunner();
 
-
+    public List<Product> getAllProductBySId() {
+        try {
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "SELECT * FROM PRODUCT";
+            return runner.query(conn, sql, new BeanListHandler<>(Product.class));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public List<Product> getAllProductBySid(int sId) {
         try {

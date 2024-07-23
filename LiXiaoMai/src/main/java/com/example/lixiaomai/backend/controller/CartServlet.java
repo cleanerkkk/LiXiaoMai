@@ -1,13 +1,7 @@
 package com.example.lixiaomai.backend.controller;
 
-import com.example.lixiaomai.backend.entity.Business;
-import com.example.lixiaomai.backend.entity.Cart;
-import com.example.lixiaomai.backend.entity.Customer;
-import com.example.lixiaomai.backend.entity.Product;
-import com.example.lixiaomai.backend.service.BusinessService;
-import com.example.lixiaomai.backend.service.CartService;
-import com.example.lixiaomai.backend.service.CustomerService;
-import com.example.lixiaomai.backend.service.ProductService;
+import com.example.lixiaomai.backend.entity.*;
+import com.example.lixiaomai.backend.service.*;
 import org.apache.commons.lang3.tuple.Pair;
 
 import javax.servlet.ServletException;
@@ -34,10 +28,13 @@ public class CartServlet extends HttpServlet {
 
         CustomerService customerService = new CustomerService();
         BusinessService businessService = new BusinessService();
+        WalletService walletService = new WalletService();
         CartService cartService = new CartService();
+        CouponService couponService = new CouponService();
 
         Customer customer = customerService.getUserById(id);
         Cart cart = cartService.getCartByCid(id);
+        Wallet wallet = walletService.getWalletById(id);
 
 
         Map<Integer, List<Pair<Product,Integer>>> map = cartService.diffProducts(cart);
@@ -48,7 +45,11 @@ public class CartServlet extends HttpServlet {
             sNameMap.put(sId, businessService.getBusinessById(sId).getName());
         }
 
+        List<Integer> discountIds = wallet.getDId();
+        List<Coupon> couponList = couponService.getAllCouponsByIdList(discountIds);
 
+
+        request.setAttribute("couponList", couponList);
         request.setAttribute("name", customer.getName());
         request.setAttribute("sNameMap", sNameMap);
         request.setAttribute("productMap", map);

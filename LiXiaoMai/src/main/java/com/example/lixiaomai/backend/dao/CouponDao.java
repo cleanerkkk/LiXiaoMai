@@ -6,9 +6,26 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CouponDao {
     private final QueryRunner runner = DatabaseUtils.getRunner();
+
+    public List<Coupon> getAllCouponsByIdList(List<Integer> list) {
+        List<Coupon> coupons = new ArrayList<>();
+        try{
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "SELECT * FROM COUPON WHERE id  = ?";
+
+            for( Integer id : list){
+                coupons.add(runner.query(conn, sql, new BeanListHandler<>(Coupon.class), id).get(0));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return coupons;
+    }
 
     public Coupon getCouponById(int id) {
         try {
