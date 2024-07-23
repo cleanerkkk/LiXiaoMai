@@ -1,4 +1,7 @@
-<%--
+<%@ page import="com.example.lixiaomai.backend.entity.Order" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.sql.Timestamp" %><%--
   Created by IntelliJ IDEA.
   User: Lenovo
   Date: 2024/7/24
@@ -10,7 +13,7 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="css/profileOrder.css">
+    <link rel="stylesheet" href="css/businessOrderHistory.css">
     <meta charset="GBK">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人信息设置</title>
@@ -47,7 +50,7 @@
                 double total = order.getTotal();
     %>
     <tr>
-        <td><a href="orderDetails?id=<%=id%>"><%=id%></a></td>
+        <td><a href="businessOrder?id=<%=id%>"><%=id%></a></td>
         <td><%=sName%></td>
         <td><%=productName%></td>
         <td><%=goodSum%></td>
@@ -81,7 +84,7 @@
         <%
         } else {
         %>
-        <li><a href="ProfileOrder?page=<%= i %>"><%= i %></a></li>
+        <li><a href="businessOrderHistory?page=<%= i %>"><%= i %></a></li>
         <%
             }
             if (i < totalPage) {
@@ -96,7 +99,6 @@
 <%
     }
 %>
-<div class="commetRelated"></div>
 <button id="backToIndex"><a href="exhibit">返回主页</a></button>
 </body>
 </html>
