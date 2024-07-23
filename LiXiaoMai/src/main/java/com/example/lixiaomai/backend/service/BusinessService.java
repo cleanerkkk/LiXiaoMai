@@ -71,4 +71,6 @@ public class BusinessService {
     public boolean updateNameById(int id,String newName){
         return businessDao.updateNameById(id, newName);
     }
+
+
 }
