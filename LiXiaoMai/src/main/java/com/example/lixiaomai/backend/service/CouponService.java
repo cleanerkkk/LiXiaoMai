@@ -28,6 +28,10 @@ public class CouponService {
         return couponDAO.updateDiscountById(id, newDiscount);
     }
 
+    public List<Coupon> getAllCouponsByIdList(List<Integer> list){
+        return couponDAO.getAllCouponsByIdList(list);
+    }
+
     public double calculateDiscount(List<Integer> discountId, List<Integer> discountNum){
         double total = 0;
         for (int i = 0; i < discountId.size(); i++) {
