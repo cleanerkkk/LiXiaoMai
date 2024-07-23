@@ -38,8 +38,11 @@ public class BusinessOrderServlet extends HttpServlet {
 
         Comment commentStartWithCustomer = commentService.getCommentStartWithCustomerByOId(id);
         Comment commentStartWithDeliverman = commentService.getCommentStartWithDelivermanByOId(id);
+        Comment commentStartWithBusiness = commentService.getCommentStartWithBusinessByOId(id);
+
         request.setAttribute("customerComment", commentStartWithCustomer);
         request.setAttribute("deliverComment", commentStartWithDeliverman);
+        request.setAttribute("businessComment", commentStartWithBusiness);
 
 
         CustomerService customerService = new CustomerService();
