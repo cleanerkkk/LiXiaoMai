@@ -40,17 +40,17 @@ public class CartServlet extends HttpServlet {
         Cart cart = cartService.getCartByCid(id);
 
 
-        Map<Integer, List<Pair<Integer,Integer>>> map = cartService.diffProducts(cart);
+        Map<Integer, List<Pair<Product,Integer>>> map = cartService.diffProducts(cart);
         Map<Integer, String> sNameMap = new HashMap<>();
 
-        for (Map.Entry<Integer, List<Pair<Integer,Integer>>> entry : map.entrySet()) {
+        for (Map.Entry<Integer, List<Pair<Product,Integer>>> entry : map.entrySet()) {
             int sId = entry.getKey();
-            ProductService productService = new ProductService();
-//            sNameMap.put(sId, productService.getShopNameBySid(sId));
+            sNameMap.put(sId, businessService.getBusinessById(sId).getName());
         }
 
-        request.setAttribute("name", customer.getName());
 
+        request.setAttribute("name", customer.getName());
+        request.setAttribute("sNameMap", sNameMap);
         request.setAttribute("productMap", map);
         request.setAttribute("cart", cart);
         request.getRequestDispatcher("cart.jsp").forward(request,response);

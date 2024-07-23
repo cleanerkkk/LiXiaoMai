@@ -58,6 +58,7 @@ public class AddCartServlet extends HttpServlet {
         double total=productService.calculateTotal(gId,goodsNum);
         cart.setTotal(total);
 
+
         session.setAttribute("cart", cart);
         request.getRequestDispatcher("cart.jsp").forward(request, response);
     }
