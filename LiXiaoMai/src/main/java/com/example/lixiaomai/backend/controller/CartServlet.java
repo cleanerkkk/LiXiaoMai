@@ -6,6 +6,7 @@ import com.example.lixiaomai.backend.entity.Product;
 import com.example.lixiaomai.backend.service.CartService;
 import com.example.lixiaomai.backend.service.CustomerService;
 import com.example.lixiaomai.backend.service.ProductService;
+import org.apache.commons.lang3.tuple.Pair;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet("/cart")
 public class CartServlet extends HttpServlet {
@@ -32,18 +34,10 @@ public class CartServlet extends HttpServlet {
 
         CartService cartService = new CartService();
         Cart cart = cartService.getCartByCid(id);
-        ProductService productService = new ProductService();
-        List<Product> list = new ArrayList<>();
-        for (int gid : cart.getGId()){
-            Product product = productService.getProductById(gid);
-            list.add(product);
-        }
+        Map<Integer, List<Pair<Integer,Integer>>> map = cartService.diffProducts(cart);
         request.setAttribute("name", customer.getName());
-        request.setAttribute("product", list);
+        request.setAttribute("productMap", map);
         request.setAttribute("cart", cart);
         request.getRequestDispatcher("cart.jsp").forward(request,response);
-
-
-
     }
 }

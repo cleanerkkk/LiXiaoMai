@@ -56,7 +56,6 @@ public class LoginServlet extends HttpServlet {
             case "admin":
                 AdminService adminService = new AdminService();
                 loginResult = adminService.login(username, password);
-
                 break;
             case "deliverman":
                 DelivermanService delivermanService = new DelivermanService();
