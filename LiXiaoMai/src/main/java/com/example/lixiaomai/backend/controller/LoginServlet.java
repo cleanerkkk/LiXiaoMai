@@ -27,9 +27,9 @@ public class LoginServlet extends HttpServlet {
         String userType = request.getParameter("user");
         String captcha = request.getParameter("captcha");
         String errorMessage;
+        HttpSession session = request.getSession();
 
-        request.getSession().setAttribute("name", username);
-        request.getSession().setAttribute("userType", userType);
+
 
         String generCaptcha = (String) request.getSession().getAttribute("captchaValue");
         request.getSession().invalidate();
@@ -39,6 +39,8 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("login.jsp?error=" + errorMessage).forward(request, response);
             return ;
         }
+        session.setAttribute("name", username);
+        session.setAttribute("userType", userType);
         boolean loginResult;
         Integer id = null;
         switch (userType) {
