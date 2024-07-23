@@ -61,19 +61,7 @@ public class AddCartServlet extends HttpServlet {
         cart.setGoodsNum(goodsNum);
         double total=productService.calculateTotal(gId,goodsNum);
         cart.setTotal(total);
-        for (int i = 0; i < gId.size(); i++) {
-            int index = oldCart.getGId().indexOf(gId.get(i));
-            if (index >= 0) {
-                // 如果商品已经存在，更新数量
-                oldCart.getGoodsNum().set(index, oldCart.getGoodsNum().get(index) + goodsNum.get(i));
-            } else {
-                // 如果商品不存在，添加新的商品和数量
-                oldCart.getGId().add(gId.get(i));
-                oldCart.getGoodsNum().add(goodsNum.get(i));
-            }
-        }
-        boolean changed1=cartService.updateTotalBycId(oldCart,total);
-        boolean changed=cartService.updateCart(oldCart);
+        boolean change222=cartService.mergeTwoCarts(oldCart,cart);
         response.sendRedirect("cart");
     }
 }
