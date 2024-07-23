@@ -50,6 +50,7 @@
         </tr>
         <% } %>
     </table>
+    <a href="businessIndex.jsp">返回商家主页</a>
 </div>
 </body>
 </html>
