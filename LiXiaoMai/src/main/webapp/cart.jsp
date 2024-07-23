@@ -31,7 +31,21 @@
         function applyCoupon(sId) {
             var couponSelect = document.getElementById('coupon-select-' + sId);
             var discount = parseFloat(couponSelect.value);
+            var selectedCouponId = couponSelect.options[couponSelect.selectedIndex].getAttribute('data-coupon-id');
+
             document.getElementById('coupon-discount-' + sId).innerText = discount.toFixed(2);
+
+            var couponIdInput = document.getElementById('coupon-id-' + sId);
+            if (!couponIdInput) {
+                couponIdInput = document.createElement('input');
+                couponIdInput.type = 'hidden';
+                couponIdInput.name = 'couponId';
+                couponIdInput.id = 'coupon-id-' + sId;
+                couponIdInput.value = selectedCouponId;
+                document.forms['form-' + sId].appendChild(couponIdInput);
+            } else {
+                couponIdInput.value = selectedCouponId;
+            }
 
             updateMerchantTotalPrice(sId);
         }
@@ -48,9 +62,14 @@
         Map<Integer, List<Pair<Product, Integer>>> productMap = (Map<Integer, List<Pair<Product, Integer>>>) request.getAttribute("productMap");
         Map<Integer, Integer> mapName = (Map<Integer, Integer>) request.getAttribute("sNameMap");
         List<Coupon> coupons = (List<Coupon>) request.getAttribute("couponList");
+        String gIds;
+        String goodNum;
 
         if (productMap != null) {
             for(Map.Entry<Integer, List<Pair<Product, Integer>>> entry : productMap.entrySet()){
+
+                gIds = "";
+                goodNum = "";
                 int sId = entry.getKey();
                 List<Pair<Product, Integer>> list = entry.getValue();
                 List<Product> products = list.stream().map(Pair::getLeft).toList();
@@ -60,7 +79,7 @@
         <p>    </p>
     </div>
     <p>商家名称:<%= mapName.get(sId) %></p>
-    <form action=" " method="post">
+    <form action=" " method="post" id="form-<%=sId%>">
         <table border="1">
             <tr>
                 <th>商品名称</th>
@@ -71,10 +90,17 @@
             <%
                 for (int i = 0; i < products.size(); ++i) {
                     Product product = products.get(i);
+                    int productId = product.getId();
                     String productName = product.getName();
                     int num = goodsNum.get(i);
                     double productPrice = product.getPrice();
                     double pTotal = productPrice * num;
+                    if(i != 0){
+                        gIds += ",";
+                        goodNum += ",";
+                    }
+                    gIds += productId;
+                    goodNum += num;
             %>
             <tr>
                 <td><%= productName %></td>
@@ -86,7 +112,6 @@
             </tr>
             <% } %>
         </table>
-        <!-- Coupon Section -->
         <button type="button" onclick="showCoupons(<%= sId %>)">使用优惠券</button>
         <div id="coupon-section-<%= sId %>" style="display:none;">
             <select id="coupon-select-<%= sId %>" onchange="applyCoupon(<%= sId %>)">
@@ -94,6 +119,7 @@
                 <% if (coupons != null) {
                     for (Coupon coupon : coupons) {
                         double discount = coupon.getDiscount();
+                        int couponId = coupon.getId();
                         String couponName;
                         if (coupon.getLimit() == 0) {
                             couponName = "无门槛券";
@@ -101,7 +127,7 @@
                             couponName = "满减券";
                         }
                 %>
-                <option value="<%= discount %>"><%= couponName %> - 折扣 <%= discount %> 元</option>
+                <option value="<%= discount %>" data-coupon-id="<%= couponId %>"><%= couponName %> - 折扣 <%= discount %> 元</option>
                 <% } } %>
             </select>
         </div>
@@ -110,6 +136,12 @@
             <p>商家总价: <span id="merchant-total-<%= sId %>">0.00</span></p>
             <p>优惠券折扣: <span id="coupon-discount-<%= sId %>">0.00</span></p>
         </div>
+        <input type = "hidden" name = "sId" value="<%=sId%>">
+        <input type = "hidden" name = "gIds" value="<%=gIds%>">
+        <input type = "hidden" name = "goodsNum" value="<%=goodNum%>">
+        <input type = "hidden" name = "sName" value="<%= mapName.get(sId)%>">
+        <input type = "hidden" name= "couponId" id="coupon-id-<%=sId%>">
+        <input type = "hidden" name = "discountNum" value="1">
         <input type="submit" value="购物">
     </form>
     <%

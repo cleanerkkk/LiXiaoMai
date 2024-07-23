@@ -38,7 +38,7 @@ public class CheckoutServlet extends HttpServlet {
         Integer sId = Integer.parseInt(request.getParameter("sId"));
         List<Integer> gIds = Tool.StringToList(request.getParameter("gIds"), Integer.class);
         List<Integer> goodsNum = Tool.StringToList(request.getParameter("goodsNum"), Integer.class);
-        List<Integer> discountIds = Tool.StringToList(request.getParameter("discountIds"), Integer.class);
+        List<Integer> discountIds = Tool.StringToList(request.getParameter("couponId"), Integer.class);
         List<Integer> discountNum = Tool.StringToList(request.getParameter("discountNum"), Integer.class);
 
         double totalPrice = productService.calculateTotal(gIds, goodsNum);
