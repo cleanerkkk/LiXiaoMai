@@ -39,7 +39,7 @@
         <% for (Product product : products) { %>
         <tr>
             <form action="businessManage" method="post">
-                <input type="hidden" name="id" value="<%= product.getId() %>">
+                <input type="hidden" name="ProductId" value="<%= product.getId() %>">
                 <td><input type="text" name="name" value="<%= product.getName() %>"></td>
                 <td><input type="text" name="description" value="<%= product.getDescription() %>"></td>
                 <td><input type="number" name="price" value="<%= product.getPrice() %>"></td>
