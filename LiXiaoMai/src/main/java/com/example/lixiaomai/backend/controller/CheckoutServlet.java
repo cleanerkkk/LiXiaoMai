@@ -45,6 +45,8 @@ public class CheckoutServlet extends HttpServlet {
 
 
 
+
+
 //        Map<Integer, List<Pair<Integer,Integer>>> map = cartService.diffProducts(cartService.getCartByCid(id));
 //        BusinessService businessService = new BusinessService();
 //        for (Map.Entry<Integer, List<Pair<Integer,Integer>>> entry : map.entrySet()) {
