@@ -1,67 +1,50 @@
-body{
-    text-align: center;
-    font-family: "宋体",sans-serif;
-}
-h2{
-    font-size: 32px;
-}
-table {
-    width: 80%;
-    margin: 0 auto;
-    border-collapse: collapse;
-    background-color: #fff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-th, td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-th {
-    background-color: #f2f2f2;
-    color: #333;
-}
-
-tr:hover {
-    background-color: #f9f9f9;
-}
-
-#linker {
-    text-align: center;
-    margin-top: 20px;
-}
-
-#linker a {
-    display: inline-block;
-    margin-right: 20px;
-    text-decoration: none;
-    color: #333;
-    padding: 10px 20px;
-    background-color: #f2f2f2;
-    border-radius: 5px;
-}
-
-#linker a:hover {
-    background-color: #ddd;
-}
-nav {
-    margin-top: 20px;
-    text-align: center;
-}
-nav ul {
-    list-style-type: none;
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f5f5f5;
+    margin: 0;
     padding: 0;
 }
-nav ul li {
-    display: inline;
-    margin: 0 5px;
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
-nav ul li a {
+h1 {
+    text-align: center;
+    color: #333;
+}
+.account, .business-info {
+    margin: 20px 0;
+}
+.account p, .business-info p {
+    font-size: 16px;
+    color: #666;
+}
+.actions {
+    display: flex;
+    text-align: center;
+    gap: 10px; /* 按钮之间的间距 */
+}
+a {
+    display: inline-block;
+    margin-right: 20px;
+    padding: 10px 20px;
+    color: #fff;
+    background: #007BFF;
+    text-align: center;
     text-decoration: none;
-    color: #007BFF;
+    border-radius: 5px;
+    transition: background 0.3s ease;
 }
-nav ul li a:hover {
-    text-decoration: underline;
+a:hover {
+    background: #0056b3;
+}
+.actions a:last-child {
+    margin-right: 0; /* 取消最后一个按钮的右边距 */
+}
+.actions a:hover {
+    background: #0056b3;
 }
