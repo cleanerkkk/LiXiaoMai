@@ -29,6 +29,8 @@ public class CartService {
     public Map<Integer, List<Pair<Product, Integer>>> diffProducts(Cart cart) {
         Map<Integer, List<Pair<Product, Integer>>> map = new HashMap<>();
         List<Integer> gIds = cart.getGId();
+        if (gIds.isEmpty())
+            return map;
         ProductService productService = new ProductService();
         for (int i = 0; i < gIds.size(); i++) {
             Integer id = gIds.get(i);

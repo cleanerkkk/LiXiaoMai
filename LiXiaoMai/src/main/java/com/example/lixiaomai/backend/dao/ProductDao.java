@@ -3,6 +3,7 @@ package com.example.lixiaomai.backend.dao;
 import com.example.lixiaomai.backend.entity.Product;
 import com.example.lixiaomai.backend.tools.DatabaseUtils;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.Connection;
@@ -71,7 +72,7 @@ public class ProductDao {
         try {
             Connection conn = DatabaseUtils.getConnection();
             String sql = "SELECT * FROM PRODUCT WHERE ID = ?";
-            return runner.query(conn, sql, new BeanListHandler<>(Product.class), id).get(0);
+            return runner.query(conn, sql, new BeanHandler<>(Product.class), id);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
