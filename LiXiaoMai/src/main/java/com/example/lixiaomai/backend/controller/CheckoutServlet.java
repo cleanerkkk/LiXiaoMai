@@ -43,6 +43,15 @@ public class CheckoutServlet extends HttpServlet {
         List<Integer> discountIds = Tool.StringToList(request.getParameter("couponId"), Integer.class);
         List<Integer> discountNum = Tool.StringToList(request.getParameter("discountNum"), Integer.class);
 
+
+        for(int i = 0; i < gIds.size(); ++i){
+            int gId = gIds.get(i);
+            int gNum = goodsNum.get(i);
+            Product product = productService.getProductById(gId);
+            product.setStock(product.getStock() - gNum);
+            productService.updateProduct(product, gId);
+        }
+
         double discount = couponService.calculateDiscount(discountIds, discountNum);
         double price = productService.calculateTotal(gIds, goodsNum);
         double finnalPrice = price  - discount;

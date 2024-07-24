@@ -25,8 +25,8 @@ public class ProductService {
         return productDao.getAllProductBySid(sId);
     }
 
-    public boolean updateProduct(Product product){
-        return productDao.updateProduct(product);
+    public boolean updateProduct(Product product, int pId){
+        return productDao.updateProduct(product, pId);
     }
 
     public boolean addProduct(Product product){

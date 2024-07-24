@@ -103,7 +103,7 @@ public class BusinessManageServlet extends HttpServlet {
             return;
         } else if (action.equals("update") ){
             product.setId(productId);
-            productService.updateProduct(product);
+            productService.updateProduct(product, productId);
         }
         doGet(request, response);
 

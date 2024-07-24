@@ -48,7 +48,7 @@
                 <td><input type="number" name="price" value="<%= product.getPrice() %>"></td>
                 <td><input type="text" name="stock" value="<%=product.getStock()%>"></td>
                 <td><input type="text" name="type" value="<%=product.getType()%>"></td>
-                <td><input type="url" name="image" value="<%=product.getPitcutreUrl()%>"></td>
+                <td><input type="url" name="image" value="<%=product.getPictureUrl()%>"></td>
                 <td>
                     <button type="submit" name="action" value="update" action="update">更新</button>
                     <button type="submit" name="action" value="delete" action="delete">删除</button>
