@@ -5,7 +5,7 @@
 <%@ page import="com.example.lixiaomai.backend.entity.Deliverman" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>账户审查</title>
     <link rel="stylesheet" href="css/adminProfileCheck.css" type="text/css">
 </head>
 <body>

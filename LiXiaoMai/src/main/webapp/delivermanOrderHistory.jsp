@@ -4,11 +4,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>骑手订单历史</title>
+    <title>历史订单查询(骑手)</title>
     <link rel="stylesheet" href="css/delivermanOrderHistory.css" type="text/css">
 </head>
 <body>
-<h1>骑手订单历史</h1>
+<h1>历史订单查询(骑手)</h1>
 <div class="order-history">
     <%
         List<Order> orderList = (List<Order>) request.getAttribute("orderList");

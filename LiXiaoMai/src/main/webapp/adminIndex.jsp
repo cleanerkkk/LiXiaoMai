@@ -2,7 +2,7 @@
 <%@ page import="com.example.lixiaomai.backend.entity.Admin" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>后台管理界面</title>
     <link rel="stylesheet" href="css/businessIndex.css" type="text/css">
 </head>
 <body>
