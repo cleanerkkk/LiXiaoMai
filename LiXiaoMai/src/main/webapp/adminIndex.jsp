@@ -12,7 +12,7 @@
     <h1>欢迎管理员，<%= admin.getUName() %>!</h1>
     <h3>个人信息：</h3>
     <div class="account">
-        <p>用户类型：<%=session.getAttribute("userType")%>> 用户姓名：<%=admin.getUName()%>></p>
+        <p>用户类型：<%=session.getAttribute("userType")%> 用户名：<%=admin.getUName()%></p>
     </div>
     <a href="profileCheck">注册管理</a>
     <a href="login.jsp">退出登录</a>
