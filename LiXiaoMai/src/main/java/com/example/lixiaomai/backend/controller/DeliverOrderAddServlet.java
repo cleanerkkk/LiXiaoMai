@@ -36,6 +36,7 @@ public class DeliverOrderAddServlet extends HttpServlet {
                     int orderId = Integer.parseInt(orderIds);
                     Order order = orderService.getOrderById(orderId);
                     order.setDeliverId(id);
+                    order.setStatus(1);
                     orderService.updateOrder(order);
                 }catch (NumberFormatException e){
                     e.printStackTrace();
