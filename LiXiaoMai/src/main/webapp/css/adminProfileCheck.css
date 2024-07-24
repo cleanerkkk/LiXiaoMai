@@ -1,0 +1,102 @@
+/* businessIndex.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+
+.account p {
+    font-size: 16px;
+    color: #666;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f7f7f7;
+    color: #333;
+    padding: 10px;
+    text-align: left;
+}
+
+td {
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+form {
+    display: inline-block;
+    margin: 0;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+button[type="submit"] {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #4cae4c;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #337ab7;
+    position: fixed;
+    bottom: 0px;
+
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.table-operation {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+.no-items-message {
+    text-align: center;
+    color: #666;
+    margin-top: 20px;
+}
