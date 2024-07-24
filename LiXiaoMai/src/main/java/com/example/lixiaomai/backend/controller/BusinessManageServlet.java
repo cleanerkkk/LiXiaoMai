@@ -93,7 +93,7 @@ public class BusinessManageServlet extends HttpServlet {
         product.setPrice(price);
         product.setStock(stock);
         product.setSId(id);
-        product.setPitcutreUrl(filePath);
+        product.setPictureUrl(filePath);
         product.setType(type);
 
 
