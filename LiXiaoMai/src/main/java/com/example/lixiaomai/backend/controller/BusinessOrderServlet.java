@@ -48,11 +48,12 @@ public class BusinessOrderServlet extends HttpServlet {
 
         CustomerService customerService = new CustomerService();
         int customerId = order.getCId();
-        String customerUName = customerService.getUserById(customerId).getUName();
 
+        String customerUName = customerService.getUserById(customerId).getUName();
         DelivermanService delivermanService = new DelivermanService();
         int deliverId = order.getDeliverId();
-        String deliverName = delivermanService.getDelivermanById(deliverId).getName();
+        String deliverName = "正在匹配骑手";
+        if(deliverId != 0) delivermanService.getDelivermanById(deliverId).getName();
         request.setAttribute("customerUName", customerUName);
         request.setAttribute("deliverName", deliverName);
         request.setAttribute("commentList", commentList);

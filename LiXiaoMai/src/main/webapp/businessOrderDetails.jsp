@@ -109,7 +109,7 @@
             <thead>
             <tr>
                 <th></th>
-                <th></th>
+                <th>内容</th>
                 <th>赞同数</th>
             </tr>
             </thead>
@@ -142,7 +142,7 @@
                         <thead>
                         <tr>
                             <th></th>
-                            <th></th>
+                            <th>内容</th>
                             <th>赞同数</th>
                         </tr>
                         </thead>
