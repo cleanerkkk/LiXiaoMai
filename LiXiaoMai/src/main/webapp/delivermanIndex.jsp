@@ -7,11 +7,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    Deliverman deliverman=(Deliverman)session.getAttribute("deliverman"); 
+    Deliverman deliverman=(Deliverman)session.getAttribute("deliverman");
+    request.setAttribute("deliverman",deliverman);
 %>
 <html>
 <head>
-    <title>Title</title>
+    <title>骑手主页管理</title>
     <link rel="stylesheet" href="css/delivermanIndex.css" type = "text/css">
 </head>
 <body>

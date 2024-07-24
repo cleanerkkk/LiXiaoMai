@@ -1,23 +1,45 @@
-body{
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
     text-align: center;
-    font-family: "宋体",sans-serif;
 }
-h2{
-    font-size: 32px;
+
+form {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
 }
-table {
-    width: 80%;
-    margin: 20px auto;
-    border-collapse: collapse;
+
+label {
+    display: block;
+    margin: 10px 0 5px;
 }
-th, td {
-    border: 1px solid #dddddd;
-    padding: 8px;
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
-th {
-    background-color: #f2f2f2;
-}
+
 button {
-    padding: 10px 20px;
-    font-size: 16px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
 }

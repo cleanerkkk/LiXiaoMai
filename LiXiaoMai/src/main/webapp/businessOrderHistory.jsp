@@ -12,14 +12,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>历史订单查询(商家)</title>
     <link rel="stylesheet" href="css/businessOrderHistory.css">
     <meta charset="GBK">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人信息设置</title>
 </head>
 <body>
-<h2>订单管理</h2>
+<h2>历史订单查询</h2>
 
 <div class="account">
     <p>用户类型：${userType} 用户姓名：${name}</p>

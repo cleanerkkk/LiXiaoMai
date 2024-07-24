@@ -11,7 +11,7 @@
 %>
 <html>
 <head>
-    <title>Title</title>
+    <title>商家主页管理</title>
     <link rel="stylesheet" href="css/businessIndex.css" type="text/css">
 </head>
 <body>

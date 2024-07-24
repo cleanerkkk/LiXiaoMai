@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>理小卖外卖平台</title>
+    <title>理小卖外卖平台:登录</title>
     <link rel="stylesheet" href="css/login.css">
     <meta charset="GBK">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

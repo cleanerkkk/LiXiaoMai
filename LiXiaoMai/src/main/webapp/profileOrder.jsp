@@ -13,11 +13,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>历史订单管理(用户)</title>
     <link rel="stylesheet" href="css/profileOrder.css">
     <meta charset="GBK">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人信息设置</title>
 </head>
 <body>
 <h2>订单管理</h2>
