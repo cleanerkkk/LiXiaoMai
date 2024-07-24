@@ -12,30 +12,62 @@
 <div class="order-history">
     <%
         List<Order> orderList = (List<Order>) request.getAttribute("orderList");
-        Deliverman deliverman=(Deliverman)request.getAttribute("deliverman123");
-        if (orderList != null) {
-            for (Order order : orderList) {
+        Deliverman deliverman = (Deliverman) request.getAttribute("deliverman");
+        if (orderList != null && deliverman != null) {
     %>
     <div class="account">
-        <p>骑手名称：<%=deliverman.getUName()%> 骑手id：<%=deliverman.getId()%></p>
+        <p>骑手名称：<%= deliverman.getUName() %> 骑手ID：<%= deliverman.getId() %></p>
     </div>
-    <div class="order">
-        <p>订单ID: <%= order.getId() %></p>
-        <p>客户ID: <%= order.getCId() %></p>
-        <p>商家ID: <%= order.getSId() %></p>
-        <p>订单总金额: <%= order.getTotal() %>元</p>
-        <p>订单状态: <%= order.getStatus() %></p>
-        <p>开始时间: <%= order.getStartTime() %></p>
-        <p>结束时间: <%= order.getEndTime() %></p>
-        <p>商家名称: <%= order.getSName() %></p>
-        <p>客户名称: <%= order.getCName() %></p>
-    </div>
+    <table class="order-history">
+        <thead>
+        <tr>
+            <th>订单ID</th>
+            <th>客户ID</th>
+            <th>商家ID</th>
+            <th>订单总金额</th>
+            <th>订单状态</th>
+            <th>开始时间</th>
+            <th>结束时间</th>
+            <th>商家名称</th>
+            <th>客户名称</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%
+            for (Order order : orderList) {
+                String orderStatus = null;
+                if(order.getStatus()==1){
+                    orderStatus="已完成";
+                }
+                else if(order.getStatus()==0){
+                    orderStatus="未完成";
+                }
+        %>
+        <tr>
+            <td><%= order.getId() %></td>
+            <td><%= order.getCId() %></td>
+            <td><%= order.getSId() %></td>
+            <td><%= order.getTotal() %>元</td>
+            <td><%= orderStatus %></td>
+            <td><%= order.getStartTime() %></td>
+            <td><%= order.getEndTime() %></td>
+            <td><%= order.getSName() %></td>
+            <td><%= order.getCName() %></td>
+        </tr>
+        <%
+            }
+        %>
+        </tbody>
+    </table>
     <%
-        }
     } else {
     %>
     <p>没有找到订单历史。</p>
     <% } %>
 </div>
+<div class="button123">
+    <button id="backToDeliverIndex" ><a href="delivermanIndex.jsp">返回主页</a></button>
+</div>
+
 </body>
 </html>

@@ -25,12 +25,12 @@ public class DeliverOrderHistoryServlet extends HttpServlet {
         String userName = (String) session.getAttribute("name");
         OrderService orderService=new OrderService();
         DelivermanService delivermanService=new DelivermanService();
-        Deliverman deliverman123 =delivermanService.getDelivermanByUsername(userName);
-        int delivermanId=deliverman123.getId();
+        Deliverman deliverman =delivermanService.getDelivermanByUsername(userName);
+        int delivermanId=deliverman.getId();
         List<Order> orderList=orderService.getAllOrderByDId(delivermanId);
         request.setAttribute("orderList",orderList);
         request.setAttribute("delivermanId",delivermanId);
-        request.setAttribute("deliverman123",deliverman123);
+        request.setAttribute("deliverman",deliverman);
         request.getRequestDispatcher("delivermanOrderHistory.jsp").forward(request,response);
     }
 }
