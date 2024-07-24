@@ -12,7 +12,7 @@
 <div class="order-history">
     <%
         List<Order> orderList = (List<Order>) request.getAttribute("orderList");
-        Deliverman deliverman = (Deliverman) request.getAttribute("deliverman123");
+        Deliverman deliverman = (Deliverman) request.getAttribute("deliverman");
         if (orderList != null && deliverman != null) {
     %>
     <div class="account">

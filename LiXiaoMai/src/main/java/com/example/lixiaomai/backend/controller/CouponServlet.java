@@ -29,11 +29,10 @@ public class CouponServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        response.setContentType("application/json"); // 设置响应内容类型为JSON
+        response.setContentType("application/json");
 
         HttpSession session = request.getSession();
 
-        // 读取请求体
         StringBuilder jsonStringBuilder = new StringBuilder();
         String line;
         try (BufferedReader reader = request.getReader()) {
@@ -50,7 +49,6 @@ public class CouponServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        // 从JSON对象中获取result
         String result = null;
         try {
             result = jsonObject.getString("result");
