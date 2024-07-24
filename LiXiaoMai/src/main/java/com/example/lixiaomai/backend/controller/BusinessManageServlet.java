@@ -70,7 +70,7 @@ public class BusinessManageServlet extends HttpServlet {
         }
 
         Part filePart = request.getPart("image");
-            String filePath = request.getServletContext().getRealPath("/imgsrc/") + productName + ".jpg";
+            String filePath = getServletContext().getRealPath("WEB-INF/classes/imgsrc/") + productName + ".jpg";
 
             InputStream fileContent = filePart.getInputStream();
 
@@ -93,7 +93,7 @@ public class BusinessManageServlet extends HttpServlet {
         product.setPrice(price);
         product.setStock(stock);
         product.setSId(id);
-        product.setPictureUrl(filePath);
+        product.setUrl(filePath);
         product.setType(type);
 
 
