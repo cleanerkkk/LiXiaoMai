@@ -32,7 +32,7 @@
     <div class="jumpTo" style="text-align: center">
         <a href="deliverProfile">骑手个人信息维护</a>
         <a href="deliverOrderHistory">骑手的历史订单</a>
-        <a href="#">外卖接单</a>
+        <a href="orderGet">外卖接单</a>
         <a href="login.jsp">退出登录</a>
     </div>
 </div>
