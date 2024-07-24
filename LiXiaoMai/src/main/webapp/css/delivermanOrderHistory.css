@@ -25,3 +25,15 @@ h1{
     text-align: center;
     text-decoration: #9e89ff;
 }
+.button123{
+    text-align: center;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: blue;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+
+
+}
