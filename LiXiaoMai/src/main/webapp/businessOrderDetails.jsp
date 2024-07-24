@@ -84,27 +84,26 @@
 
         <%
         } else{
-
-                %>
+                if(business == null){
+        %>
         <form action="comment" method="post">
             <div>
                 <label for = "customer">消费者</label>
                 <input type="text" id = "customer" name = "customer">
             </div>
             <div>
-                <label for = "deliverman">骑手</label>
-                <input type="text" id = "deliverman" name = "deliverman">
-            </div>
-            <div>
-                <button type="submit">提交评论</button>
+                <button type="submit" name = "action" value="businessOrder" action = "businessOrder">提交评论</button>
             </div>
             <input type="hidden" name="deliverId" value="<%=order.getDeliverId()%>">
             <input type="hidden" name="customerId" value="<%=order.getCId()%>">
+
             <input type="hidden" name="oId" value="<%=order.getId()%>">
             <input type="hidden" name="businessName" value="<%=order.getSName()%>">
             <input type="hidden" name="customerUName" value="<%=customerUName%>">
+            <input type="hidden" name="businessShopName" value="<%=sName%>">
         </form>
         <%
+            }
         %>
         <table>
             <thead>
@@ -120,11 +119,11 @@
                 <td><%= customer.getLikes()%></td>
             </tr>
             <tr>
-                <th>骑手评论</th>
+                <th>消费者对骑手评论</th>
                 <%
                     if(deliver == null){
                 %>
-                <td>评价暂无</td>
+                <td>消费者默认好评</td>
                 <%
                     }
                     else{
@@ -136,10 +135,25 @@
                 <td><%= customer.getLikes()%></td>
             </tr>
         </table>
-
-
-<%--        商家评论--%>
         <%
+                if(business != null){
+                    %>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th>赞同数</th>
+                        </tr>
+                        </thead>
+                        <tr>
+                            <th>商家回复</th>
+                            <td><%= business.getContent() %></td>
+                            <td><%= business.getLikes()%></td>
+                        </tr>
+                    </table>
+                    <%
+                }
             }
         %>
     </div>
