@@ -7,7 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    Deliverman deliverman=(Deliverman)session.getAttribute("deliverman"); 
+    Deliverman deliverman=(Deliverman)session.getAttribute("deliverman");
+    request.setAttribute("deliverman",deliverman);
 %>
 <html>
 <head>
