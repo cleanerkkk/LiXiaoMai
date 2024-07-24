@@ -57,13 +57,13 @@ public class OrderDao {
     public boolean addOrder(Order order){
         try{
             Connection conn = DatabaseUtils.getConnection();
-            String sql = "INSERT INTO `ORDER` (CID, SID, GID, GOODSNUM, ENDTIME, STARTTIME, TOTAL, STATUS, SNAME, DISCOUNTNUM, DID, CNAME) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO `ORDER` (CID, SID, GID, deliverID, GOODSNUM, ENDTIME, STARTTIME, TOTAL, STATUS, SNAME, DISCOUNTNUM, DID, CNAME) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
             String gId = Tool.ListToString(order.getGId());
             String goodsNum = Tool.ListToString(order.getGoodsNum());
             String discountId = Tool.ListToString(order.getDiscountId());
             String discountNum = Tool.ListToString(order.getDiscountNum());
             return runner.update(conn, sql,
-                    order.getCId(), order.getSId(), gId, goodsNum, order.getEndTime(), order.getStartTime(), order.getTotal(), order.getStatus(), order.getSName(), discountNum, discountId, order.getCName()) > 0;
+                    order.getCId(), order.getSId(), gId,order.getDeliverId() , goodsNum, order.getEndTime(), order.getStartTime(), order.getTotal(), order.getStatus(), order.getSName(), discountNum, discountId, order.getCName()) > 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

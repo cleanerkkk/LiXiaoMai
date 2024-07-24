@@ -8,6 +8,11 @@ import java.util.List;
 public class BusinessService {
     static BusinessDao businessDao = new BusinessDao();
 
+    public List<Business> getBusinessByStatus(int status){
+        return businessDao.getBusinessByStatus(status);
+    }
+
+
     public Business getBusinessById(int id){
         return businessDao.getBusinessById(id);
     }

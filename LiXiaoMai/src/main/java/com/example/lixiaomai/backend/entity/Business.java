@@ -12,4 +12,6 @@ public class Business {
     private String address;
     private String telephone;
     private String idCard;
+
+    private int status;
 }

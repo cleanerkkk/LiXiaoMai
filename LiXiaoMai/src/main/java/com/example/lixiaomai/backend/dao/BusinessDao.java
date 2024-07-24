@@ -13,6 +13,15 @@ import java.util.List;
 public class BusinessDao {
     private final QueryRunner runner = DatabaseUtils.getRunner();
 
+    public List<Business> getBusinessByStatus(int status){
+        try {
+            String sql = "SELECT * FROM Business WHERE status = ?";
+            Connection conn = DatabaseUtils.getConnection();
+            return runner.query(conn, sql, new BeanListHandler<>(Business.class), status);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public Business getBusinessById(int id){
         try {
             String sql = "SELECT * FROM Business WHERE id = ?";

@@ -3,8 +3,14 @@ package com.example.lixiaomai.backend.service;
 import com.example.lixiaomai.backend.dao.DelivermanDao;
 import com.example.lixiaomai.backend.entity.Deliverman;
 
+import java.util.List;
+
 public class DelivermanService {
     static DelivermanDao delivermanDao = new DelivermanDao();
+
+    public List<Deliverman> getDelivermanByStatus(int status){
+        return delivermanDao.getDelivermanByStatus(status);
+    }
 
     public boolean addDeliverman(Deliverman deliverman){
         return delivermanDao.addDeliverman(deliverman);

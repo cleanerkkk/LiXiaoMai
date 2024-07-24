@@ -1,15 +1,15 @@
 
 INSERT INTO DELIVERMAN (ID, NAME, UNAME, PASSWORD, TELEPHONE, GENDER, VTYPE, VID, VBRAND, STATUS)
-VALUES (1, '张三', '张三', '123456', '12345678901', '男', '电瓶车', '1', '雅迪', '0');
+VALUES (1, '张三', '张三', '123456', '12345678901', '男', '电瓶车', '1', '雅迪', '1');
 
 INSERT INTO DELIVERMAN (ID, NAME, UNAME, PASSWORD, TELEPHONE, GENDER, VTYPE, VID, VBRAND, STATUS)
-VALUES (2, '李四', '李四', '123456', '12345678910', '男', '电瓶车', '2', '小牛', '0');
+VALUES (2, '李四', '李四', '123456', '12345678910', '男', '电瓶车', '2', '小牛', '1');
 
 INSERT INTO DELIVERMAN (ID, NAME, UNAME, PASSWORD, TELEPHONE, GENDER, VTYPE, VID, VBRAND, STATUS)
-VALUES (3, '王五', '王五', '654321', '12345678001', '男', '电瓶车', '3', '雅迪', '0');
+VALUES (3, '王五', '王五', '654321', '12345678001', '男', '电瓶车', '3', '雅迪', '1');
 
 INSERT INTO DELIVERMAN (ID, NAME, UNAME, PASSWORD, TELEPHONE, GENDER, VTYPE, VID, VBRAND, STATUS)
-VALUES (4, '王芳', 'wangfang', 'jjkkkk', '32145678901', '女', '摩托车', '4', '宝马', '0');
+VALUES (4, '王芳', 'wangfang', 'jjkkkk', '32145678901', '女', '摩托车', '4', '宝马', '1');
 
 INSERT INTO DELIVERMAN (ID, NAME, UNAME, PASSWORD, TELEPHONE, GENDER, VTYPE, VID, VBRAND, STATUS)
-VALUES (5, '小红', 'redsun', 'redsun', '12365478901', '女', '电瓶车', '5', '雅迪', '0');
+VALUES (5, '小红', 'redsun', 'redsun', '12365478901', '女', '电瓶车', '5', '雅迪', '1');

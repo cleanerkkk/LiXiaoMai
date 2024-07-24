@@ -1,5 +1,6 @@
 package com.example.lixiaomai.backend.controller;
 
+import com.example.lixiaomai.backend.entity.Admin;
 import com.example.lixiaomai.backend.entity.Business;
 import com.example.lixiaomai.backend.entity.Deliverman;
 import com.example.lixiaomai.backend.entity.Wallet;
@@ -71,6 +72,15 @@ public class LoginServlet extends HttpServlet {
             case "admin":
                 AdminService adminService = new AdminService();
                 loginResult = adminService.login(username, password);
+                Admin admin = adminService.getAdminByUserName(username);
+                id = admin.getId();
+
+                if (loginResult){
+                    session.setAttribute("admin", admin);
+                    response.sendRedirect("adminIndex.jsp");
+                    session.setAttribute("id", id);
+                    return;
+                }
                 break;
             case "deliverman":
                 DelivermanService delivermanService = new DelivermanService();

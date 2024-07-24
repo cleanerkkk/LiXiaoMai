@@ -19,5 +19,15 @@ public class AdminService {
         return admin != null && admin.getPassword().equals(password);
     }
 
+    public Admin getAdminByUserName(String uname){
+        return adminDao.getAdminByUserName(uname);
+    }
+
+    public Admin getAllInfoOfAdmin(int id){
+        return adminDao.getAllInfoOfAdmin(id);
+    }
+
+
+
 
 }
