@@ -11,14 +11,13 @@
 %>
 <html>
 <head>
-    <title>Title</title>
-    <link rel="stylesheet" href="css/profileSettings.css">
+    <title>用户个人信息维护</title>
+    <link rel="stylesheet" href="css/profileSettings.css" type="text/css">
     <meta charset="GBK">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人信息设置</title>
 </head>
 <body>
-<h2>个人信息设置</h2>
+<h1>用户个人信息维护</h1>
 <article id="register">
     <div class="account">
         <p>用户类型：${userType} 用户姓名：${name}</p>
