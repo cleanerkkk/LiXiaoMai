@@ -19,7 +19,7 @@
 <body>
 <h1>用户个人信息维护</h1>
 <article id="register">
-    <div class="account">
+    <div class="account" style="text-align: center">
         <p>用户类型：${userType} 用户姓名：${name}</p>
     </div>
     <form action = "profileSettingsUpdate" method = "post">
@@ -41,6 +41,9 @@
         <button type="submit">更新信息</button>
     </form>
 </article>
-<button id="back"><a href="exhibit">返回主页</a></button>
+<div class="backToIndexUser">
+    <a href="exhibit">返回主页</a>
+</div>
+
 </body>
 </html>

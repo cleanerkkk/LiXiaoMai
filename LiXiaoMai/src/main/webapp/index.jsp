@@ -189,7 +189,7 @@ for (int i = 1; i <= totalPage; i++){
                 <div class="profile-info">
                     <h2>${name}</h2>
                     <h2>${userType}</h2>
-                    <p>${name}@example.com</p>
+                    <p>${name}@liXiaoMai.com</p>
                 </div>
             </div>
         </div>
