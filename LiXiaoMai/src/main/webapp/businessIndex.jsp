@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     Business business=(Business)session.getAttribute("business");
+    request.setAttribute("business",business);
 %>
 <html>
 <head>
@@ -29,6 +30,7 @@
     </div>
     <div class="jumpTo" style="text-align: center">
         <a href="businessManage">管理商品</a>
+        <a href="businessProfile">个人信息维护</a>
         <a href="businessOrderHistory">商家的历史订单详情</a>
         <a href="login.jsp">退出登录</a>
     </div>

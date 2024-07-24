@@ -29,19 +29,8 @@ input[type="password"] {
     border-radius: 5px;
 }
 
-.backToIndexUser {
-    text-align: center;
-    width: auto;
-    background-color: white;
-    color: white;
-    border: black;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
 button {
     display: block;
-    text-align: center;
     width: 100%;
     padding: 10px;
     background-color: #4CAF50;
@@ -54,4 +43,3 @@ button {
 button:hover {
     background-color: #45a049;
 }
-
