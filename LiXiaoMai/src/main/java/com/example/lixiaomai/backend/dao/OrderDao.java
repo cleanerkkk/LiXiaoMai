@@ -72,13 +72,13 @@ public class OrderDao {
     public boolean updateOrder(Order order){
         try{
             Connection conn = DatabaseUtils.getConnection();
-            String sql = "UPDATE `ORDER` SET CID = ?, SID = ?, GID = ?, GOODSNUM = ?, ENDTIME = ?, STARTTIME = ?, TOTAL = ?, STATUS = ?, SNAME = ?, DISCOUNTNUM = ?, DID = ?, CNAME = ? WHERE ID = ?";
+            String sql = "UPDATE `ORDER` SET CID = ?, SID = ?, GID = ?, GOODSNUM = ?, ENDTIME = ?, STARTTIME = ?, TOTAL = ?, STATUS = ?, SNAME = ?, DISCOUNTNUM = ?, DID = ?, CNAME = ?, DELIVERID = ? WHERE ID = ?";
             String gId = Tool.ListToString(order.getGId());
             String goodsNum = Tool.ListToString(order.getGoodsNum());
             String discountId = Tool.ListToString(order.getDiscountId());
             String discountNum = Tool.ListToString(order.getDiscountNum());
             return runner.update(conn, sql,
-                    order.getCId(), order.getSId(), gId, goodsNum, order.getEndTime(), order.getStartTime(), order.getTotal(), order.getStatus(), order.getSName(), discountNum, discountId, order.getCName(), order.getId()) > 0;
+                    order.getCId(), order.getSId(), gId, goodsNum, order.getEndTime(), order.getStartTime(), order.getTotal(), order.getStatus(), order.getSName(), discountNum, discountId, order.getCName(), order.getDeliverId(), order.getId()) > 0;
         }catch (SQLException e){
             throw new RuntimeException(e);
         }

@@ -81,7 +81,7 @@
         <%
             Comment business = (Comment) request.getAttribute("businessComment");
             Comment deliver = (Comment) request.getAttribute("deliverComment");
-            if (business == null) {
+            if (business == null && !deliverName.equals( "正在匹配骑手")){
         %>
         <form action="comment" method="post">
             <div>
@@ -102,7 +102,7 @@
             <input type="hidden" name="deliverName" value="<%=deliverName%>">
         </form>
         <%
-            } else{
+            } else if (business != null && deliver != null) {
         %>
             <table>
                 <thead>
@@ -120,7 +120,7 @@
                 <tr>
                     <th>对骑手评论</th>
                     <td><%= deliver.getContent() %></td>
-                    <td><%= business.getLikes()%></td>
+                    <td><%= deliver.getLikes()%></td>
                 </tr>
             </table>
         <%

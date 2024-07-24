@@ -13,6 +13,20 @@ import java.util.List;
 public class BusinessDao {
     private final QueryRunner runner = DatabaseUtils.getRunner();
 
+    public boolean updateBusinessStatus(int id, int status) {
+        Connection conn = null;
+        boolean isUpdated = false;
+        try {
+            conn = DatabaseUtils.getConnection();
+            String updateQuery = "UPDATE Business SET status = ? WHERE id = ?";
+            int rowsAffected = runner.update(conn, updateQuery, status, id);
+            isUpdated = rowsAffected > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return isUpdated;
+    }
+
     public List<Business> getBusinessByStatus(int status){
         try {
             String sql = "SELECT * FROM Business WHERE status = ?";
