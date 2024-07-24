@@ -54,7 +54,7 @@ public class CommentServlet extends HttpServlet {
             comment.setLikes(0);
             comment.setDislikes(0);
             comment.setStartName(userName);
-            comment.setEndName(businessShopName);
+            comment.setEndName(businessName);
             comment.setTime(Tool.getTime());
             comment.setCoId(0);
 
