@@ -109,7 +109,7 @@
             <thead>
             <tr>
                 <th></th>
-                <th></th>
+                <th>内容</th>
                 <th>赞同数</th>
             </tr>
             </thead>
@@ -142,7 +142,7 @@
                         <thead>
                         <tr>
                             <th></th>
-                            <th></th>
+                            <th>内容</th>
                             <th>赞同数</th>
                         </tr>
                         </thead>
@@ -166,6 +166,6 @@
     %>
 </div>
 
-<button id="backToOrders"><a href="ProfileOrder">返回订单列表</a></button>
+<button id="backToOrders"><a href="businessOrderHistory">返回订单列表</a></button>
 </body>
 </html>
