@@ -102,7 +102,7 @@
             <input type="hidden" name="deliverName" value="<%=deliverName%>">
         </form>
         <%
-            } else if (){
+            } else if (business != null && deliver != null) {
         %>
             <table>
                 <thead>
@@ -120,7 +120,7 @@
                 <tr>
                     <th>对骑手评论</th>
                     <td><%= deliver.getContent() %></td>
-                    <td><%= business.getLikes()%></td>
+                    <td><%= deliver.getLikes()%></td>
                 </tr>
             </table>
         <%
