@@ -7,11 +7,11 @@
 <html>
 <head>
   <title>骑手接单界面</title>
-  <link rel="stylesheet" href="css/delivermanOrderHistory.css" type="text/css">
+  <link rel="stylesheet" href="css/delivermanOrderGet.css" type="text/css">
 </head>
 <body>
 <h1>骑手接单界面</h1>
-<div class="order-history">
+<div class="order-choose">
   <%
     List<Order> orderList = (List<Order>) request.getAttribute("orderList");
     Deliverman deliverman = (Deliverman) request.getAttribute("deliverman");
@@ -22,7 +22,7 @@
     <p>骑手名称：<%= deliverman.getUName() %> 骑手ID：<%= deliverman.getId() %></p>
   </div>
   <form action="deliverAdd" method="post">
-    <table class="order-history">
+    <table class="order-choose">
       <thead>
       <tr>
         <th>选择</th>
@@ -56,7 +56,7 @@
       %>
       </tbody>
     </table>
-    <div class="button123">
+    <div class="myButton">
       <button type="submit">提交选中的订单</button>
       <button id="backToDeliverIndex"><a href="delivermanIndex.jsp">返回主页</a></button>
     </div>
