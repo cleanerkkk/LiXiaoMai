@@ -50,7 +50,7 @@
 
 
 
-<a href="cart"> 购物车 </a>
+
 
 
 
@@ -75,7 +75,7 @@
     border-radius: 5px !important;
     overflow: hidden !important;">
             <div class="merchant-image">
-                <img src="./imgsrc.business<%=BusinessId%>.jpg" style="width: 150px;
+                <img src="./imgsrc/business<%=BusinessId%>.png" style="width: 150px;
     height: 150px;
     object-fit: cover;">
             </div>
@@ -185,7 +185,7 @@ for (int i = 1; i <= totalPage; i++){
     <section class="layout">
         <div class="header">
             <div class="profile-card">
-                <img src="profile.jpg" alt="用户头像">
+                <img src="imgsrc/userimage.png" alt="用户头像">
                 <div class="profile-info">
                     <h2>${name}</h2>
                     <h2>${userType}</h2>
@@ -201,8 +201,7 @@ for (int i = 1; i <= totalPage; i++){
         </div>
         <div class="rightSide">
             <div class="section">
-                <h3>收藏的餐馆</h3>
-                <p>这里显示收藏的餐馆信息...</p>
+                <h3><a href="cart"> 我的购物车 </a></h3>
             </div>
         </div>
     <div class="containerNew">
