@@ -27,9 +27,11 @@
         <p>商家地址: <%= business.getAddress() %></p>
         <p>联系方式: <%= business.getTelephone() %></p>
     </div>
-    <a href="businessManage">管理商品</a>
-    <a href="businessOrderHistory">商家的历史订单详情</a>
-    <a href="login.jsp">退出登录</a>
+    <div class="jumpTo" style="text-align: center">
+        <a href="businessManage">管理商品</a>
+        <a href="businessOrderHistory">商家的历史订单详情</a>
+        <a href="login.jsp">退出登录</a>
+    </div>
 </div>
 </body>
 </html>

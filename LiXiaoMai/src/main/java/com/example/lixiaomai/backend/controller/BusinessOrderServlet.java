@@ -38,11 +38,11 @@ public class BusinessOrderServlet extends HttpServlet {
         List<Comment> commentList = commentService.getCommentByOId(id);
 
         Comment commentStartWithCustomer = commentService.getCommentStartWithCustomerByOId(id);
-        Comment commentStartWithDeliverman = commentService.getCommentStartWithDelivermanByOId(id);
+        Comment commentEndWithDeliverman = commentService.getCommentEndWithDelivermanByOId(id);
         Comment commentStartWithBusiness = commentService.getCommentStartWithBusinessByOId(id);
 
         request.setAttribute("customerComment", commentStartWithCustomer);
-        request.setAttribute("deliverComment", commentStartWithDeliverman);
+        request.setAttribute("deliverComment", commentEndWithDeliverman);
         request.setAttribute("businessComment", commentStartWithBusiness);
 
 

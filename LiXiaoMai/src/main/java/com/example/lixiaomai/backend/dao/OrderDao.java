@@ -15,6 +15,17 @@ import java.util.List;
 public class OrderDao {
     private final QueryRunner runner = DatabaseUtils.getRunner();
 
+
+    public List<Order> getAllOrdersWithNoDeliver(){
+        try{
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "SELECT * FROM `ORDER` WHERE deliverId = ?";
+            return runner.query(conn, sql, new OrderResultSetHandler(), 0);
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     public List<Order> getAllOrderByCid(int cId){
         try{
             Connection conn = DatabaseUtils.getConnection();
@@ -27,7 +38,7 @@ public class OrderDao {
     public List<Order> getAllOrderByDeliverId(int did){
         try{
             Connection conn = DatabaseUtils.getConnection();
-            String sql = "SELECT * FROM `ORDER` WHERE did = ?";
+            String sql = "SELECT * FROM `ORDER` WHERE deliverID = ?";
             return runner.query(conn, sql, new OrderResultSetHandler(), did);
         }catch (SQLException e){
             throw new RuntimeException(e);

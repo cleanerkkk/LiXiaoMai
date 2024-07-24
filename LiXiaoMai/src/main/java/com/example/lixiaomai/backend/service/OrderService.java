@@ -9,6 +9,10 @@ import java.util.List;
 public class OrderService {
     static OrderDao orderDao = new OrderDao();
 
+
+    public List<Order> getAllOrderWithNoDeliver(){
+        return orderDao.getAllOrdersWithNoDeliver();
+    }
     public List<Order> getAllOrderByCid(int cId){
         return orderDao.getAllOrderByCid(cId);
     }

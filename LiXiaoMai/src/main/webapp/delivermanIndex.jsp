@@ -12,7 +12,7 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="css/index.css" type = "text/css">
+    <link rel="stylesheet" href="css/delivermanIndex.css" type = "text/css">
 </head>
 <body>
 <h1>骑手主页管理</h1>
@@ -29,9 +29,12 @@
         <p>联系方式: <%= deliverman.getTelephone() %></p>
         <p>当前状态:<%=deliverman.getStatus()%></p>
     </div>
-    <a href="delivermanManage">管理商品</a>
-    <a href="delivermanOrderHistory">商家的历史订单详情</a>
-    <a href="login.jsp">退出登录</a>
+    <div class="jumpTo" style="text-align: center">
+        <a href="delivermanProfile">骑手个人信息维护</a>
+        <a href="deliverOrderHistory">骑手的历史订单</a>
+        <a href="#">外卖接单</a>
+        <a href="login.jsp">退出登录</a>
+    </div>
 </div>
 </body>
 </html>
