@@ -15,6 +15,17 @@ import java.util.List;
 public class OrderDao {
     private final QueryRunner runner = DatabaseUtils.getRunner();
 
+
+    public List<Order> getAllOrdersWithNoDeliver(){
+        try{
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "SELECT * FROM `ORDER` WHERE deliverId = ?";
+            return runner.query(conn, sql, new OrderResultSetHandler(), 0);
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     public List<Order> getAllOrderByCid(int cId){
         try{
             Connection conn = DatabaseUtils.getConnection();

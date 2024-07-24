@@ -11,5 +11,5 @@ public class Product {
     private String type;
     private String description;
     private int sId;
-    private String pitcutreUrl;
+    private String pictureUrl;
 }
