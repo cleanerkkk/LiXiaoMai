@@ -107,7 +107,8 @@ CREATE TABLE IF NOT EXISTS `BUSINESS`(
                                           `NAME` VARCHAR(10),
                                          `ADDRESS` VARCHAR(32),
                                          `TELEPHONE` VARCHAR(11),
-                                         `IDCARD` VARCHAR(18)
+                                         `IDCARD` VARCHAR(18),
+    `STATUS` INT DEFAULT 1
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 drop table coupon;

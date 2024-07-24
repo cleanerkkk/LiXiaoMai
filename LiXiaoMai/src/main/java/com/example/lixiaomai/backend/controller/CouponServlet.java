@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Objects;
 
 import com.example.lixiaomai.backend.entity.Coupon;
 import com.example.lixiaomai.backend.entity.Customer;
@@ -83,7 +84,8 @@ public class CouponServlet extends HttpServlet {
         CustomerService customerService = new CustomerService();
         int id = customerService.getUserByUsername(username).getId();
         WalletService walletService = new WalletService();
-        walletService.addCouponById(id, coupon);
+        if (!result.equals("谢谢参与"))
+            walletService.addCouponById(id, coupon);
 
     }
 }
