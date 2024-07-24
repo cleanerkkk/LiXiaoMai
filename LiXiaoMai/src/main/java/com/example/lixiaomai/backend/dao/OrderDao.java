@@ -38,7 +38,7 @@ public class OrderDao {
     public List<Order> getAllOrderByDeliverId(int did){
         try{
             Connection conn = DatabaseUtils.getConnection();
-            String sql = "SELECT * FROM `ORDER` WHERE did = ?";
+            String sql = "SELECT * FROM `ORDER` WHERE deliverID = ?";
             return runner.query(conn, sql, new OrderResultSetHandler(), did);
         }catch (SQLException e){
             throw new RuntimeException(e);
