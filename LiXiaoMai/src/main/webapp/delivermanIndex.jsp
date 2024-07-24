@@ -12,7 +12,7 @@
 %>
 <html>
 <head>
-    <title>Title</title>
+    <title>骑手主页管理</title>
     <link rel="stylesheet" href="css/delivermanIndex.css" type = "text/css">
 </head>
 <body>

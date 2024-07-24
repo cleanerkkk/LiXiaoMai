@@ -6,11 +6,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>配送员接单界面</title>
+  <title>骑手接单界面</title>
   <link rel="stylesheet" href="css/delivermanOrderHistory.css" type="text/css">
 </head>
 <body>
-<h1>配送员接单界面</h1>
+<h1>骑手接单界面</h1>
 <div class="order-history">
   <%
     List<Order> orderList = (List<Order>) request.getAttribute("orderList");

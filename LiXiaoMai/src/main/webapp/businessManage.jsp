@@ -12,13 +12,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>管理商品</title>
+    <title>商品管理</title>
     <link rel="stylesheet" type="text/css" href="css/businessManage.css">
 </head>
 <body>
 <h1>欢迎您！${shopName}</h1>
 <div class="container">
-    <h1>管理商品</h1>
+    <h1>商品管理</h1>
     <form action="businessManage" method="post" enctype="multipart/form-data">
         <input type="hidden" name="action" value="add">
         <input type="text" name="name" placeholder="商品名称">
