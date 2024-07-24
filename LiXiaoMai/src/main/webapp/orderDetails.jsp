@@ -93,7 +93,7 @@
                 <input type="text" id = "deliverman" name = "deliverman">
             </div>
             <div>
-                <button type="submit">提交评论</button>
+                <button type="submit" name = "action" value="order" action = "order">提交评论</button>
             </div>
             <input type="hidden" name="deliverId" value="<%=order.getDeliverId()%>">
             <input type="hidden" name="businessId" value="<%=order.getSId()%>">
