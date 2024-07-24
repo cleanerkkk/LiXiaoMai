@@ -12,6 +12,10 @@ public class BusinessService {
         return businessDao.getBusinessByStatus(status);
     }
 
+    public boolean updateBusinessStatus(int id, int status){
+        return businessDao.updateBusinessStatus(id, status);
+    }
+
 
     public Business getBusinessById(int id){
         return businessDao.getBusinessById(id);
