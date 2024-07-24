@@ -15,7 +15,6 @@
         <p>用户类型：<%=session.getAttribute("userType")%>> 用户姓名：<%=admin.getUName()%>></p>
     </div>
     <a href="profileCheck">注册管理</a>
-    <a href="businessOrderHistory">商家的历史订单详情</a>
     <a href="login.jsp">退出登录</a>
 </div>
 </body>
