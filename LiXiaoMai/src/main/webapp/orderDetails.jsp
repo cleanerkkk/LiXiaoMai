@@ -81,7 +81,7 @@
         <%
             Comment business = (Comment) request.getAttribute("businessComment");
             Comment deliver = (Comment) request.getAttribute("deliverComment");
-            if (business == null) {
+            if (business == null && deliver != null){
         %>
         <form action="comment" method="post">
             <div>
@@ -102,7 +102,7 @@
             <input type="hidden" name="deliverName" value="<%=deliverName%>">
         </form>
         <%
-            } else{
+            } else if (){
         %>
             <table>
                 <thead>

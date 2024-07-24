@@ -8,6 +8,10 @@ import java.util.List;
 public class DelivermanService {
     static DelivermanDao delivermanDao = new DelivermanDao();
 
+    public boolean updateDelivermanStatus(int id, int status){
+        return delivermanDao.updateDelivermanStatus(id, status);
+    }
+
     public List<Deliverman> getDelivermanByStatus(int status){
         return delivermanDao.getDelivermanByStatus(status);
     }

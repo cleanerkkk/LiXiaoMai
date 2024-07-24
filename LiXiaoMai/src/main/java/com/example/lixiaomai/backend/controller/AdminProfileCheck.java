@@ -22,7 +22,6 @@ public class AdminProfileCheck extends HttpServlet {
 
         BusinessService businessService = new BusinessService();
         DelivermanService delivermanService = new DelivermanService();
-
         List<Business> businessList = businessService.getBusinessByStatus(0);
         List<Deliverman> delivermanList = delivermanService.getDelivermanByStatus(0);
 
@@ -33,6 +32,29 @@ public class AdminProfileCheck extends HttpServlet {
 
         response.sendRedirect("adminProfileCheck.jsp");
 
+    }
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
+        int id = Integer.parseInt(request.getParameter("id"));
+        String type = request.getParameter("type");
+        String flag = request.getParameter("flag");
+        int status;
+        if (flag.equals("yes"))
+            status = 1;
+        else
+            status = 0;
+
+        if (type.equals("business")){
+            BusinessService businessService = new BusinessService();
+            businessService.updateBusinessStatus(id, status);
+        }
+        else if (type.equals("deliverman")){
+            DelivermanService delivermanService = new DelivermanService();
+            delivermanService.updateDelivermanStatus(id, status);
+        }
+
+        doGet(request, response);
     }
 }

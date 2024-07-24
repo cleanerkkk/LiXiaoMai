@@ -15,6 +15,18 @@ import java.sql.SQLException;
 public class DelivermanDao {
     private final QueryRunner runner = DatabaseUtils.getRunner();
 
+
+    public boolean updateDelivermanStatus(int id, int status){
+        boolean isUpdated = false;
+        try{
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "UPDATE DELIVERMAN SET STATUS = ? WHERE ID = ?";
+            isUpdated = runner.update(conn, sql, status, id) > 0;
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+        return isUpdated;
+    }
     public List<Deliverman> getDelivermanByStatus(int status){
         try{
             Connection conn = DatabaseUtils.getConnection();
