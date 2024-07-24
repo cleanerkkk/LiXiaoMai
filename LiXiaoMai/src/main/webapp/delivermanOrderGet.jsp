@@ -21,47 +21,51 @@
   <div class="account">
     <p>骑手名称：<%= deliverman.getUName() %> 骑手ID：<%= deliverman.getId() %></p>
   </div>
-  <table class="order-history">
-    <thead>
-    <tr>
-      <th>商家名称</th>
-      <th>客户名称</th>
-      <th>客户地址</th>
-      <th>开始时间</th>
-      <th>订单总金额</th>
-    </tr>
-    </thead>
-    <tbody>
-    <%
-      for (int i = 0; i < orderList.size(); ++i) {
-        Order order = orderList.get(i);
-        String sName = order.getSName();
-        String cUName = order.getCName();
-        String address = addressList.get(i);
-        Timestamp date = order.getStartTime();
-        double total = order.getTotal();
-    %>
-    <tr>
-      <td><%=sName%></td>
-      <td><%=cUName%></td>
-      <td><%=address%></td>
-      <td><%=date%></td>
-      <td><%=total%></td>
-    </tr>
-    <%
-      }
-    %>
-    </tbody>
-  </table>
+  <form action="deliverAdd" method="post">
+    <table class="order-history">
+      <thead>
+      <tr>
+        <th>选择</th>
+        <th>商家名称</th>
+        <th>客户名称</th>
+        <th>客户地址</th>
+        <th>开始时间</th>
+        <th>订单总金额</th>
+      </tr>
+      </thead>
+      <tbody>
+      <%
+        for (int i = 0; i < orderList.size(); ++i) {
+          Order order = orderList.get(i);
+          String sName = order.getSName();
+          String cUName = order.getCName();
+          String address = addressList.get(i);
+          Timestamp date = order.getStartTime();
+          double total = order.getTotal();
+      %>
+      <tr>
+        <td><input type="checkbox" name="selectedOrders" value="<%=order.getId()%>"></td>
+        <td><%=sName%></td>
+        <td><%=cUName%></td>
+        <td><%=address%></td>
+        <td><%=date%></td>
+        <td><%=total%></td>
+      </tr>
+      <%
+        }
+      %>
+      </tbody>
+    </table>
+    <div class="button123">
+      <button type="submit">提交选中的订单</button>
+      <button id="backToDeliverIndex"><a href="delivermanIndex.jsp">返回主页</a></button>
+    </div>
+  </form>
   <%
   } else {
   %>
   <p>没有可接取的订单!!!!!!!</p>
   <% } %>
 </div>
-<div class="button123">
-  <button id="backToDeliverIndex" ><a href="delivermanIndex.jsp">返回主页</a></button>
-</div>
-
 </body>
 </html>
