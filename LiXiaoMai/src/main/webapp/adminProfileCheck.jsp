@@ -15,7 +15,7 @@
     <h1>欢迎管理员，<%= admin.getUName() %>!</h1>
     <h3>个人信息：</h3>
     <div class="account">
-        <p>用户类型：<%=session.getAttribute("userType")%>> 用户姓名：<%=admin.getUName()%>></p>
+        <p>用户类型：<%=session.getAttribute("userType")%> 用户姓名：<%=admin.getUName()%></p>
     </div>
     <div class="account">
         <div class="business">
@@ -45,7 +45,7 @@
                     <td>
                         <form action="profileCheck" method="post">
                             <input type="radio"  name="flag" value="yes"> 通过
-                            <input type="radio"  name="flag"  value="no"> 不通过
+                            <input type="radio"  name="flag"  value="no" checked> 不通过
                             <button type="submit" name="id" value="<%=business.getId()%>">提交</button>
                             <input type="hidden" name="type" value="business"/>
                         </form>
@@ -88,7 +88,7 @@
                     <td>
                         <form action="profileCheck" method="post">
                             <input type="radio"  name="flag" value="yes"> 通过
-                            <input type="radio"  name="flag"  value="no"> 不通过
+                            <input type="radio"  name="flag"  value="no" checked> 不通过
                             <button type="submit" name="id" value="<%=deliverman.getId()%>">提交</button>
                             <input type="hidden" name="type" value="deliverman"/>
                         </form>
