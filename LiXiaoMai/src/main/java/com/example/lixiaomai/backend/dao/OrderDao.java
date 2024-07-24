@@ -72,7 +72,7 @@ public class OrderDao {
     public boolean updateOrder(Order order){
         try{
             Connection conn = DatabaseUtils.getConnection();
-            String sql = "UPDATE `ORDER` SET CID = ?, SID = ?, GID = ?, GOODSNUM = ?, ENDTIME = ?, STARTTIME = ?, TOTAL = ?, STATUS = ?, SNAME = ?, DISCOUNTNUM = ?, DID = ?, CNAME = ?, DELIVERID = ?, WHERE ID = ?";
+            String sql = "UPDATE `ORDER` SET CID = ?, SID = ?, GID = ?, GOODSNUM = ?, ENDTIME = ?, STARTTIME = ?, TOTAL = ?, STATUS = ?, SNAME = ?, DISCOUNTNUM = ?, DID = ?, CNAME = ?, DELIVERID = ? WHERE ID = ?";
             String gId = Tool.ListToString(order.getGId());
             String goodsNum = Tool.ListToString(order.getGoodsNum());
             String discountId = Tool.ListToString(order.getDiscountId());
