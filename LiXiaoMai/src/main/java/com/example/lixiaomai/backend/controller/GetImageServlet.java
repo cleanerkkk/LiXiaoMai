@@ -20,8 +20,10 @@ public class GetImageServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         ProductService productService = new ProductService();
         Product product = productService.getProductById(id);
+        String urll = productService.getPictureUrl(id);
 
-        String path = product.getPictureUrl();
+        String path = product.getUrl();
+        path = path.substring(path.indexOf("imgsrc"));
         InputStream is = this.getClass().getClassLoader().getResourceAsStream(path);
         BufferedImage image = null;
         try {

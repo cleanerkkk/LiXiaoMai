@@ -62,7 +62,7 @@ public class ProductDao {
             Connection conn = DatabaseUtils.getConnection();
             return runner.update(conn,
                     sql,
-                    product.getName(), product.getPrice(), product.getStock(),product.getPictureUrl(), product.getType(), product.getDescription(), product.getSId()) > 0;
+                    product.getName(), product.getPrice(), product.getStock(),product.getUrl(), product.getType(), product.getDescription(), product.getSId()) > 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -74,6 +74,16 @@ public class ProductDao {
             String sql = "SELECT * FROM PRODUCT WHERE ID = ?";
             Product product =  runner.query(conn, sql, new BeanHandler<>(Product.class), id);
             return product;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public String getUrlById(int id){
+        try {
+            Connection conn = DatabaseUtils.getConnection();
+            String sql = "SELECT URL FROM PRODUCT WHERE ID = ?";
+            String url =  runner.query(conn, sql, new BeanHandler<>(String.class), id);
+            return url;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

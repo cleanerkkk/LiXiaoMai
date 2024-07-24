@@ -40,5 +40,8 @@ public class ProductService {
     public boolean deleteProductById(int id){
         return productDao.deleteProductById(id);
     }
+    public String getPictureUrl(int id){
+        return productDao.getUrlById(id);
+    }
 
 }

@@ -52,7 +52,7 @@ public class DelivermanDao {
             Connection conn = DatabaseUtils.getConnection();
             String sql = "UPDATE DELIVERMAN SET NAME = ?, UNAME = ?, PASSWORD = ?, TELEPHONE = ?, GENDER = ?, VTYPE = ?, VID = ?, VBRAND = ?, STATUS = ? WHERE ID = ?";
             return runner.update(conn, sql, deliverman.getName(), deliverman.getUName(), deliverman.getPassword(), deliverman.getTelephone(),
-                    deliverman.getGender(), deliverman.getVType(), deliverman.getVId(), deliverman.getVBrand()) > 0;
+                    deliverman.getGender(), deliverman.getVType(), deliverman.getVId(), deliverman.getVBrand(),deliverman.getStatus(),id) > 0;
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
