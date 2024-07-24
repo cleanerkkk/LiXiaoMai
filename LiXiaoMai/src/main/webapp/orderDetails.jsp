@@ -81,7 +81,7 @@
         <%
             Comment business = (Comment) request.getAttribute("businessComment");
             Comment deliver = (Comment) request.getAttribute("deliverComment");
-            if (business == null && deliver != null){
+            if (business == null && !deliverName.equals( "正在匹配骑手")){
         %>
         <form action="comment" method="post">
             <div>
