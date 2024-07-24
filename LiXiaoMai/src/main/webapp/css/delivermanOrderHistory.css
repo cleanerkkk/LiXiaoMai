@@ -1,0 +1,27 @@
+.order-history {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+}
+.order-history th, .order-history td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+.order-history th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
+.account {
+    margin: 20px 0;
+    font-size: 18px;
+}
+h1{
+    text-align: center;
+}
+.account{
+    text-align: center;
+    text-decoration: #9e89ff;
+}
