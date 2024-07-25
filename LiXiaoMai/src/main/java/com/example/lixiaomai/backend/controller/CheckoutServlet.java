@@ -34,10 +34,12 @@ public class CheckoutServlet extends HttpServlet {
         ProductService productService = new ProductService();
         CouponService couponService = new CouponService();
         OrderService orderService = new OrderService();
-
+        BusinessService businessService = new BusinessService();
 
         Integer sId = Integer.parseInt(request.getParameter("sId"));
-        String sName = request.getParameter("sName");
+
+        Business business = businessService.getBusinessById(sId);
+        String sName = business.getShopName();
         List<Integer> gIds = Tool.StringToList(request.getParameter("gIds"), Integer.class);
         List<Integer> goodsNum = Tool.StringToList(request.getParameter("goodsNum"), Integer.class);
         List<Integer> discountIds = Tool.StringToList(request.getParameter("couponId"), Integer.class);

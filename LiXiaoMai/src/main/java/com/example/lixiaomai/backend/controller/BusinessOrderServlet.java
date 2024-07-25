@@ -53,7 +53,7 @@ public class BusinessOrderServlet extends HttpServlet {
         DelivermanService delivermanService = new DelivermanService();
         int deliverId = order.getDeliverId();
         String deliverName = "正在匹配骑手";
-        if(deliverId != 0) delivermanService.getDelivermanById(deliverId).getName();
+        if(deliverId != 0) deliverName = delivermanService.getDelivermanById(deliverId).getName();
         request.setAttribute("customerUName", customerUName);
         request.setAttribute("deliverName", deliverName);
         request.setAttribute("commentList", commentList);
