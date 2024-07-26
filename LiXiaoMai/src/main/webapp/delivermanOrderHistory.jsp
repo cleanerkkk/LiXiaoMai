@@ -26,8 +26,7 @@
             <th>商家ID</th>
             <th>订单总金额</th>
             <th>订单状态</th>
-            <th>开始时间</th>
-            <th>结束时间</th>
+            <th>订单时间</th>
             <th>商家名称</th>
             <th>客户名称</th>
         </tr>
@@ -50,7 +49,6 @@
             <td><%= order.getTotal() %>元</td>
             <td><%= orderStatus %></td>
             <td><%= order.getStartTime() %></td>
-            <td><%= order.getEndTime() %></td>
             <td><%= order.getSName() %></td>
             <td><%= order.getCName() %></td>
         </tr>
