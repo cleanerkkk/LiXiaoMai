@@ -1,6 +1,5 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: linear-gradient(to left bottom, #f9f1f5, #ffd1ea, #ffb1e1, #ff8fd8, #ff68d0, #e573e5, #c47ff5, #9e89ff, #2fb1ff, #00d1ff, #00ebff, #00ffef);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -13,9 +12,13 @@ nav {
     text-align: right;
 }
 h1{
+    font-family: '仿宋', sans-serif;
     text-align: center;
     text-decoration: black;
-    color:orange;
+    color:purple;
+    font-weight: lighter;
+    font-style: italic;
+    font-size:40px;
 }
 h2{
     text-align: center;
