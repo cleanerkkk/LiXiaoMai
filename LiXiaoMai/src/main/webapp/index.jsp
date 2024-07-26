@@ -64,7 +64,7 @@
     Integer totalPage = (Integer) request.getAttribute("totalPages");
     if ((list != null && !list.isEmpty())){
         for (Business business : list){
-        String BusinessName=business.getName();
+        String BusinessName=business.getShopName();
         String BusinessAddress=business.getAddress();
         int BusinessId=business.getId();
         %>
