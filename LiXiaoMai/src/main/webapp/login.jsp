@@ -82,7 +82,7 @@
     </ul>
 </nav>
 <%
-    String error = (String)request.getAttribute("error");
+    String error = (String)request.getParameter("error");
     if (error != null && !error.isEmpty()) { %>
 <script>
     showAlert("<%= error %>");

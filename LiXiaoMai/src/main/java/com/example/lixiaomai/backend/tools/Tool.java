@@ -8,6 +8,8 @@ import java.util.List;
 //123
 public class Tool {
     public static <T> String ListToString(List<T> list){
+        if(list == null || list.isEmpty())
+            return "";
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < list.size(); i++) {
             sb.append(list.get(i));

@@ -9,6 +9,7 @@ import com.example.lixiaomai.backend.service.CustomerService;
 import com.example.lixiaomai.backend.service.DelivermanService;
 import com.example.lixiaomai.backend.service.WalletService;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +21,7 @@ import java.util.function.Consumer;
 
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
@@ -33,18 +34,17 @@ public class RegisterServlet extends HttpServlet {
         String idCard = request.getParameter("idCard");
         String storeName = request.getParameter("storeName");
         String address = request.getParameter("address");
-        Date date= Date.valueOf(request.getParameter("date"));
+        Date date = Date.valueOf(request.getParameter("date"));
 
         boolean flag = false;
 
         if (registerType.equals("customer")) {
 
 
-
             CustomerService customerService = new CustomerService();
 
-            if (customerService.existCustomer(registerUserName)){
-                response.sendRedirect("login.jsp?error=" + "用户名已存在");
+            if (customerService.existCustomer(registerUserName)) {
+                request.getRequestDispatcher("login.jsp?error=" + "用户名重复").forward(request, response);
                 return;
             }
 
@@ -69,7 +69,7 @@ public class RegisterServlet extends HttpServlet {
         else if (registerType.equals("business")) {
             BusinessService businessService = new BusinessService();
 
-            if (businessService.existBusiness(registerUserName)){
+            if (businessService.existBusiness(registerUserName)) {
                 response.sendRedirect("login.jsp?error=" + "用户名已存在");
                 return;
             }
@@ -86,13 +86,13 @@ public class RegisterServlet extends HttpServlet {
             flag = businessService.addBusiness(business);
 
         }
-        else{
+        else {
             String vType = request.getParameter("vType");
             String vBrand = request.getParameter("vBrand");
 
             DelivermanService delivermanService = new DelivermanService();
 
-            if (delivermanService.existDeliverman(registerUserName)){
+            if (delivermanService.existDeliverman(registerUserName)) {
                 response.sendRedirect("login.jsp?error=" + "用户名已存在");
                 return;
             }
@@ -111,14 +111,12 @@ public class RegisterServlet extends HttpServlet {
 
         }
 
-        if (flag){
-            response.sendRedirect("login.jsp?error=" + "注册成功");
+        if (flag) {
+            request.getRequestDispatcher("login.jsp?error=" + "注册成功").forward(request, response);
+            return;
+        } else {
+            request.getRequestDispatcher("login.jsp?error=" + "注册失败").forward(request, response);
         }
-        else
-            response.sendRedirect("login.jsp?error=" + "注册失败");
-
-
-
 
 
     }
